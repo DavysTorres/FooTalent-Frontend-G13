@@ -1,17 +1,17 @@
 <main>
     <div class="register-form">
-        <h2>Crea tu cuenta y accede a un montón de conocimiento</h2>
+        <h2><b>Crea tu cuenta y accede a un montón de conocimiento</b></h2>
         <form [formGroup]="registerForm" (submit)="OnSubmit($event)">
             <div class="nombre-input">
-                <label for="nombre">Nombre De Usuario</label>
+                <label for="nombre">Nombre De Usuario </label>
                 <input type="text" id="nombre" formControlName="nombre" />
             </div>
             <div class="email-input">
-                <label for="email">Correo Electrónico De Usuario</label>
+                <label for="email">Correo Electrónico De Usuario </label>
                 <input type="email" id="email" formControlName="email" />
             </div>
             <div class="password-input">
-                <label for="password">Contraseña De Usuario</label>
+                <label for="password">Contraseña De Usuario </label>
                 <input type="password" id="password" formControlName="password" />
             </div>
             <div class="Role-input">
