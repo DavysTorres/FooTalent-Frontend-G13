@@ -8,6 +8,8 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { HeaderComponent } from '../../components/header/header.component';
+import { FooterComponent } from '../../components/footer/footer.component';
 
 @Component({
   selector: 'app-register',
@@ -15,6 +17,8 @@ import {
   imports: [
     RouterLinkWithHref,
     ReactiveFormsModule,
+    HeaderComponent,
+    FooterComponent
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'

@@ -7,11 +7,13 @@ import {
 import { Router, RouterLinkWithHref } from '@angular/router';
 import { UsersService } from '../../services/users.service';
 import { Users } from '../../models/user.model';
+import { HeaderComponent } from '../../components/header/header.component';
+import { FooterComponent } from '../../components/footer/footer.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLinkWithHref, ReactiveFormsModule],
+  imports: [RouterLinkWithHref, ReactiveFormsModule, HeaderComponent, FooterComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
