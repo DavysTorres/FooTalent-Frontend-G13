@@ -39,7 +39,7 @@ export class RegisterComponent {
   })
 
   get nombre(){
-    return this.registerForm.get('firstname');
+    return this.registerForm.get('nombre');
   }
 
   get email(){
@@ -47,7 +47,7 @@ export class RegisterComponent {
   }
 
   get password(){
-    return this.registerForm.get('firstname');
+    return this.registerForm.get('password');
   }
 
   get role(){
