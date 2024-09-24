@@ -1,6 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Users } from '../models/user.model';
+import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,27 @@ export class UsersService {
       avatar: formValues.avatar,
       role: formValues.role,
     })
+  }
+
+  isLogged() {
+    if (localStorage.getItem('user_token')) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  getDecodedToken(): any {
+    const token = localStorage.getItem('user_token');
+    if (token) {
+      const decodedToken = jwtDecode(token);
+      return decodedToken.sub;
+    }
+    return;
+  }
+
+  getUser(){
+    return this.http.get(`${this.apiUrl}/listar-usuario` + this.getDecodedToken() );
   }
 
   setToken(token: string){
