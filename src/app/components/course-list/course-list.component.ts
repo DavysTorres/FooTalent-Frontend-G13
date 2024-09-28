@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
-import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-landing',
+  selector: 'app-course-list',
   standalone: true,
   imports: [HeaderComponent, FooterComponent, RouterModule],
-  templateUrl: './landing.component.html',
-  styleUrls: ['./landing.component.css']
+  templateUrl: './course-list.component.html',
+  styleUrls: ['./course-list.component.css'],
 })
-export class LandingComponent {
+export class CourseListComponent {
 }
