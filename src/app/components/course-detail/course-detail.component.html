@@ -1,0 +1,20 @@
+<app-header />
+
+<div class="max-w-4xl h-[73.5vh] mx-auto p-6 bg-white shadow-lg rounded-lg">
+  <h2 class="text-3xl font-bold mb-4">Detalles del Curso</h2>
+  <p class="text-gray-600 mb-4">
+    Este es el detalle del curso con ID: {{ courseId }}
+  </p>
+  <p class="mb-5">
+    Aquí puedes mostrar más información sobre el curso, como descripción,
+    lecciones, etc.
+  </p>
+  <a
+    [routerLink]="['/courses']"
+    class="hover:text-blue-700 font-bold"
+  >
+    Volver a la lista de cursos
+  </a>
+</div>
+
+<app-footer />
