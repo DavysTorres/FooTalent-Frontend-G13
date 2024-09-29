@@ -1,0 +1,47 @@
+<div class="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg">
+  <h2 class="text-3xl font-bold mb-4">Crear Nuevo Curso</h2>
+
+  <form (ngSubmit)="onSubmit()" #courseForm="ngForm">
+    <div class="mb-4">
+      <label for="name" class="block text-gray-700">Nombre del Curso</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        [(ngModel)]="course.name"
+        required
+        class="w-full p-2 border rounded"
+      />
+    </div>
+
+    <div class="mb-4">
+      <label for="description" class="block text-gray-700">Descripción</label>
+      <textarea
+        id="description"
+        name="description"
+        [(ngModel)]="course.description"
+        required
+        class="w-full p-2 border rounded"
+      ></textarea>
+    </div>
+
+    <div class="mb-4">
+      <label for="duration" class="block text-gray-700">Duración</label>
+      <input
+        type="text"
+        id="duration"
+        name="duration"
+        [(ngModel)]="course.duration"
+        required
+        class="w-full p-2 border rounded"
+      />
+    </div>
+
+    <button
+      type="submit"
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+    >
+      Crear Curso
+    </button>
+  </form>
+</div>
