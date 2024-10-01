@@ -12,14 +12,14 @@ export class UsersService {
   constructor() { }
 
   login(formValues: any){
-    return this.http.post(`${this.apiUrl}/login`, {
+    return this.http.post(`${this.apiUrl}/api/login`, {
       email: formValues.email,
       password: formValues.password,
     });
   }
 
   register(formValues: Users){
-    return this.http.post(`${this.apiUrl}/register`, {
+    return this.http.post(`${this.apiUrl}/api/register`, {
       nombre: formValues.nombre,
       email: formValues.email,
       password: formValues.password,
