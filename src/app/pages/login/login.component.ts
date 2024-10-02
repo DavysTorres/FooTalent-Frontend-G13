@@ -9,6 +9,7 @@ import { UsersService } from '../../services/users.service';
 import { Users } from '../../models/user.model';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
+import { Login } from '../../models/login.model';
 
 @Component({
   selector: 'app-login',
@@ -42,12 +43,12 @@ formInvalid = false
 
 OnSubmit(){
   if(this.loginForm.valid){
-    this.userService.login(this.loginForm.value as Users).subscribe({
+    this.userService.login(this.loginForm.value as Login).subscribe({
       next: (response: any) => {
         if(response.token){
           this.userService.setToken(response.token);
           alert('Ingreso exitoso');
-          this.router.navigate(['']);
+          this.router.navigate(['/']);
         } else {
           this.formInvalid = true
         }

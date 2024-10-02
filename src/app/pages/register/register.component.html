@@ -1,33 +1,38 @@
 <app-header/>
 
-<main>
-    <div class="register-form">
-        <h2><b>Crea tu cuenta y accede a un montón de conocimiento</b></h2>
-        <form [formGroup]="registerForm" (submit)="OnSubmit($event)">
-            <div class="nombre-input">
-                <label for="nombre">Nombre De Usuario </label>
-                <input type="text" id="nombre" formControlName="nombre" />
+<main class="bg-gray-100 h-screen">
+<div id="register-container" class="">
+    <h2 class="content-center text-lg mt-4"><b>Únete a DevAcademy y comienza tu viaje en programación. Crea tu cuenta en solo unos pasos y empieza a desarrollar las habilidades que te llevarán a la cima ¡La tecnología está a un clic de distancia!</b></h2>
+    <div id="register-form">
+        <form [formGroup]="registerForm" (submit)="OnSubmit($event)" class="w-1/2 gap-y-2.5">
+            <h3 class="text-base mt-4 mb-2"><b>Registro</b></h3>
+            <div class="mb-2">
+                <label for="nombre" class="text-xs"><b>Nombre y Apellido</b></label>
+                <input type="text" id="nombre" formControlName="nombre" class="border border-black w-full rounded pl-2 h-8" placeholder="Juan Perez"/>
             </div>
-            <div class="email-input">
-                <label for="email">Correo Electrónico De Usuario </label>
-                <input type="email" id="email" formControlName="email" />
+            <div class="mb-2">
+                <label for="email" class="text-xs"><b>Correo Electrónico</b></label>
+                <input type="email" id="email" formControlName="email" class="border border-black w-full rounded pl-2 h-8" placeholder="juan.perez@mail.com"/>
             </div>
-            <div class="password-input">
-                <label for="password">Contraseña De Usuario </label>
-                <input type="password" id="password" formControlName="password" />
+            <div class="mb-4">
+                <label for="password" class="text-xs"><b>Contraseña</b></label>
+                <input type="password" id="password" formControlName="password" class="border border-black w-full rounded pl-2 h-8" placeholder="xxxxxxxx"/>
             </div>
-            <div class="Role-input">
-                <label for="role">Rol que vas a desempeñar </label>
-                <select name="role" id="role" formControlName="role">
+            <div class="mb-4">
+                <label for="role" class="text-xs"><b>Rol que vas a desempeñar </b></label>
+                <select name="role" id="role" formControlName="role" class=" border border-black rounded w-3/4 h-8">
                     <option value="">--Escoge tu rol--</option>
                     <option value="Admin">Administrativo</option>
                     <option value="Docente">Docente</option>
                     <option value="Aprendiz">Aprendiz</option>
                 </select>
             </div>
-            <button class="submit-button" type="submit">Enviar</button>
+            <button class="bg-blue-900 w-full rounded h-8 text-white hover:opacity-75" type="submit">Registrarme</button>
         </form>
+        <div>
+            <img class="w-96" src="https://s3-alpha-sig.figma.com/img/7dcc/d78c/08a6e4a75f0bbf4c0ab4f84e7ad24c87?Expires=1728864000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=j32oc7-28gPz~5jTcoeG5i7c~RsDIrMy9xqz0PfHs6hkoMN287bEjL-QoYJyCbG27I4QXAEGjsHvaz7GXQVueFFCz-Fin2UT9HTtKJJlG9HNpYsILSnGBaKAZKyrjxgoy4HJmtzdHOkSGouoQPaG6qQmpo-C6quZfgv3hpKKWmqEy7ldlzmm5UJVY~4qaJOrYp3NFS-T5oISK7s79E36Mh83K-NHbJlfrlyziiXEB6wnN1aiuWgc6XJlOJu-fOn9THvYZtNjtfh1o8S3M1hPsfu26hVRTwXTYlZjwPGGUgVw2Hs8JqjBtGxTYBl-oK8dnxNw0LEh7aPqOPFRC07ODA__" alt="">
+        </div>
     </div>
+    
+</div>
 </main>
-
-<app-footer/>

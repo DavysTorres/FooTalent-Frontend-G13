@@ -2,6 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Users } from '../models/user.model';
 import { jwtDecode } from 'jwt-decode';
+import { Login } from '../models/login.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,21 +12,12 @@ export class UsersService {
   private http = inject(HttpClient)
   constructor() { }
 
-  login(formValues: any){
-    return this.http.post(`${this.apiUrl}/api/login`, {
-      email: formValues.email,
-      password: formValues.password,
-    });
+  login(formValues: Login){
+    return this.http.post(`${this.apiUrl}/api/usuario/login`, formValues);
   }
 
   register(formValues: Users){
-    return this.http.post(`${this.apiUrl}/api/register`, {
-      nombre: formValues.nombre,
-      email: formValues.email,
-      password: formValues.password,
-      avatar: formValues.avatar,
-      role: formValues.role,
-    })
+    return this.http.post(`${this.apiUrl}/api/usuario/register`, formValues)
   }
 
   isLogged() {
