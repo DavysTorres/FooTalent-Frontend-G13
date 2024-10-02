@@ -43,12 +43,15 @@ formInvalid = false
 
 OnSubmit(){
   if(this.loginForm.valid){
+    console.log("Un mensaje")
     this.userService.login(this.loginForm.value as Login).subscribe({
       next: (response: any) => {
+        console.log(this.loginForm.value)
         if(response.token){
           this.userService.setToken(response.token);
+          console.log(response.token);
           alert('Ingreso exitoso');
-          this.router.navigate(['/']);
+          this.router.navigate(['']);
         } else {
           this.formInvalid = true
         }
