@@ -13,10 +13,14 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
 export const routes: Routes = [
   { path: '', component: LandingComponent },
   // otras rutas aquí
-    { path: 'login', component: LoginComponent },
-    { path: 'register', component: RegisterComponent},
-    { path: 'validacion', component: ValidacionCorreoComponent},
-    { path: 'reset', component: ResetPasswordComponent}
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'validacion', component: ValidacionCorreoComponent },
+  { path: 'reset', component: ResetPasswordComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'courses', component: CourseListComponent },
+  { path: 'course/:id', component: CourseDetailComponent}
 ];
 
 @NgModule({
