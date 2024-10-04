@@ -13,47 +13,48 @@ export class UsersService {
   private http = inject(HttpClient)
   constructor() { }
 
-  login(formValues: Login){
+  login(formValues: Login) {
     return this.http.post(`${this.apiUrl}/usuario/login`, formValues);
   }
 
-  register(formValues: Users){
+  register(formValues: Users) {
     return this.http.post(`${this.apiUrl}/usuario/register`, formValues)
   }
 
-  /*setToken(token: string){
-    console.log('token', token)
-    localStorage.setItem('user_token', token);
-    return;
-  }*/
+  setToken(token: string) {
 
+    localStorage.setItem('user_token', token);
+  }
+  
   getDecodedToken(): any {
     const token = localStorage.getItem('user_token');
     if (token) {
-      const decodedToken = jwtDecode(token);
-      return decodedToken.sub;
+      try {
+        const decodedToken = jwtDecode(token);
+        return decodedToken.sub;
+      } catch (error) {
+        console.error('Error decoding token:', error);
+        return null;
+      }
     }
-    return;
+    return null;
   }
-
-
-  isLogged() {
-    if (localStorage.getItem('user_token')) {
-      return true;
+  
+  isLogged(): boolean {
+    return !!localStorage.getItem('user_token');
+  }
+  
+  getUser() {
+    const userId = this.getDecodedToken();
+    if (userId) {
+      return this.http.get(`${this.apiUrl}/listar-usuario/${userId}`);
     } else {
-      return false;
+      console.error('User ID not found');
+      return null;
     }
   }
-
-
-  getUser(){
-    return this.http.get(`${this.apiUrl}/listar-usuario` + this.getDecodedToken() );
-  }
-
-
-
-  removeToken(){
+  
+  removeToken() {
     localStorage.removeItem('user_token');
-    return;
   }
 }

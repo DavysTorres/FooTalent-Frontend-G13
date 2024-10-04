@@ -37,34 +37,33 @@ export class LoginComponent {
   formInvalid = false;
 
   onSubmit() {
-    console.log(this.loginForm.valid)
     if (this.loginForm.valid) {
       this.userService.login(this.loginForm.value as Login).subscribe({
         next: (response: any) => {
-
-
-            localStorage.setItem('user_token', response.token);
-            console.log(response.token)
-
-          if (response.token) {
+      
+          if (response.data.token) {
             // Almacena el token en el servicio de usuarios
-            //this.userService.setToken(response.token);
-
+            this.userService.setToken(response.data.token);
+  
             // Obtiene el rol del usuario desde la respuesta
-            const userRole = response.usuario.role;
-
+            const userRole = response.data.usuario.role;
+  
             // Redirecciona según el rol del usuario
-            if (userRole === 'Docente') {
-              this.router.navigate(['/docente-dashboard']);
-            } else if (userRole === 'Aprendiz') {
-              this.router.navigate(['/aprendiz-dashboard']);
-            } else if (userRole === 'Admin') {
-              this.router.navigate(['/admin-dashboard']);
-            } else {
-              // Si no tiene un rol específico, redirecciona a la página de inicio
-              this.router.navigate(['/']);
+            switch (userRole) {
+              case 'Docente':
+                this.router.navigate(['/docente-dashboard']);
+                break;
+              case 'Aprendiz':
+                this.router.navigate(['/aprendiz-dashboard']);
+                break;
+              case 'Admin':
+                this.router.navigate(['/admin-dashboard']);
+                break;
+              default:
+                this.router.navigate(['/']);
+                break;
             }
-
+  
             alert('Ingreso exitoso');
           } else {
             this.formInvalid = true;
@@ -80,4 +79,5 @@ export class LoginComponent {
       alert('Campos incompletos o inválidos.');
     }
   }
+  
 }
