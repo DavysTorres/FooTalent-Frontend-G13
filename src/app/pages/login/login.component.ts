@@ -40,14 +40,14 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       this.userService.login(this.loginForm.value as Login).subscribe({
         next: (response: any) => {
-      
+
           if (response.data.token) {
             // Almacena el token en el servicio de usuarios
             this.userService.setToken(response.data.token);
-  
+
             // Obtiene el rol del usuario desde la respuesta
             const userRole = response.data.usuario.role;
-  
+
             // Redirecciona según el rol del usuario
             switch (userRole) {
               case 'Docente':
@@ -63,7 +63,7 @@ export class LoginComponent {
                 this.router.navigate(['/']);
                 break;
             }
-  
+
             alert('Ingreso exitoso');
           } else {
             this.formInvalid = true;
@@ -79,5 +79,5 @@ export class LoginComponent {
       alert('Campos incompletos o inválidos.');
     }
   }
-  
+
 }

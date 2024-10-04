@@ -1,10 +1,10 @@
 <app-header class="relative z-20"/>
 <main class="bg-gray-100 h-screen">
-    <div class="absolute">
+    <div class="absolute mt-4">
         <img class="-left-80 -top-6 fixed z-0 h-100 rotate-180" src="https://s3-alpha-sig.figma.com/img/a410/8548/000f28c20903e426d0252648fc410101?Expires=1728864000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=JDYmHMQkvHAY8utNHdj6eB3wvegqY43W7PNoHIl98ReJHYAgw8elQ4dillbSO5NQmMEcSArKqUWvBuz6XegmlN7flzZbXapgrOkSav86nsoVr7UXSHiIGSXMTDkphNkdKu0KUUYxDQkU1hVrwG2EbD1jdk~kF~wC3FVxHC4dzfi-MrhZ5YAplgDwg3NUgPQV3jANbBBlgV6D5GgnMNAN20kpIJ2x8HHL4r8o4WZ1MjapkTHOCux9zYrhSnZl2iJEEEBYx~OvuA6SXLhaxDUQgXwoT7t5b7Oq7zJ~~oQvYVK86DKqg670WYjKehCzd3-yDbOvM17dZ03WRmQAmRS4eA__" alt="">
-    <div id="form-block" class=" relative z-10 mt-3">
+    <div id="form-block" class="  relative z-10">
         <div class="w-8/12 z-10">
-            <img class="w-101 my-32 object-cover" src="https://s3-alpha-sig.figma.com/img/dd50/ae1d/f38476354be763ad4530730ade240c75?Expires=1728864000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=DDlJetXG9KdRLX6QIwRGMkesXI9cTOiporWkYn-o1BwsO5tL4muLG2Jut52LlwShFFFIsvZ2pTR25QLy8KPKb0iM8QLIm0xQxqEPKLHMCnxuNPNlyIA2Q0yAgV4V9zOfhsRXZBcnG7CF73oBj4Vl04TP390q3vvDyKwufo5g2u0Xw~jT3xE8LPKCA9VC3982oFs-gcCK-Md8uMWO~4PT0euuiZW06JOlUPHKBs47PUcOuL57gBcL2WCOBSxr85N9xP9r45k-vQuGI0L2gX5bTbR9F-VqK3~k0nmkGUDvebaNgWRuZsLZ0VbZ4pWjHlcN8qZfgFo5j5HR~gQUmj6JaA__" alt="">
+            <img class="w-101 my-32 object-cover opacity-80" src="https://s3-alpha-sig.figma.com/img/dd50/ae1d/f38476354be763ad4530730ade240c75?Expires=1728864000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=DDlJetXG9KdRLX6QIwRGMkesXI9cTOiporWkYn-o1BwsO5tL4muLG2Jut52LlwShFFFIsvZ2pTR25QLy8KPKb0iM8QLIm0xQxqEPKLHMCnxuNPNlyIA2Q0yAgV4V9zOfhsRXZBcnG7CF73oBj4Vl04TP390q3vvDyKwufo5g2u0Xw~jT3xE8LPKCA9VC3982oFs-gcCK-Md8uMWO~4PT0euuiZW06JOlUPHKBs47PUcOuL57gBcL2WCOBSxr85N9xP9r45k-vQuGI0L2gX5bTbR9F-VqK3~k0nmkGUDvebaNgWRuZsLZ0VbZ4pWjHlcN8qZfgFo5j5HR~gQUmj6JaA__" alt="">
         </div>
         <form class="mt-10 flex flex-col" [formGroup]="loginForm" (submit)="onSubmit()">
             <h2 class="mb-8 text-lg place-items-end"><b>Tu próximo desafío te espera.
@@ -20,8 +20,6 @@
             </div>
             <div class="pr-4">
                 <button class="bg-blue-900 w-full rounded h-8 text-white hover:opacity-75" type="submit">Iniciar sesión</button>
-                <p class="text-xs my-6">Aun no tengo cuenta</p>
-                <a class="bg-blue-900 w-full rounded h-8 text-white block hover:opacity-75 text-center" [routerLink]="['/register']">Registrarme</a>
             </div>
         </form>
     </div>
