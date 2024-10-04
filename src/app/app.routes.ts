@@ -17,7 +17,10 @@ export const routes: Routes = [
   { path: 'validacion', component: ValidacionCorreoComponent },
   { path: 'reset', component: ResetPasswordComponent },
   { path: 'courses', component: CourseListComponent },
-  { path: 'course/:id', component: CourseDetailComponent }
+  { path: 'course/:id', component: CourseDetailComponent },
+  /*{ path: 'docente-dashboard', component: DocenteDashboardComponent },
+  { path: 'aprendiz-dashboard', component: AprendizDashboardComponent },
+  { path: 'admin-dashboard', component: AdminDashboardComponent }*/
 ];
 
 @NgModule({
