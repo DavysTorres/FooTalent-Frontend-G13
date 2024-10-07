@@ -10,11 +10,11 @@ import { CreateCourseComponent } from './forms/create-course/create-course.compo
 export const routes: Routes = [
   { path: '', component: LandingComponent },
   // otras rutas aquí
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'courses', component: CourseListComponent },
-  { path: 'course/:id', component: CourseDetailComponent },
-  { path: 'create-course', component: CreateCourseComponent },
+  { path: 'inicio-sesion', component: LoginComponent },
+  { path: 'registro', component: RegisterComponent },
+  { path: 'cursos', component: CourseListComponent },
+  { path: 'curse/:id', component: CourseDetailComponent },
+  { path: 'crear-curso', component: CreateCourseComponent },
 ];
 
 @NgModule({

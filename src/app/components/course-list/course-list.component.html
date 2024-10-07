@@ -1,110 +1,32 @@
 <app-header />
 
-<section class="py-16">
-  <div class="max-w-7xl mx-auto px-6">
-    <h2 class="text-3xl font-bold text-center mb-8">Cursos Disponibles</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Curso 1 -->
-      <div
-        class="bg-white shadow-lg rounded-lg p-6 text-center transition transform hover:scale-105"
-      >
-        <img
-          src="https://via.placeholder.com/300"
-          alt="Curso de JavaScript"
-          class="mb-4 rounded-lg"
-        />
-        <h3 class="text-xl font-bold mb-4">Curso de JavaScript</h3>
-        <p class="mb-4 text-gray-600">
-          Aprende los fundamentos de JavaScript, el lenguaje de la web.
-        </p>
-        <a
-          [routerLink]="['/course', 1]"
-          class="text-blue-500 hover:text-blue-700 font-semibold"
-          >Ver Más</a
-        >
-      </div>
+<div class="container mt-4">
+  <h2 class="mb-4">Cursos Disponibles</h2>
 
-      <!-- Curso 2 -->
-      <div
-        class="bg-white shadow-lg rounded-lg p-6 text-center transition transform hover:scale-105"
-      >
-        <img
-          src="https://via.placeholder.com/300"
-          alt="Curso de HTML & CSS"
-          class="mb-4 rounded-lg"
-        />
-        <h3 class="text-xl font-bold mb-4">Curso de HTML & CSS</h3>
-        <p class="mb-4 text-gray-600">
-          Empieza a diseñar páginas web con HTML y CSS.
-        </p>
-        <a
-          [routerLink]="['/course', 2]"
-          class="text-blue-500 hover:text-blue-700 font-semibold"
-          >Ver Más</a
-        >
-      </div>
+  <div *ngIf="cargando" class="text-center">
+    <mat-spinner></mat-spinner>
+    <p>Cargando cursos...</p>
+  </div>
 
-      <!-- Curso 3 -->
-      <div
-        class="bg-white shadow-lg rounded-lg p-6 text-center transition transform hover:scale-105"
-      >
-        <img
-          src="https://via.placeholder.com/300"
-          alt="Curso de Git y GitHub"
-          class="mb-4 rounded-lg"
-        />
-        <h3 class="text-xl font-bold mb-4">Curso de Git y GitHub</h3>
-        <p class="mb-4 text-gray-600">
-          Controla tus versiones de código y colabora con otros.
-        </p>
-        <a
-          [routerLink]="['/course', 3]"
-          class="text-blue-500 hover:text-blue-700 font-semibold"
-          >Ver Más</a
-        >
-      </div>
+  <div *ngIf="!cargando && cursos.length === 0" class="alert alert-info">
+    No hay cursos disponibles en este momento.
+  </div>
 
-      <!-- Curso 4 -->
-      <div
-        class="bg-white shadow-lg rounded-lg p-6 text-center transition transform hover:scale-105"
-      >
-        <img
-          src="https://via.placeholder.com/300"
-          alt="Curso de React"
-          class="mb-4 rounded-lg"
-        />
-        <h3 class="text-xl font-bold mb-4">Curso de React</h3>
-        <p class="mb-4 text-gray-600">
-          Construye interfaces de usuario interactivas con React.
-        </p>
-        <a
-          [routerLink]="['/course', 4]"
-          class="text-blue-500 hover:text-blue-700 font-semibold"
-          >Ver Más</a
-        >
-      </div>
-
-      <!-- Curso 5 -->
-      <div
-        class="bg-white shadow-lg rounded-lg p-6 text-center transition transform hover:scale-105"
-      >
-        <img
-          src="https://via.placeholder.com/300"
-          alt="Curso de Angular"
-          class="mb-4 rounded-lg"
-        />
-        <h3 class="text-xl font-bold mb-4">Curso de Angular</h3>
-        <p class="mb-4 text-gray-600">
-          Aprende a construir aplicaciones web con Angular.
-        </p>
-        <a
-          [routerLink]="['/course', 5]"
-          class="text-blue-500 hover:text-blue-700 font-semibold"
-          >Ver Más</a
-        >
+  <div class="row">
+    <div *ngFor="let curso of cursos" class="col-md-4 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{ curso.nombre }}</h5>
+          <p class="card-text">{{ curso.descripcion }}</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted"
+            >Profesor: {{ curso.profesorId.nombre }}</small
+          >
+        </div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
 <app-footer />
