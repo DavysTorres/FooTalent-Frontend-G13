@@ -1,0 +1,20 @@
+<div class="container mx-auto p-4">
+  <h2 class="text-xl font-bold mb-4">Gestión de Cursos</h2>
+  <table class="min-w-full bg-white">
+    <thead>
+      <tr>
+        <th class="py-2">Nombre del Curso</th>
+        <th class="py-2">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let curso of cursos">
+        <td class="border px-4 py-2">{{ curso.nombre }}</td>
+        <td class="border px-4 py-2">
+          <a [routerLink]="['/editar-curso', curso._id]" class="text-blue-500 hover:underline">Editar</a>
+          <a [routerLink]="['/eliminar-curso', curso._id]" class="text-red-500 hover:underline ml-4">Eliminar</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

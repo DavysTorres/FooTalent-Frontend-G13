@@ -1,0 +1,53 @@
+<!-- <div class="bg-gray-100 min-h-screen p-8">
+  <div class="text-2xl font-semibold mb-6">Panel de Docente</div>
+
+  
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-6">
+    <div class="bg-white p-4 rounded-lg shadow-md text-center">
+      <div class="text-xl font-medium">Total de Cursos</div>
+      <div class="text-3xl font-bold mt-2">10</div>
+    </div>
+    <div class="bg-white p-4 rounded-lg shadow-md text-center">
+      <div class="text-xl font-medium">Estudiantes Inscritos</div>
+      <div class="text-3xl font-bold mt-2">25</div>
+    </div>
+    <div class="bg-white p-4 rounded-lg shadow-md text-center">
+      <div class="text-xl font-medium">Nuevos Mensajes</div>
+      <div class="text-3xl font-bold mt-2">5</div>
+    </div>
+ </div>
+
+ 
+  <div class="mt-8">
+    <div class="text-xl font-semibold mb-4">Gestión de Cursos</div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+              routerLink="/teacher/courses/create">Crear Curso</button>
+      <button class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600"
+              routerLink="/teacher/courses/manage">Gestionar Cursos</button>
+      <button class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600"
+              routerLink="/teacher/content/manage">Gestionar Contenido</button>
+    </div>
+  </div>
+</div>
+-->
+
+
+<div class="container mx-auto p-4">
+  <h1 class="text-2xl font-bold mb-4">Panel de Docente</h1>
+
+  <div class="grid grid-cols-2 gap-4">
+    <div class="bg-white shadow-md p-4 rounded-lg">
+      <h2 class="text-lg font-semibold">Gestión de Cursos</h2>
+      <ul>
+        <li><a routerLink="/crear-curso" class="text-blue-500 hover:underline">Crear Curso</a></li>
+        <li><a routerLink="/curso-management" class="text-blue-500 hover:underline">Gestionar Cursos</a></li>
+      </ul>
+    </div>
+
+    <div class="bg-white shadow-md p-4 rounded-lg">
+      <h2 class="text-lg font-semibold">Gestión de Contenido</h2>
+      <a routerLink="/contenido-management" class="text-blue-500 hover:underline">Administrar Contenido</a>
+    </div>
+  </div>
+</div>
