@@ -1,9 +1,11 @@
 <app-header />
 
 <!-- Sección para registro -->
-<section class="bg-[url('assets/images/foto1.png')] bg-cover bg-center py-12">
+<section
+  class="bg-[url('assets/images/foto1.png')] bg-cover bg-center h-[85vh]"
+>
   <div
-    class="w-[516px] h-[338px] flex-col justify-start items-start gap-[39px] inline-flex ml-20"
+    class="w-[516px] h-[338px] flex-col justify-start items-start gap-[39px] inline-flex ml-20 mt-20"
   >
     <div
       class="self-stretch h-[122px] flex-col justify-start items-start gap-[42px] flex"
@@ -50,11 +52,13 @@
       >
         <input
           placeholder="Busca tu próximo curso"
-          class="text-black font-['Lato'] leading-[16.80px] bg-transparent w-full"
+          class="text-black font-['Lato'] leading-[16.80px] bg-transparent w-[34vw]"
         />
         <button
-          class="w-4 h-4 rounded-lg justify-center items-center flex bg-[#11448a]"
-        ></button>
+          class="w-4 h-4 justify-center items-center flex"
+        >
+          <i class="fa fa-search"></i>
+        </button>
       </div>
     </div>
 
@@ -75,7 +79,7 @@
 
       <div class="text-[#282727] text-[15px] font-bold leading-[18px]">
         <img
-          src="../../../assets/images/html.png"
+          src="assets/images/html.png"
           alt="foto"
           class="w-[100px] h-[100px] mb-5 rounded-lg"
         />
@@ -84,7 +88,7 @@
 
       <div class="text-[#282727] text-[15px] font-bold leading-[18px]">
         <img
-          src="../../../assets/images/java.png"
+          src="assets/images/java.png"
           alt="foto"
           class="w-[100px] h-[100px] mb-5 rounded-lg"
         />
@@ -93,7 +97,7 @@
 
       <div class="text-[#282727] text-[15px] font-bold leading-[18px]">
         <img
-          src="../../../assets/images/python.png"
+          src="assets/images/python.png"
           alt="foto"
           class="w-[100px] h-[100px] mb-5 rounded-lg"
         />
@@ -102,7 +106,7 @@
 
       <div class="text-[#282727] text-[15px] font-bold leading-[18px]">
         <img
-          src="../assets/images/javascript.png"
+          src="assets/images/javascript.png"
           alt="foto"
           class="w-[100px] h-[100px] mb-5 rounded-lg"
         />
@@ -111,7 +115,7 @@
 
       <div class="text-[#282727] text-[15px] font-bold leading-[18px]">
         <img
-          src="../../../assets/images/c.png"
+          src="assets/images/c.png"
           alt="foto"
           class="w-[100px] h-[100px] mb-5 rounded-lg"
         />
@@ -165,18 +169,14 @@
 </section>
 
 <!-- Sección de aprende -->
-<section class="bg-[url('assets/images/foto2.png')] bg-cover bg-center py-12">
-  <div
-    class="w-[549px] h-72 flex-col justify-start gap-[38px] inline-flex "
-  >
-    <div
-      class="self-stretch h-[115px] text-[#0a0a0b] text-5xl font-bold font-['Lato'] leading-[57.60px]"
-    >
+<section
+  class="bg-[url('assets/images/foto2.png')] bg-cover bg-center h-[85vh] flex justify-end"
+>
+  <div class="flex-col gap-[20px] inline-flex mt-[130px]">
+    <div class="w-[545px] text-[#0a0a0b] text-5xl font-bold font-['Lato']">
       Aprende a tu ritmo de forma práctica
     </div>
-    <div
-      class="w-[551px] h-[135px] text-[#282727] text-[28px] font-normal font-['Lato'] leading-[33.60px]"
-    >
+    <div class="w-[455px] text-[#282727] text-[25px] font-normal font-['Lato']">
       Clases dinámicas, actividades al final de cada módulo y proyectos que te
       ayudarán a enfrentar desafíos reales y a prepararte para el futuro
     </div>
@@ -186,51 +186,113 @@
 <!-- Sección de testimonios -->
 <section class="bg-neutrals-100 py-12">
   <div class="container mx-auto text-center">
-    <h1 class="text-3xl mb-8">
+    <h1
+      class="text-[#282727] text-5xl font-bold font-['Lato'] leading-[57.60px] mb-20"
+    >
       Tu puerta de entrada al mundo de la programación
     </h1>
 
-    <h2 class="text-3xl mb-8">Lo que nuestros estudiantes dicen</h2>
-
-    <h3 class="text-xl mb-8">
-      Cientos de historias de éxito en el mundo digital
-    </h3>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="bg-white p-6 rounded-lg shadow-lg">
-        <p class="text-neutrals-700 mb-4">
-          “Este curso cambió mi vida. Nunca pensé que podría aprender a
-          programar.”
-        </p>
-        <p class="text-primary-700 font-semibold">- Lorena</p>
-      </div>
-      <div class="bg-white p-6 rounded-lg shadow-lg">
-        <p class="text-neutrals-700 mb-4">
-          “La metodología de enseñanza es genial, y me siento preparado para
-          enfrentar nuevos desafíos.”
-        </p>
-        <p class="text-primary-700 font-semibold">- Marco</p>
-      </div>
-      <div class="bg-white p-6 rounded-lg shadow-lg">
-        <p class="text-neutrals-700 mb-4">
-          “Me encanta cómo están estructurados los cursos. Aprendí a mi ritmo y
-          pude aplicar lo que he aprendido.”
-        </p>
-        <p class="text-primary-700 font-semibold">- Cecilia</p>
+    <div
+      class="w-[1192px] h-[675px] px-[127px] pt-[63px] pb-[107px] bg-[#f9f9f9] rounded-lg shadow flex-col justify-start items-start gap-2.5 inline-flex"
+    >
+      <div
+        class="h-[510px] flex-col justify-start items-center gap-[102px] flex"
+      >
+        <div
+          class="h-[107px] flex-col justify-start items-center gap-[26px] flex"
+        >
+          <h2
+            class="self-stretch h-12 text-center text-black text-[35px] font-bold font-['Lato'] leading-[48px]"
+          >
+            Lo que nuestros estudiantes dicen
+          </h2>
+          <h3
+            class="self-stretch h-[33px] text-center text-[#282727] text-[25px] font-normal font-['Lato'] leading-[33.60px]"
+          >
+            Cientos de historias de éxito en el mundo digital
+          </h3>
+        </div>
+        <div class="self-stretch justify-start items-start gap-12 inline-flex">
+          <div
+            class="w-[314px] h-[296px] flex-col justify-start items-center gap-6 inline-flex"
+          >
+            <img
+              class="w-[100px] h-[100px]"
+              src="https://via.placeholder.com/100x100"
+            />
+            <div
+              class="self-stretch h-[126px] text-black text-lg font-normal font-['Lato'] leading-snug"
+            >
+              "Este curso cambió mi vida. Nunca pensé que podría aprender a
+              programar, pero los materiales y la enseñanza fueron tan
+              accesibles que ahora estoy trabajando como desarrollador junior.
+              ¡Gracias!" <br /><br />– Lorena
+            </div>
+          </div>
+          <div
+            class="w-[276px] h-[301px] flex-col justify-start items-center gap-[29px] inline-flex"
+          >
+            <img
+              class="w-[100px] h-[100px]"
+              src="https://via.placeholder.com/100x100"
+            />
+            <div
+              class="self-stretch justify-center items-center gap-2.5 inline-flex"
+            >
+              <div
+                class="grow shrink basis-0 h-[126px] text-black text-lg font-normal font-['Lato'] leading-snug"
+              >
+                "Nunca pensé que la programación fuera para mí, pero aquí
+                encontré mi pasión. La metodología de enseñanza es genial, y me
+                siento preparado para enfrentar nuevos desafíos."<br /><br />–
+                Marcos
+              </div>
+            </div>
+          </div>
+          <div
+            class="grow shrink basis-0 flex-col justify-start items-center gap-[29px] inline-flex"
+          >
+            <img
+              class="w-[100px] h-[100px]"
+              src="https://via.placeholder.com/100x100"
+            />
+            <div
+              class="self-stretch h-[126px] text-black text-lg font-normal font-['Lato'] leading-snug"
+            >
+              "Me encanta cómo los cursos están estructurados. Aprendí a mi
+              ritmo y pude repasar lo que no entendía. ¡Una experiencia muy
+              gratificante!"<br /><br />– Cecilia
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Sección de registro -->
-<section class="bg-[url('assets/images/foto3.png')] bg-cover bg-center py-12">
-  <div class="container mx-auto text-left">
-    <h2 class="text-3xl mb-6 md:w-1/3 mb-10">
+<section
+  class="bg-[url('assets/images/foto3.png')] bg-cover bg-center h-[85vh]"
+>
+  <div
+    class="w-[580px] flex-col justify-start items-start gap-[53px] inline-flex mt-40 ml-40"
+  >
+    <div
+      class="self-stretch h-[136px] text-black text-5xl font-bold font-['Lato'] leading-[57.60px]"
+    >
       ¡Empieza Hoy! Tu futuro en programación te espera
-    </h2>
-    <button class="bg-secondary-1000 text-white py-3 px-8 rounded-lg">
-      Crea tu cuenta gratis
-    </button>
+    </div>
+    <div class="h-[42px] justify-start items-start inline-flex">
+      <div
+        class="px-6 py-3 bg-[#0a2750] rounded-lg justify-center items-center gap-2 flex"
+      >
+        <button
+          class="text-neutral-50 text-base font-normal font-['Lato'] leading-tight"
+        >
+          Crea tu cuenta gratis
+        </button>
+      </div>
+    </div>
   </div>
 </section>
 
