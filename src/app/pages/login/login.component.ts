@@ -44,6 +44,9 @@ export class LoginComponent {
           if (response.data.token) {
             // Almacena el token en el servicio de usuarios
             this.userService.setToken(response.data.token);
+            // Almacena la informacion del usuario
+            this.userService.setUsuario(response.data.usuario.id, response.data.usuario.nombre,response.data.usuario.email)
+
 
             // Obtiene el rol del usuario desde la respuesta
             const userRole = response.data.usuario.role;

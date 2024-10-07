@@ -12,31 +12,39 @@ import { CursoService } from '../../services/curso.service';
   styleUrl: './crear-curso.component.css'
 })
 export class CrearCursoComponent {
-
+  
+  
   curso = {
     nombre: '',
     descripcion: '',
-    docenteId: ''
+    docenteId:''
   };
 
   private cursoService = inject(CursoService);
   private router = inject(Router);
 
 
-  onSubmit(){
-    if (this.curso.nombre && this.curso.descripcion && this.curso.docenteId) {
-      this.cursoService.crearCurso(this.curso).subscribe(
-        (response) => {
-          console.log('Curso creado exitosamente:', response);
-          // Redirigir a la vista de gestión de cursos
-          this.router.navigate(['/teacher-dashboard']);
-        },
-        (error) => {
-          console.error('Error al crear el curso:', error);
-        }
-      );
+  onSubmit() {
+    if (this.curso.nombre && this.curso.descripcion) {
+      const userId = localStorage.getItem('user_id');
+      if (userId) {
+        this.curso.docenteId = userId; 
+        this.cursoService.crearCurso(this.curso).subscribe(
+          (response) => {
+            console.log('Curso creado exitosamente:', response);
+            // Redirigir a la vista de gestión de cursos
+            this.router.navigate(['/teacher-dashboard']);
+          },
+          (error) => {
+            console.error('Error al crear el curso:', error);
+          }
+        );
+      } else {
+        console.error('No se encontró el ID del usuario');
+      }
     } else {
       console.error('Por favor completa todos los campos');
     }
   }
+  
 }
