@@ -1,32 +1,130 @@
 <app-header />
 
-<div class="container mt-4">
-  <h2 class="mb-4">Cursos Disponibles</h2>
+<section class="py-16">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center mb-8">Cursos Disponibles</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Curso 1 -->
+      <div
+        class="bg-white shadow-lg rounded-lg p-6 text-center transition transform hover:scale-105"
+      >
+        <img
+          src="../../assets/images/php.png"
+          alt="Curso de PHP y Bases de datos"
+          class="mb-4 rounded-lg"
+        />
+        <h3 class="text-xl font-bold mb-4">Curso de PHP y Bases de datos</h3>
+        <p class="mb-4 text-gray-600">
+          Aprende los fundamentos de PHP y cómo manejar bases de datos.
+        </p>
+        <a
+          [routerLink]="['/detalle-curso', 1]"
+          class="text-blue-500 hover:text-blue-700 font-semibold"
+          >Ver Más</a
+        >
+      </div>
 
-  <div *ngIf="cargando" class="text-center">
-    <mat-spinner></mat-spinner>
-    <p>Cargando cursos...</p>
-  </div>
+      <!-- Curso 2 -->
+      <div
+        class="bg-white shadow-lg rounded-lg p-6 text-center transition transform hover:scale-105"
+      >
+        <img
+          src="../../assets/images/html.png"
+          alt="Curso de HTML"
+          class="mb-4 rounded-lg"
+        />
+        <h3 class="text-xl font-bold mb-4">Curso de HTML</h3>
+        <p class="mb-4 text-gray-600">
+          Aprende a estructurar páginas web con HTML.
+        </p>
+        <a
+          [routerLink]="['/detalle-curso', 2]"
+          class="text-blue-500 hover:text-blue-700 font-semibold"
+          >Ver Más</a
+        >
+      </div>
 
-  <div *ngIf="!cargando && cursos.length === 0" class="alert alert-info">
-    No hay cursos disponibles en este momento.
-  </div>
+      <!-- Curso 3 -->
+      <div
+        class="bg-white shadow-lg rounded-lg p-6 text-center transition transform hover:scale-105"
+      >
+        <img
+          src="../../assets/images/java.png"
+          alt="Curso de Java"
+          class="mb-4 rounded-lg"
+        />
+        <h3 class="text-xl font-bold mb-4">Curso de Java</h3>
+        <p class="mb-4 text-gray-600">
+          Domina la programación orientada a objetos con Java.
+        </p>
+        <a
+          [routerLink]="['/detalle-curso', 3]"
+          class="text-blue-500 hover:text-blue-700 font-semibold"
+          >Ver Más</a
+        >
+      </div>
 
-  <div class="row">
-    <div *ngFor="let curso of cursos" class="col-md-4 mb-4">
-      <div class="card h-100">
-        <div class="card-body">
-          <h5 class="card-title">{{ curso.nombre }}</h5>
-          <p class="card-text">{{ curso.descripcion }}</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted"
-            >Profesor: {{ curso.profesorId.nombre }}</small
-          >
-        </div>
+      <!-- Curso 4 -->
+      <div
+        class="bg-white shadow-lg rounded-lg p-6 text-center transition transform hover:scale-105"
+      >
+        <img
+          src="../../assets/images/phyton.png"
+          alt="Curso de Python"
+          class="mb-4 rounded-lg"
+        />
+        <h3 class="text-xl font-bold mb-4">Curso de Python</h3>
+        <p class="mb-4 text-gray-600">
+          Aprende a programar con Python y sus múltiples aplicaciones.
+        </p>
+        <a
+          [routerLink]="['/detalle-curso', 4]"
+          class="text-blue-500 hover:text-blue-700 font-semibold"
+          >Ver Más</a
+        >
+      </div>
+
+      <!-- Curso 5 -->
+      <div
+        class="bg-white shadow-lg rounded-lg p-6 text-center transition transform hover:scale-105"
+      >
+        <img
+          src="../../assets/images/javascript.png"
+          alt="Curso de JavaScript"
+          class="mb-4 rounded-lg"
+        />
+        <h3 class="text-xl font-bold mb-4">Curso de JavaScript</h3>
+        <p class="mb-4 text-gray-600">
+          Domina el lenguaje de la web y crea aplicaciones interactivas.
+        </p>
+        <a
+          [routerLink]="['/detalle-curso', 5]"
+          class="text-blue-500 hover:text-blue-700 font-semibold"
+          >Ver Más</a
+        >
+      </div>
+
+      <!-- Curso 6 -->
+      <div
+        class="bg-white shadow-lg rounded-lg p-6 text-center transition transform hover:scale-105"
+      >
+        <img
+          src="../../assets/images/c.png"
+          alt="Curso de C++"
+          class="mb-4 rounded-lg"
+        />
+        <h3 class="text-xl font-bold mb-4">Curso de C++</h3>
+        <p class="mb-4 text-gray-600">
+          Aprende a programar aplicaciones de alto rendimiento con C++.
+        </p>
+        <a
+          [routerLink]="['/detalle-curso', 6]"
+          class="text-blue-500 hover:text-blue-700 font-semibold"
+          >Ver Más</a
+        >
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <app-footer />
