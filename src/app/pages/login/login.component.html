@@ -6,8 +6,8 @@
         <div class="w-8/12 z-10">
             <img class="w-101 my-32 object-cover opacity-80" src="https://s3-alpha-sig.figma.com/img/dd50/ae1d/f38476354be763ad4530730ade240c75?Expires=1728864000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=DDlJetXG9KdRLX6QIwRGMkesXI9cTOiporWkYn-o1BwsO5tL4muLG2Jut52LlwShFFFIsvZ2pTR25QLy8KPKb0iM8QLIm0xQxqEPKLHMCnxuNPNlyIA2Q0yAgV4V9zOfhsRXZBcnG7CF73oBj4Vl04TP390q3vvDyKwufo5g2u0Xw~jT3xE8LPKCA9VC3982oFs-gcCK-Md8uMWO~4PT0euuiZW06JOlUPHKBs47PUcOuL57gBcL2WCOBSxr85N9xP9r45k-vQuGI0L2gX5bTbR9F-VqK3~k0nmkGUDvebaNgWRuZsLZ0VbZ4pWjHlcN8qZfgFo5j5HR~gQUmj6JaA__" alt="">
         </div>
-        <form class="mt-10 flex flex-col" [formGroup]="loginForm" (submit)="OnSubmit()">
-            <h2 class="mb-8 text-lg place-items-end"><b>Tu próximo desafío te espera. 
+        <form class="mt-10 flex flex-col" [formGroup]="loginForm" (submit)="onSubmit()">
+            <h2 class="mb-8 text-lg place-items-end"><b>Tu próximo desafío te espera.
                 Inicia sesión y sigamos construyendo tu futuro en tech.</b></h2>
             <div class="pr-4">
                 <label for="email" class="text-xs"><b>Correo electrónico</b></label>
@@ -16,7 +16,7 @@
             <div class="my-8 pr-4">
                 <label for="password" class="text-xs"><b>Contraseña</b></label>
                 <input class="border border-blue-600 w-full rounded h-8 pl-2" type="password" id="password" formControlName="password" placeholder="xxxxxxxx"/>
-                <a [routerLink]="['']" class="text-xs underline">Olvidé mi contraseña</a>
+                <a href="/validacion" class="text-xs underline">Olvidé mi contraseña</a>
             </div>
             <div class="pr-4">
                 <button class="bg-blue-900 w-full rounded h-8 text-white hover:opacity-75" type="submit">Iniciar sesión</button>
@@ -25,3 +25,5 @@
     </div>
     </div>
 </main>
+
+<app-footer/>

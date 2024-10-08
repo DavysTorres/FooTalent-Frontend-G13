@@ -1,0 +1,14 @@
+body{
+  overflow-x:hidden !important;
+}
+
+
+.boton-send{
+  background-color: var(--color-primario);
+
+}
+
+
+.color-letra-send{
+  color: #ffff;
+}

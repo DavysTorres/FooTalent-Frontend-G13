@@ -1,12 +1,11 @@
-import { Component, inject, Injectable } from '@angular/core';
-import { 
+import { Component, inject } from '@angular/core';
+import {
   FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators } from '@angular/forms';
 import { Router, RouterLinkWithHref } from '@angular/router';
 import { UsersService } from '../../services/users.service';
-import { Users } from '../../models/user.model';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { Login } from '../../models/login.model';
@@ -16,52 +15,69 @@ import { Login } from '../../models/login.model';
   standalone: true,
   imports: [RouterLinkWithHref, ReactiveFormsModule, HeaderComponent, FooterComponent],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css'] // Cambié "styleUrl" por "styleUrls" para corregir un error tipográfico
 })
 export class LoginComponent {
-private router = inject(Router);
-private userService = inject(UsersService);
+  private router = inject(Router);
+  private userService = inject(UsersService);
 
-loginForm = new FormGroup({
-  email: new FormControl('', {
-    validators: [Validators.required],
-  }),
-  password: new FormControl('', {
-    validators: [Validators.required],
-  }),
-});
+  loginForm = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]), // Agregué la validación de email
+    password: new FormControl('', [Validators.required]),
+  });
 
-get email() {
-  return this.loginForm.get('email');
-}
-
-get password() {
-  return this.loginForm.get('password');
-}
-
-formInvalid = false
-
-OnSubmit(){
-  console.log(this.loginForm.valid)
-  if(this.loginForm.valid){
-    this.userService.login(this.loginForm.value as Login).subscribe({
-      next: (response: any) => {
-        console.log(this.loginForm.value)
-        if(response.token){
-          this.userService.setToken(response.token);
-          console.log(response.token);
-          alert('Ingreso exitoso');
-          this.router.navigate(['/student-dashboard']);
-        } else {
-          this.formInvalid = true
-        }
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
-  } else {
-    alert ('Campos incompletos');
+  get email() {
+    return this.loginForm.get('email');
   }
-}
+
+  get password() {
+    return this.loginForm.get('password');
+  }
+
+  formInvalid = false;
+
+  onSubmit() {
+    if (this.loginForm.valid) {
+      this.userService.login(this.loginForm.value as Login).subscribe({
+        next: (response: any) => {
+
+          if (response.data.token) {
+            // Almacena el token en el servicio de usuarios
+            this.userService.setToken(response.data.token);
+
+            // Obtiene el rol del usuario desde la respuesta
+            const userRole = response.data.usuario.role;
+
+            // Redirecciona según el rol del usuario
+            switch (userRole) {
+              case 'Docente':
+                this.router.navigate(['/teacher-dashboard']);
+                break;
+              case 'Aprendiz':
+                this.router.navigate(['/aprendiz-dashboard']);
+                break;
+              case 'Admin':
+                this.router.navigate(['/admin-dashboard']);
+                break;
+              default:
+                this.router.navigate(['/']);
+                break;
+            }
+
+            alert('Ingreso exitoso');
+          } else {
+            this.formInvalid = true;
+            alert('Error al iniciar sesión');
+          }
+        },
+        error: (error) => {
+          console.log('Error en el login:', error);
+          alert('Error al iniciar sesión. Verifica tus credenciales.');
+        },
+      });
+    } else {
+      alert('Campos incompletos o inválidos.');
+    }
+  }
+
 }
