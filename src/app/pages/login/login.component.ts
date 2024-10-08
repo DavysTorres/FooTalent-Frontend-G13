@@ -51,7 +51,7 @@ OnSubmit(){
           this.userService.setToken(response.token);
           console.log(response.token);
           alert('Ingreso exitoso');
-          this.router.navigate(['']);
+          this.router.navigate(['/student-dashboard']);
         } else {
           this.formInvalid = true
         }

@@ -6,6 +6,8 @@ import { LandingComponent } from './pages/landing/landing.component';
 import { CourseListComponent } from './components/course-list/course-list.component';
 import { CourseDetailComponent } from './components/course-detail/course-detail.component';
 import { CreateCourseComponent } from './forms/create-course/create-course.component';
+import { AprendizDashboardComponent } from './pages/aprendiz-dashboard/aprendiz-dashboard.component';
+import { VistaCursoComponent } from './pages/vista-curso/vista-curso.component';
 
 export const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -15,6 +17,8 @@ export const routes: Routes = [
   { path: 'courses', component: CourseListComponent },
   { path: 'course/:id', component: CourseDetailComponent },
   { path: 'create-course', component: CreateCourseComponent },
+  { path: 'student-dashboard', component: AprendizDashboardComponent },
+  { path: 'course-view', component: VistaCursoComponent},
 ];
 
 @NgModule({
