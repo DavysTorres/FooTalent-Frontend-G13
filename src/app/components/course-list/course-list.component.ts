@@ -33,6 +33,10 @@ export class CourseListComponent implements OnInit {
     this.obtenerCursos();
   }
 
+  trackByCursoId(index: number, curso: any): number {
+    return curso.id;
+  }
+
   obtenerCursos(): void {
     this.cargando = true;
     this.courseService.mostrarCursos().subscribe(

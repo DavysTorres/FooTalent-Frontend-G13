@@ -1,32 +1,41 @@
-<app-header />
+<app-header></app-header>
 
 <div class="container mt-4">
   <h2 class="mb-4">Cursos Disponibles</h2>
 
-  <div *ngIf="cargando" class="text-center">
-    <mat-spinner></mat-spinner>
-    <p>Cargando cursos...</p>
-  </div>
+  <!-- Estado de carga -->
+  <ng-container *ngIf="cargando; else contenidoCursos">
+    <div class="text-center">
+      <mat-spinner></mat-spinner>
+      <p>Cargando cursos...</p>
+    </div>
+  </ng-container>
 
-  <div *ngIf="!cargando && cursos.length === 0" class="alert alert-info">
-    No hay cursos disponibles en este momento.
-  </div>
+  <!-- Contenido de cursos -->
+  <ng-template #contenidoCursos>
+    <div *ngIf="cursos.length === 0" class="alert alert-info text-center">
+      No hay cursos disponibles en este momento.
+    </div>
 
-  <div class="row">
-    <div *ngFor="let curso of cursos" class="col-md-4 mb-4">
-      <div class="card h-100">
-        <div class="card-body">
-          <h5 class="card-title">{{ curso.nombre }}</h5>
-          <p class="card-text">{{ curso.descripcion }}</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted"
-            >Profesor: {{ curso.profesorId.nombre }}</small
-          >
+    <div *ngIf="cursos.length > 0" class="row">
+      <div
+        *ngFor="let curso of cursos; trackBy: trackByCursoId"
+        class="col-md-4 mb-4"
+      >
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title text-primary">{{ curso.nombre }}</h5>
+            <p class="card-text flex-grow-1">{{ curso.descripcion }}</p>
+          </div>
+          <div class="card-footer bg-transparent border-0">
+            <small class="text-muted"
+              >Profesor: {{ curso.profesorId.nombre }}</small
+            >
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </ng-template>
 </div>
 
-<app-footer />
+<app-footer></app-footer>
