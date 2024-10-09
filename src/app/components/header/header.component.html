@@ -1,37 +1,34 @@
-<!-- Landing Page -->
-
-<header class="bg-gray-800 text-white">
-    <nav class="max-w-7xl mx-auto p-6 flex justify-between items-center">
-      <!-- Logo -->
-      <div class="text-2xl font-bold">
-        <a href="/">DevAcademy</a>
+<section class="w-[100%] h-[13%] px-6 py-3 bg-[#e6edf2] flex-col justify-start items-start gap-2.5 inline-flex">
+  <div class="self-stretch justify-between items-center inline-flex">
+    <a href="/">
+      <img class="w-[179px] h-[87px] cursor-pointer" src="/assets/images/logo.png" alt="Logo" />
+    </a>
+    <div class="justify-start items-center gap-[21px] flex">
+      <div class="w-[378px] flex-col justify-start items-start gap-[5px] inline-flex">
+        <div
+          class="self-stretch px-2 py-3.5 bg-[#dae8fa] rounded-lg border-l-4 border-[#11448a] justify-between items-center inline-flex">
+          <input class="text-sm font-normal font-['Lato'] leading-[16.80px] bg-transparent w-[19.5vw]"
+            placeholder="Busca tu próximo curso" />
+          <button class="w-4 h-4 justify-center items-center flex">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
       </div>
-  
-      <!-- Navbar Links -->
-      <div>
-        <ul class="flex space-x-6">
-          <li><a href="#" class="hover:text-gray-400">Inicio</a></li>
-          <li><a [routerLink]="['/courses']" class="hover:text-gray-400">Recursos</a></li>
-          <li><a href="#" class="hover:text-gray-400">Tutoriales</a></li>
-          <li><a href="#" class="hover:text-gray-400">Blog</a></li>
-          <li><a href="#" class="hover:text-gray-400">Contacto</a></li>
-        </ul>
+      <div class="w-[126px] h-[42px] justify-start items-start flex">
+        <div class="px-6 py-3 bg-[#0a2750] rounded-lg justify-center items-center gap-2 flex">
+          <a href="/registro" class="text-neutral-50 text-base font-normal font-['Lato'] leading-tight">
+            Registrarse
+          </a>
+        </div>
       </div>
-  
-      <!-- Botón de Login/Register -->
-      <div>
-        <a
-          href="/login"
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-2 rounded"
-        >
-          Iniciar Sesión
-        </a>
-        <a
-          href="/register"
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        >
-          Registrarse
-        </a>
+      <div class="justify-start items-start flex">
+        <div class="px-6 py-3 bg-[#557fa5] rounded-lg justify-center items-center gap-2 flex">
+          <a href="/inicio-sesion" class="text-neutral-50 text-base font-normal font-['Lato'] leading-tight">
+            Iniciar sesión
+          </a>
+        </div>
       </div>
-    </nav>
-  </header>
+    </div>
+  </div>
+  <div class="w-[70px] h-[69.37px]"></div>
+</section>
