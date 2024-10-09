@@ -29,6 +29,15 @@ export const routes: Routes = [
   { path: 'aprendiz-dashboard', component: AprendizDashboardComponent},
   { path: 'vista-curso', component: VistaCursoComponent},
   
+  { path: 'teacher-dashboard', component: TeacherDashboardComponent},
+  { path: 'curso-management', component: CursoManagementComponent },
+  { path: 'crear-curso', component: CrearCursoComponent },
+  { path: 'editar-curso/:id', component: EditarCursoComponent },
+  { path: 'eliminar-curso/:id', component: EliminarCursoComponent },
+  { path: 'contenido-management', component: ContenidoManagementComponent },
+  /*
+  { path: 'aprendiz-dashboard', component: AprendizDashboardComponent },
+  { path: 'admin-dashboard', component: AdminDashboardComponent }*/
 ];
 
 @NgModule({
