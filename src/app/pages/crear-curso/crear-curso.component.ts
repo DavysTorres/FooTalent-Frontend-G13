@@ -2,12 +2,14 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { CursoService } from '../../services/curso.service';
+import { HeaderComponent } from '../../components/header/header.component';
+import { FooterComponent } from '../../components/footer/footer.component';
 
 
 @Component({
   selector: 'app-crear-curso',
   standalone: true,
-  imports: [RouterModule, FormsModule],
+  imports: [RouterModule, FormsModule, HeaderComponent, FooterComponent],
   templateUrl: './crear-curso.component.html',
   styleUrl: './crear-curso.component.css'
 })
