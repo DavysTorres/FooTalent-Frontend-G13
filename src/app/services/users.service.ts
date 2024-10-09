@@ -25,6 +25,11 @@ export class UsersService {
 
     localStorage.setItem('user_token', token);
   }
+  setUsuario(idUsuario:any, nombre:string, email:string){
+    localStorage.setItem('user_id', idUsuario)
+    localStorage.setItem('user_nombre', nombre)
+    localStorage.setItem('user_email', email)
+  }
   
   getDecodedToken(): any {
     const token = localStorage.getItem('user_token');
@@ -56,5 +61,9 @@ export class UsersService {
   
   removeToken() {
     localStorage.removeItem('user_token');
+    localStorage.removeItem('user_id')
+    localStorage.removeItem('user_nombre')
+    localStorage.removeItem('user_email')
+    
   }
 }
