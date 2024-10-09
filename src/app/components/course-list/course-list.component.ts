@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
-import { CourseService, Course } from '../../services/course.service';
+//import { CourseService, Course } from '../../services/course.service';
 import { ToastrService } from 'ngx-toastr';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
@@ -21,11 +21,11 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   styleUrls: ['./course-list.component.css'],
 })
 export class CourseListComponent implements OnInit {
-  cursos: Course[] = [];
+  //cursos: Course[] = [];
   cargando: boolean = false;
 
   constructor(
-    private courseService: CourseService,
+    //private courseService: CourseService,
     private toastr: ToastrService
   ) {}
 
@@ -39,15 +39,15 @@ export class CourseListComponent implements OnInit {
 
   obtenerCursos(): void {
     this.cargando = true;
-    this.courseService.mostrarCursos().subscribe(
-      (data: Course[]) => {
-        this.cursos = data;
+    //this.courseService.mostrarCursos().subscribe(
+      //(data: Course[]) => {
+        //this.cursos = data;
         this.cargando = false;
-      },
-      (error) => {
-        this.toastr.error(error, 'Error');
-        this.cargando = false;
+      //},
+      //(error) => {
+        //this.toastr.error(error, 'Error');
+        //this.cargando = false;
       }
-    );
+   // );
   }
-}
+//}
