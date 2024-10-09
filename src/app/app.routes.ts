@@ -13,6 +13,9 @@ import { CrearCursoComponent } from './pages/crear-curso/crear-curso.component';
 import { EditarCursoComponent } from './pages/editar-curso/editar-curso.component';
 import { EliminarCursoComponent } from './pages/eliminar-curso/eliminar-curso.component';
 import { ContenidoManagementComponent } from './pages/contenido-management/contenido-management.component';
+import { CreateCourseComponent } from './forms/create-course/create-course.component';
+import { AprendizDashboardComponent } from './pages/aprendiz-dashboard/aprendiz-dashboard.component';
+import { VistaCursoComponent } from './pages/vista-curso/vista-curso.component';
 
 export const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -23,6 +26,9 @@ export const routes: Routes = [
   { path: 'courses', component: CourseListComponent },
   { path: 'course/:id', component: CourseDetailComponent },
   { path: 'create-course', component: CreateCourseComponent },
+  { path: 'aprendiz-dashboard', component: AprendizDashboardComponent},
+  { path: 'vista-curso', component: VistaCursoComponent},
+  
 ];
 
 @NgModule({
