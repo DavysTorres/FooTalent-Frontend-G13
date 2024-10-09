@@ -14,6 +14,7 @@ import { EditarCursoComponent } from './pages/editar-curso/editar-curso.componen
 import { EliminarCursoComponent } from './pages/eliminar-curso/eliminar-curso.component';
 import { ContenidoManagementComponent } from './pages/contenido-management/contenido-management.component';
 import { AprendizDashboardComponent } from './pages/aprendiz-dashboard/aprendiz-dashboard.component';
+import { VistaCursoComponent } from './pages/vista-curso/vista-curso.component';
 
 export const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -23,6 +24,8 @@ export const routes: Routes = [
   { path: 'reset', component: ResetPasswordComponent },
   { path: 'courses', component: CourseListComponent },
   { path: 'course/:id', component: CourseDetailComponent },
+  { path: 'aprendiz-dashboard', component: AprendizDashboardComponent},
+  { path: 'vista-curso', component: VistaCursoComponent},
   { path: 'teacher-dashboard', component: TeacherDashboardComponent},
   { path: 'curso-management', component: CursoManagementComponent },
   { path: 'crear-curso', component: CrearCursoComponent },
