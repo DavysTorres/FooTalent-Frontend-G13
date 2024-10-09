@@ -13,6 +13,7 @@ import { CrearCursoComponent } from './pages/crear-curso/crear-curso.component';
 import { EditarCursoComponent } from './pages/editar-curso/editar-curso.component';
 import { EliminarCursoComponent } from './pages/eliminar-curso/eliminar-curso.component';
 import { ContenidoManagementComponent } from './pages/contenido-management/contenido-management.component';
+import { AprendizDashboardComponent } from './pages/aprendiz-dashboard/aprendiz-dashboard.component';
 
 export const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -28,8 +29,10 @@ export const routes: Routes = [
   { path: 'editar-curso/:id', component: EditarCursoComponent },
   { path: 'eliminar-curso/:id', component: EliminarCursoComponent },
   { path: 'contenido-management', component: ContenidoManagementComponent },
+  { path: 'listCurso', component: CourseListComponent  },
+  { path: 'aprendiz-dashboard', component: AprendizDashboardComponent }
   /*
-  { path: 'aprendiz-dashboard', component: AprendizDashboardComponent },
+  ,
   { path: 'admin-dashboard', component: AdminDashboardComponent }*/
 ];
 
