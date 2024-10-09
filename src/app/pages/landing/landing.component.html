@@ -1,19 +1,21 @@
 <app-header />
-
 <!-- Sección para registro -->
-<section class="bg-[url('/assets/images/foto1.png')] bg-cover bg-center h-[85vh]">
-  <div class="w-[516px] h-[338px] flex-col justify-start items-start gap-[39px] inline-flex ml-20 mt-20">
-    <div class="self-stretch h-[122px] flex-col justify-start items-start gap-[42px] flex">
-      <div class="w-[533px] h-[133px] text-black text-[56px] font-bold font-['Lato'] leading-[67.20px]">
-        Transforma tu futuro profesional
-      </div>
-    </div>
-    <div class="w-[314px] h-24 text-[#282727] text-[40px] font-bold font-['Lato'] leading-[48px]">
-      Programar nunca fue tan fácil
-    </div>
-    <div class="w-[194px] h-[42px] justify-start items-start inline-flex">
-      <div class="px-6 py-3 bg-[#0a2750] rounded-lg justify-center items-center gap-2 flex">
-        <button class="text-neutral-50 text-base font-normal font-['Lato'] leading-tight">
+<section class="relative bg-[url('/assets/images/foto1.png')] bg-cover bg-center min-h-screen flex items-center">
+  <div class="absolute inset-0 bg-black/30"></div> <!-- Capa oscura sobre la imagen -->
+
+  <div class="relative max-w-screen-lg  z-10 grid grid-cols-1 md:grid-cols-12 p-4 sm:p-8">
+    <!-- Columna izquierda (Texto) -->
+    <div class="col-span-12 md:col-span-7 flex flex-col justify-start">
+      <div class="title-import relative max-w-2xl text-left p-4 sm:p-8">
+        <h1 class="text-black  sm:text-2xl md:text-3xl lg:text-5xl font-bold font-['Lato'] mb-10">
+          Transforma tu futuro profesional
+        </h1>
+
+        <p class="text-lg sm:text-xl md:text-xl mt-4 mb-10 font-semibold">
+          Programar nunca fue tan fácil
+        </p>
+
+        <button class="text-white mt-6 px-6 py-3 bg-[#0a2750] rounded-lg text-sm sm:text-base font-normal">
           Crea tu cuenta gratis
         </button>
       </div>
@@ -21,61 +23,63 @@
   </div>
 </section>
 
+
+
+
 <!-- Sección para buscar cursos -->
 <section class="py-12">
   <div class="container mx-auto text-center">
-    <h2 class="w-[1500px] text-center text-black text-5xl mb-10 font-bold font-['Lato'] leading-[57.60px]">
+    <!-- Título principal -->
+    <h2 class="w-full max-w-[950px] mx-auto text-center text-black text-3xl sm:text-5xl mb-10 font-bold font-['Lato'] leading-tight">
       Aprende a codificar desde cero con nuestros cursos gratuitos
     </h2>
 
-    <div class="w-[632px] h-[45px] flex-col mb-10 justify-start items-start gap-[5px] inline-flex">
-      <div
-        class="self-stretch px-2 py-3.5 bg-[#dae8fa] rounded-lg border-l-4 border-[#11448a] justify-between items-center inline-flex">
-        <input placeholder="Busca tu próximo curso"
-          class="text-black font-['Lato'] leading-[16.80px] bg-transparent w-[34vw]" />
-        <button class="w-4 h-4 justify-center items-center flex">
-          <i class="fa fa-search"></i>
-        </button>
-      </div>
+    <!-- Barra de búsqueda -->
+    <div class="w-full max-w-[632px] h-auto flex mb-10 mx-auto justify-between items-center gap-2">
+      <input
+        placeholder="Busca tu próximo curso"
+        class="flex-1 px-4 py-3.5 bg-[#dae8fa] text-black rounded-lg border-l-4 border-[#11448a] font-['Lato'] leading-tight  bg-[#dae8fa] " />
+      <button class="w-10 h-10 flex justify-center items-center bg-[#11448a] text-white rounded-full">
+        <i class="fa fa-search"></i>
+      </button>
     </div>
 
-    <!-- Sección de cursos disponibles -->
-    <section class="text-center h-[150px] flex font-['Lato'] justify-center items-center flex gap-20">
-      <div class="text-[#282727] text-[15px] font-bold leading-[18px]">
-        <img src="/assets/images/php.png" alt="foto" class="w-[100px] h-[100px] mb-5 rounded-lg" />
-        <p class="w-25 text-center justify-center items-center">
-          PHP y Bases de datos
-        </p>
+    <!-- Sección de cursos disponibles (Flexbox y responsive) -->
+    <section class="flex flex-wrap justify-center gap-10 mb-10">
+      <div class="text-[#282727] text-base font-bold leading-tight flex flex-col items-center">
+        <img src="/assets/images/php.png" alt="PHP y Bases de datos" class="w-[100px] h-[100px] mb-3 rounded-lg" />
+        <p>PHP y Bases de datos</p>
       </div>
 
-      <div class="text-[#282727] text-[15px] font-bold leading-[18px]">
-        <img src="/assets/images/html.png" alt="foto" class="w-[100px] h-[100px] mb-5 rounded-lg" />
-        <p class="w-25 text-center justify-center items-center">Diseño web</p>
+      <div class="text-[#282727] text-base font-bold leading-tight flex flex-col items-center">
+        <img src="/assets/images/html.png" alt="Diseño web" class="w-[100px] h-[100px] mb-3 rounded-lg" />
+        <p>Diseño web</p>
       </div>
 
-      <div class="text-[#282727] text-[15px] font-bold leading-[18px]">
-        <img src="/assets/images/java.png" alt="foto" class="w-[100px] h-[100px] mb-5 rounded-lg" />
-        <p class="w-25 text-center justify-center items-center">Java</p>
+      <div class="text-[#282727] text-base font-bold leading-tight flex flex-col items-center">
+        <img src="/assets/images/java.png" alt="Java" class="w-[100px] h-[100px] mb-3 rounded-lg" />
+        <p>Java</p>
       </div>
 
-      <div class="text-[#282727] text-[15px] font-bold leading-[18px]">
-        <img src="/assets/images/python.png" alt="foto" class="w-[100px] h-[100px] mb-5 rounded-lg" />
-        <p class="w-25 text-center justify-center items-center">Phyton</p>
+      <div class="text-[#282727] text-base font-bold leading-tight flex flex-col items-center">
+        <img src="/assets/images/python.png" alt="Python" class="w-[100px] h-[100px] mb-3 rounded-lg" />
+        <p>Python</p>
       </div>
 
-      <div class="text-[#282727] text-[15px] font-bold leading-[18px]">
-        <img src="/assets/images/javascript.png" alt="foto" class="w-[100px] h-[100px] mb-5 rounded-lg" />
-        <p class="w-25 text-center justify-center items-center">Javascript</p>
+      <div class="text-[#282727] text-base font-bold leading-tight flex flex-col items-center">
+        <img src="/assets/images/javascript.png" alt="Javascript" class="w-[100px] h-[100px] mb-3 rounded-lg" />
+        <p>Javascript</p>
       </div>
 
-      <div class="text-[#282727] text-[15px] font-bold leading-[18px]">
-        <img src="/assets/images/c.png" alt="foto" class="w-[100px] h-[100px] mb-5 rounded-lg" />
-        <p class="w-25 text-center justify-center items-center">C++</p>
+      <div class="text-[#282727] text-base font-bold leading-tight flex flex-col items-center">
+        <img src="/assets/images/c.png" alt="C++" class="w-[100px] h-[100px] mb-3 rounded-lg" />
+        <p>C++</p>
       </div>
     </section>
 
+    <!-- Sección de exploración de cursos -->
     <section>
-      <h2 class="w-[1288px] h-12 text-black text-[40px] font-bold font-['Lato'] leading-[48px] mt-10 mb-10">
+      <h2 class="w-full max-w-[1288px] mx-auto text-black text-2xl sm:text-[40px] font-bold font-['Lato'] leading-tight mt-10 mb-10">
         Explora nuestros cursos y encuentra tu pasión
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -86,6 +90,7 @@
           </h3>
           <p class="text-neutrals-600">Gratuito y con certificación</p>
         </div>
+
         <div class="bg-white p-6 rounded-lg shadow-lg">
           <img src="/assets/images/video2.png" alt="Introducción a base de datos" class="w-24 mx-auto mb-4" />
           <h3 class="text-primary-900 text-xl font-semibold mb-2">
@@ -93,6 +98,7 @@
           </h3>
           <p class="text-neutrals-600">Gratuito y con certificación</p>
         </div>
+
         <div class="bg-white p-6 rounded-lg shadow-lg">
           <img src="/assets/images/video3.png" alt="Curso de Python" class="w-24 mx-auto mb-4" />
           <h3 class="text-primary-900 text-xl font-semibold mb-2">
@@ -104,6 +110,7 @@
     </section>
   </div>
 </section>
+
 
 <!-- Sección de aprende -->
 <section class="bg-[url('/assets/images/foto2.png')] bg-cover bg-center h-[85vh] flex justify-end">
@@ -159,7 +166,7 @@
             </div>
           </div>
           <div class="grow shrink basis-0 flex-col justify-start items-center gap-[29px] inline-flex">
-            <img class="w-[100px] h-[100px]" src="assets/images/user3.png" />
+            <img class="w-[100px] h-[100px]" src="/assets/images/user3.png" />
             <div class="self-stretch h-[126px] text-black text-lg font-normal font-['Lato'] leading-snug">
               "Me encanta cómo los cursos están estructurados. Aprendí a mi
               ritmo y pude repasar lo que no entendía. ¡Una experiencia muy
@@ -173,7 +180,7 @@
 </section>
 
 <!-- Sección de registro -->
-<section class="bg-[url('assets/images/foto3.png')] bg-cover bg-center h-[85vh]">
+<section class="bg-[url('/assets/images/foto3.png')] bg-cover bg-center h-[85vh]">
   <div class="w-[580px] flex-col justify-start items-start gap-[53px] inline-flex mt-40 ml-40">
     <div class="self-stretch h-[136px] text-black text-5xl font-bold font-['Lato'] leading-[57.60px]">
       ¡Empieza Hoy! Tu futuro en programación te espera
