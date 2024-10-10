@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Users } from '../models/user.model';
 import { jwtDecode } from 'jwt-decode';
 import { Login } from '../models/login.model';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -19,6 +20,13 @@ export class UsersService {
 
   register(formValues: Users) {
     return this.http.post(`${this.apiUrl}/usuario/register`, formValues)
+  }
+  requestResetPassword(formValues: Users) {
+    return this.http.post(`${this.apiUrl}/usuario/requestResetPassword`, formValues)
+  }
+
+  resetPassword(data: { userId: string, token: string, password: string }): Observable<any> {
+    return this.http.post(`${this.apiUrl}/usuario/resetPassword`, data)
   }
 
   setToken(token: string) {
