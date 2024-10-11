@@ -14,6 +14,7 @@ import { EditarCursoComponent } from './pages/editar-curso/editar-curso.componen
 import { EliminarCursoComponent } from './pages/eliminar-curso/eliminar-curso.component';
 import { ContenidoManagementComponent } from './pages/contenido-management/contenido-management.component';
 import { AprendizDashboardComponent } from './pages/aprendiz-dashboard/aprendiz-dashboard.component';
+import { ConfirmAccountComponent } from './pages/confirm-account/confirm-account.component';
 
 export const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -30,7 +31,8 @@ export const routes: Routes = [
   { path: 'eliminar-curso/:id', component: EliminarCursoComponent },
   { path: 'contenido-management', component: ContenidoManagementComponent },
   { path: 'listCurso', component: CourseListComponent  },
-  { path: 'aprendiz-dashboard', component: AprendizDashboardComponent }
+  { path: 'aprendiz-dashboard', component: AprendizDashboardComponent },
+  { path: 'verifyAccount', component: ConfirmAccountComponent },
   /*
   ,
   { path: 'admin-dashboard', component: AdminDashboardComponent }*/

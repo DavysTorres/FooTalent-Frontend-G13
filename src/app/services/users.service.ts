@@ -28,6 +28,11 @@ export class UsersService {
   resetPassword(data: { userId: string, token: string, password: string }): Observable<any> {
     return this.http.post(`${this.apiUrl}/usuario/resetPassword`, data)
   }
+  verifyAccount(token: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/usuario/verifyAccount`, {
+      params: { token }
+    });
+  }
 
   setToken(token: string) {
 
