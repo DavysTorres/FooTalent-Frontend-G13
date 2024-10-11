@@ -19,7 +19,6 @@ export const appConfig: ApplicationConfig = {
     ReactiveFormsModule,
     provideClientHydration(),
     provideHttpClient(withFetch()),
-    ReactiveFormsModule,
     provideAnimationsAsync(),
     ...((ToastrModule.forRoot().providers || []) as any[]),
   ],
