@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Users } from '../models/user.model';
 import { jwtDecode } from 'jwt-decode';
 import { Login } from '../models/login.model';
+import { response } from 'express';
 
 
 @Injectable({
@@ -18,7 +19,7 @@ export class UsersService {
   }
 
   register(formValues: Users) {
-    return this.http.post(`${this.apiUrl}/usuario/register`, formValues)
+    return this.http.post(`${this.apiUrl}/usuario/register`, formValues);
   }
 
   setToken(token: string) {
@@ -30,7 +31,7 @@ export class UsersService {
     localStorage.setItem('user_nombre', nombre)
     localStorage.setItem('user_email', email)
   }
-  
+
   getDecodedToken(): any {
     const token = localStorage.getItem('user_token');
     if (token) {
@@ -44,11 +45,15 @@ export class UsersService {
     }
     return null;
   }
-  
+
   isLogged(): boolean {
-    return !!localStorage.getItem('user_token');
+    if (typeof window !== 'undefined') {
+    const user = localStorage.getItem('user');
+    return user !== null;
   }
-  
+  return false;
+  }
+
   getUser() {
     const userId = this.getDecodedToken();
     if (userId) {
@@ -58,12 +63,12 @@ export class UsersService {
       return null;
     }
   }
-  
+
   removeToken() {
     localStorage.removeItem('user_token');
     localStorage.removeItem('user_id')
     localStorage.removeItem('user_nombre')
     localStorage.removeItem('user_email')
-    
+
   }
 }
