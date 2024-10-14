@@ -1,20 +1,145 @@
 <app-header />
 
-<div class="max-w-4xl h-[73.5vh] mx-auto p-6 bg-white shadow-lg rounded-lg">
-  <h2 class="text-3xl font-bold mb-4">Detalles del Curso</h2>
-  <p class="text-gray-600 mb-4">
-    Este es el detalle del curso con ID: {{ courseId }}
-  </p>
-  <p class="mb-5">
-    Aquí puedes mostrar más información sobre el curso, como descripción,
-    lecciones, etc.
-  </p>
-  <a
-    [routerLink]="['/cursos']"
-    class="hover:text-blue-700 font-bold"
-  >
-    Volver a la lista de cursos
-  </a>
+<!-- Sección navbar -->
+<div class="w-[820px] h-[117px] bg-gradient-to-r from-[#dae8fa] via-[#b5d0f6] to-[#dae8fa] rounded-3xl justify-center items-center gap-10 inline-flex">
+  <div class="w-6 h-6 origin-top-left rotate-180 justify-center items-center flex">
+      <div class="w-6 h-6 justify-center items-center inline-flex">
+          <div class="w-6 h-6 relative">
+          </div>
+      </div>
+  </div>
+  <div class="grow shrink basis-0 p-4 flex-col justify-center items-center gap-1 inline-flex">
+      <div class="w-12 h-12 relative"></div>
+      <div class="w-[120px] h-[33px] justify-center items-center inline-flex">
+          <div class="w-[120px] h-[33px] text-center text-[#282727] text-[15px] font-bold font-['Lato'] leading-[18px]">PHP y Bases de datos</div>
+      </div>
+  </div>
+  <div class="grow shrink basis-0 p-4 flex-col justify-center items-center gap-1 inline-flex">
+      <div class="w-12 h-12 relative"></div>
+      <div class="w-[120px] h-[33px] justify-center items-center inline-flex">
+          <div class="w-[120px] h-[33px] text-center text-[#282727] text-[15px] font-bold font-['Lato'] leading-[18px]">Java</div>
+      </div>
+  </div>
+  <div class="grow shrink basis-0 p-4 flex-col justify-center items-center gap-1 inline-flex">
+      <div class="w-12 h-12 justify-center items-center inline-flex">
+          <div class="w-12 h-12 relative">
+          </div>
+      </div>
+      <div class="w-[120px] h-[33px] justify-center items-center inline-flex">
+          <div class="w-[120px] h-[33px] text-center text-[#282727] text-[15px] font-bold font-['Lato'] leading-[18px]">Javascript</div>
+      </div>
+  </div>
+  <div class="grow shrink basis-0 p-4 flex-col justify-center items-center gap-1 inline-flex">
+      <div class="w-12 h-12 relative"></div>
+      <div class="w-[120px] h-[33px] justify-center items-center inline-flex">
+          <div class="w-[120px] h-[33px] text-center text-[#282727] text-[15px] font-bold font-['Lato'] leading-[18px]">Python</div>
+      </div>
+  </div>
+  <div class="grow shrink basis-0 p-4 flex-col justify-center items-center gap-1 inline-flex">
+      <div class="w-12 h-12 justify-center items-center inline-flex">
+          <div class="w-12 h-12 relative">
+          </div>
+      </div>
+      <div class="w-[120px] h-[33px] justify-center items-center inline-flex">
+          <div class="w-[120px] h-[33px] text-center text-[#282727] text-[15px] font-bold font-['Lato'] leading-[18px]">C++</div>
+      </div>
+  </div>
+  <div class="w-6 h-6 justify-center items-center flex">
+      <div class="w-6 h-6 justify-center items-center inline-flex">
+          <div class="w-6 h-6 relative">
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Sección página detalles -->
+<div class="container mx-auto py-12 px-6 font-['Lato'] text-lg">
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    
+    <!-- Sección izquierda -->
+    <div class="lg:col-span-2">
+      <h1 class="text-4xl font-bold mb-4">{{ course.title }}</h1>
+      <p class="mb-6">{{ course.description }}</p>
+
+      <div class="bg-[#e6edf2] p-4 mb-6 rounded-lg text-center">
+        <p class="font-semibold text-[#11448a]">💻 Virtual y 100% gratuito</p>
+        <p>Podrás estudiar en tu horario y a tu ritmo sin ningún costo.</p>
+      </div>
+
+      <h2 class="text-[17px] font-semibold mb-4">¿Qué aprenderás?</h2>
+      <ul class="list-disc list-inside space-y-2">
+        <li *ngFor="let objective of course.details.objectives">
+          {{ objective }}
+        </li>
+      </ul>
+
+      <h2 class="text-[17px] font-bold mt-8 mb-4">Requisitos:</h2>
+      <p>{{ course.details.requirements }}</p>
+
+      <h2 class="text-[17px] font-bold mt-8 mb-4">Duración:</h2>
+      <p>{{ course.details.duration }}</p>
+
+      <h2 class="text-[17px] font-bold mt-8 mb-4">
+        ¿Por qué elegir este curso?
+      </h2>
+      <p>{{ course.details.thiscourse }}</p>
+    </div>
+
+    <!-- Sección derecha -->
+    <div class="bg-[#e6edf2] p-6 shadow-lg rounded-lg text-center h-[500px]">
+      <img
+        src="/assets/images/video.png"
+        alt="Imagen del video"
+        class="w-16 h-16 rounded-full"
+      />
+      <button
+        class="bg-[#0d366d] text-white font-semibold py-2 px-6 rounded hover:bg-blue-600 mb-6"
+      >
+        Inscribirte a este curso
+      </button>
+
+      <div class="mb-6">
+        <p class="text-sm text-gray-500">
+          <span class="font-semibold">{{ course.reviews }}</span> opiniones
+        </p>
+        <p class="text-sm text-gray-500">
+          <span class="font-semibold">{{ course.students }}</span> estudiantes
+        </p>
+      </div>
+
+      <div class="text-left text-sm">
+        <ul class="list-inside space-y-1">
+          <li class="font-semibold text-[#0d366d]">📹 Videos explicativos</li>
+          <p>Puedes volver a verlos cuantas veces quieras</p>
+          <li class="font-semibold text-[#0d366d]">📂 Material de estudio</li>
+          <p>Accede a nuestra galería de materiales</p>
+          <li class="font-semibold text-[#0d366d]">
+            ✅ Certificado al finalizar
+          </li>
+          <p>
+            Obtendrás un certificado al completar el curso y otro tras rendir el
+            examen final
+          </p>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Sección del tutor -->
+    <div class="mt-12 bg-gray-100 p-6 rounded-lg w-[810px]">
+      <h2 class="text-2xl font-bold mb-4">Sobre el tutor</h2>
+      <div class="flex items-left">
+        <img
+          src="/assets/images/tutor.png"
+          alt="Imagen del tutor"
+          class="w-16 h-16 rounded-full"
+        />
+        <div class="ml-5">
+          <h3 class="font-bold">{{ course.details.teacher.name }}</h3>
+          <p>{{ course.details.teacher.bio }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <app-footer />
