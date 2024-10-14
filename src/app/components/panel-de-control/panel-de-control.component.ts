@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLinkWithHref } from '@angular/router';
+import { Router, RouterLinkWithHref } from '@angular/router';
 
 @Component({
   selector: 'app-panel-de-control',
