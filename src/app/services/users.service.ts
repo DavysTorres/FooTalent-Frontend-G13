@@ -2,60 +2,68 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Users } from '../models/user.model';
 import { jwtDecode } from 'jwt-decode';
+import { Login } from '../models/login.model';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
-  private apiUrl = 'http://localhost:4000'
+  private apiUrl = 'http://localhost:4000/api'
   private http = inject(HttpClient)
   constructor() { }
 
-  login(formValues: any){
-    return this.http.post(`${this.apiUrl}/login`, {
-      email: formValues.email,
-      password: formValues.password,
-    });
+  login(formValues: Login) {
+    return this.http.post(`${this.apiUrl}/usuario/login`, formValues);
   }
 
-  register(formValues: Users){
-    return this.http.post(`${this.apiUrl}/register`, {
-      nombre: formValues.nombre,
-      email: formValues.email,
-      password: formValues.password,
-      avatar: formValues.avatar,
-      role: formValues.role,
-    })
+  register(formValues: Users) {
+    return this.http.post(`${this.apiUrl}/usuario/register`, formValues)
   }
 
-  isLogged() {
-    if (localStorage.getItem('user_token')) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  setToken(token: string) {
 
+    localStorage.setItem('user_token', token);
+  }
+  setUsuario(idUsuario:any, nombre:string, email:string){
+    localStorage.setItem('user_id', idUsuario)
+    localStorage.setItem('user_nombre', nombre)
+    localStorage.setItem('user_email', email)
+  }
+  
   getDecodedToken(): any {
     const token = localStorage.getItem('user_token');
     if (token) {
-      const decodedToken = jwtDecode(token);
-      return decodedToken.sub;
+      try {
+        const decodedToken = jwtDecode(token);
+        return decodedToken.sub;
+      } catch (error) {
+        console.error('Error decoding token:', error);
+        return null;
+      }
     }
-    return;
+    return null;
   }
-
-  getUser(){
-    return this.http.get(`${this.apiUrl}/listar-usuario` + this.getDecodedToken() );
+  
+  isLogged(): boolean {
+    return !!localStorage.getItem('user_token');
   }
-
-  setToken(token: string){
-    localStorage.setItem('user_token', token);
-    return;
+  
+  getUser() {
+    const userId = this.getDecodedToken();
+    if (userId) {
+      return this.http.get(`${this.apiUrl}/listar-usuario/${userId}`);
+    } else {
+      console.error('User ID not found');
+      return null;
+    }
   }
-
-  removeToken(){
+  
+  removeToken() {
     localStorage.removeItem('user_token');
-    return;
+    localStorage.removeItem('user_id')
+    localStorage.removeItem('user_nombre')
+    localStorage.removeItem('user_email')
+    
   }
 }

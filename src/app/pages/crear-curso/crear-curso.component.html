@@ -1,0 +1,40 @@
+<app-header></app-header>
+<div class="max-w-4xl mx-auto mt-10">
+  <h2 class="text-2xl font-bold mb-6 text-center">Crear Nuevo Curso</h2>
+
+  <form (ngSubmit)="onSubmit()" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    
+    <!-- Nombre del curso -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="nombre">
+        Nombre del Curso
+      </label>
+      <input [(ngModel)]="curso.nombre" name="nombre" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="nombre" type="text" placeholder="Ingresa el nombre del curso" required>
+    </div>
+    
+    <!-- Descripción del curso -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="descripcion">
+        Descripción del Curso
+      </label>
+      <input [(ngModel)]="curso.descripcion" name="descripcion" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="descripcion" type="text" placeholder="Ingresa la descripción del curso" required>
+    </div>
+    
+    <!-- Profesor asignado -->
+    <!-- <div class="mb-6">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="profesor">
+        Profesor Asignado (ID)
+      </label>
+      <input [(ngModel)]="curso.docenteId" name="docenteId" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="profesor" type="text" placeholder="ID del profesor asignado" required>
+    </div> -->
+
+    <!-- Botón para crear el curso -->
+    <div class="flex items-center justify-between">
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+        Crear Curso
+      </button>
+    </div>
+
+  </form>
+</div>
+<app-footer></app-footer>

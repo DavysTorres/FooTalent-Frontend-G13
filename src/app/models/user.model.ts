@@ -3,6 +3,7 @@ export interface Users {
     email: string,
     password: string,
     avatar: string,
-    role: string,
+    role: string
+    
 
 }
