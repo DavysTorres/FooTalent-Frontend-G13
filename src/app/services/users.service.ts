@@ -4,13 +4,14 @@ import { Users } from '../models/user.model';
 import { jwtDecode } from 'jwt-decode';
 import { Login } from '../models/login.model';
 import { response } from 'express';
+import { environment } from '../../environments/enviroment';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
-  private apiUrl = 'http://localhost:4000/api'
+  private apiUrl = environment.API_URL
   private http = inject(HttpClient)
   constructor() { }
 
