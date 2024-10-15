@@ -19,12 +19,12 @@ import { ConfirmAccountComponent } from './pages/confirm-account/confirm-account
 
 export const routes: Routes = [
   { path: '', component: LandingComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'inicio-sesion', component: LoginComponent },
+  { path: 'registro', component: RegisterComponent },
   { path: 'validacion', component: ValidacionCorreoComponent },
   { path: 'reset', component: ResetPasswordComponent },
-  { path: 'courses', component: CourseListComponent },
-  { path: 'course/:id', component: CourseDetailComponent },
+  { path: 'cursos', component: CourseListComponent },
+  { path: 'curso/:id', component: CourseDetailComponent },
   { path: 'aprendiz-dashboard', component: AprendizDashboardComponent},
   { path: 'vista-curso', component: VistaCursoComponent},
   { path: 'teacher-dashboard', component: TeacherDashboardComponent},
