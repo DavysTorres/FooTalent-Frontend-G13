@@ -7,7 +7,7 @@ import { environment } from '../../environments/enviroment';
   providedIn: 'root'
 })
 export class ContenidoService {
-  private apiUrl = environment.API_URL; // Cambia la URL según tu backend
+  private apiUrl = environment.API_URL; 
   private http = inject(HttpClient)
 
   constructor() {}

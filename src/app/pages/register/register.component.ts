@@ -3,6 +3,7 @@ import { Router, RouterLinkWithHref } from '@angular/router';
 import { Users } from '../../models/user.model';
 import { UsersService } from '../../services/users.service';
 import {
+  AbstractControl,
   FormControl,
   FormGroup,
   ReactiveFormsModule,
@@ -10,6 +11,7 @@ import {
 } from '@angular/forms';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
+import { __values } from 'tslib';
 
 @Component({
   selector: 'app-register',
@@ -37,10 +39,23 @@ export class RegisterComponent {
     password: new FormControl('', {
       validators: [Validators.required],
     }),
+    confirmPassword: new FormControl('', {
+      validators: [Validators.required]
+    }),
     role: new FormControl('', {
       validators: [Validators.required],
     }),
+  },
+  {
+    validators: this.passwordValidator,
   })
+
+  passwordValidator(control: AbstractControl) {
+    return control.get('password')?.value ===
+    control.get('confirmPassword')?.value
+    ? null
+    : {missmatch: true};
+  }
 
   get nombre(){
     return this.registerForm.get('nombre');
