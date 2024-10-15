@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import {
+  FormBuilder,
   FormControl,
   FormGroup,
   ReactiveFormsModule,
@@ -23,6 +24,9 @@ import { CommonModule } from '@angular/common';
 export class LoginComponent {
   private router = inject(Router);
   private userService = inject(UsersService);
+  private fb = inject(FormBuilder);
+
+  constructor() {}
   loading = false
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]), // Agregué la validación de email

@@ -4,13 +4,15 @@ import { Users } from '../models/user.model';
 import { jwtDecode } from 'jwt-decode';
 import { Login } from '../models/login.model';
 import { Observable } from 'rxjs';
+import { response } from 'express';
+import { environment } from '../../environments/enviroment';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
-  private apiUrl = 'http://localhost:4000/api'
+  private apiUrl = environment.API_URL
   private http = inject(HttpClient)
   constructor() { }
 
@@ -43,7 +45,7 @@ export class UsersService {
     localStorage.setItem('user_nombre', nombre)
     localStorage.setItem('user_email', email)
   }
-  
+
   getDecodedToken(): any {
     const token = localStorage.getItem('user_token');
     if (token) {
@@ -57,11 +59,15 @@ export class UsersService {
     }
     return null;
   }
-  
+
   isLogged(): boolean {
-    return !!localStorage.getItem('user_token');
+    if (typeof window !== 'undefined') {
+    const user = localStorage.getItem('user');
+    return user !== null;
   }
-  
+  return false;
+  }
+
   getUser() {
     const userId = this.getDecodedToken();
     if (userId) {
@@ -71,12 +77,12 @@ export class UsersService {
       return null;
     }
   }
-  
+
   removeToken() {
     localStorage.removeItem('user_token');
     localStorage.removeItem('user_id')
     localStorage.removeItem('user_nombre')
     localStorage.removeItem('user_email')
-    
+
   }
 }
