@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { Router, RouterLinkWithHref } from '@angular/router';
 
 @Component({
-  selector: 'app-panel-de-control',
+  selector: 'app-course-navbar',
   standalone: true,
   imports: [RouterLinkWithHref],
-  templateUrl: './panel-de-control.component.html',
-  styleUrl: './panel-de-control.component.css'
+  templateUrl: './course-navbar.component.html',
+  styleUrl: './course-navbar.component.css'
 })
-export class PanelDeControlComponent {
+export class CourseNavbarComponent {
 
 }
