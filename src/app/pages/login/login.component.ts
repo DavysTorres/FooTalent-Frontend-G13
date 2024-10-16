@@ -4,17 +4,20 @@ import {
   FormControl,
   FormGroup,
   ReactiveFormsModule,
-  Validators } from '@angular/forms';
+  Validators
+} from '@angular/forms';
 import { Router, RouterLinkWithHref } from '@angular/router';
 import { UsersService } from '../../services/users.service';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { Login } from '../../models/login.model';
+import { ProgressSpinnerOverviewComponent } from '../../components/progress-spinner-overview/progress-spinner-overview.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLinkWithHref, ReactiveFormsModule, HeaderComponent, FooterComponent],
+  imports: [RouterLinkWithHref, ReactiveFormsModule, HeaderComponent, FooterComponent, ProgressSpinnerOverviewComponent, CommonModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'] // Cambié "styleUrl" por "styleUrls" para corregir un error tipográfico
 })
@@ -24,7 +27,7 @@ export class LoginComponent {
   private fb = inject(FormBuilder);
 
   constructor() {}
-
+  loading = false
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]), // Agregué la validación de email
     password: new FormControl('', [Validators.required]),
@@ -42,6 +45,7 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
+      this.loading = true
       this.userService.login(this.loginForm.value as Login).subscribe({
         next: (response: any) => {
 
@@ -49,7 +53,7 @@ export class LoginComponent {
             // Almacena el token en el servicio de usuarios
             this.userService.setToken(response.data.token);
             // Almacena la informacion del usuario
-            this.userService.setUsuario(response.data.usuario.id, response.data.usuario.nombre,response.data.usuario.email)
+            this.userService.setUsuario(response.data.usuario.id, response.data.usuario.nombre, response.data.usuario.email)
 
 
             // Obtiene el rol del usuario desde la respuesta
@@ -57,22 +61,33 @@ export class LoginComponent {
 
             // Redirecciona según el rol del usuario
             switch (userRole) {
-              case 'Docente':
+              case 'Docente': {
+                this.loading = false;
                 this.router.navigate(['/teacher-dashboard']);
+
+              }
                 break;
               case 'Aprendiz':
-                this.router.navigate(['/aprendiz-dashboard']);
+                {
+                  this.loading = false;
+                  this.router.navigate(['/aprendiz-dashboard']);
+                }
                 break;
               case 'Admin':
-                this.router.navigate(['/admin-dashboard']);
+                {
+                  this.loading = false;
+                  this.router.navigate(['/admin-dashboard']);
+                }
                 break;
               default:
-                this.router.navigate(['/']);
+                { this.loading = false;
+                  this.router.navigate(['/']);}
                 break;
             }
 
             alert('Ingreso exitoso');
           } else {
+            this.loading = false;
             this.formInvalid = true;
             alert('Error al iniciar sesión');
           }

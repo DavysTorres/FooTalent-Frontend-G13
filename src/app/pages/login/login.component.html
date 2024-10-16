@@ -18,6 +18,9 @@
                 <input class="border border-blue-600 w-full rounded h-8 pl-2" type="password" id="password" formControlName="password" placeholder="xxxxxxxx"/>
                 <a href="/validacion" class="text-xs underline">Olvidé mi contraseña</a>
             </div>
+            <div *ngIf="loading" class="spinner-container">
+                <app-progress-spinner-overview></app-progress-spinner-overview> <!-- Mostrar el spinner -->
+              </div>
             <div class="pr-4">
                 <button class="bg-blue-900 w-full rounded h-8 text-white hover:opacity-75" type="submit">Iniciar sesión</button>
             </div>

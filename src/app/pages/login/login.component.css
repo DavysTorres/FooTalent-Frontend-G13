@@ -10,3 +10,10 @@
 h2, label, p, a, button {
     font-family: "Lato", sans-serif;
 }
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
