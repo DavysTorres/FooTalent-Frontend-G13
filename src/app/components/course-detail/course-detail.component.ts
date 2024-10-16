@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
+import { CourseNavbarComponent } from '../course-navbar/course-navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
@@ -12,7 +13,7 @@ import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 @Component({
   selector: 'app-course-detail',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, FooterComponent, FontAwesomeModule],
+  imports: [CommonModule, HeaderComponent, FooterComponent, CourseNavbarComponent, FontAwesomeModule],
   templateUrl: './course-detail.component.html',
   styleUrls: ['./course-detail.component.css'],
 })
