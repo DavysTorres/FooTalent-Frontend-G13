@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+/*import { Component, inject, OnInit } from '@angular/core';
 import { ContenidoService } from '../../services/contenido.service';
 import { ToastrService } from 'ngx-toastr';
 import { RouterModule } from '@angular/router';
@@ -92,4 +92,4 @@ export class ContenidoManagementComponent implements OnInit{
       }
     );
   }
-}
+}*/

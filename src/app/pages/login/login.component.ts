@@ -48,40 +48,32 @@ export class LoginComponent {
       this.loading = true
       this.userService.login(this.loginForm.value as Login).subscribe({
         next: (response: any) => {
-
           if (response.data.token) {
             // Almacena el token en el servicio de usuarios
             this.userService.setToken(response.data.token);
             // Almacena la informacion del usuario
-            this.userService.setUsuario(response.data.usuario.id, response.data.usuario.nombre, response.data.usuario.email)
-
+            this.userService.setUsuario(
+              response.data.usuario.id,
+              response.data.usuario.nombre,
+              response.data.usuario.email,
+              response.data.usuario.avatar
+              );
 
             // Obtiene el rol del usuario desde la respuesta
             const userRole = response.data.usuario.role;
-
             // Redirecciona según el rol del usuario
             switch (userRole) {
-              case 'Docente': {
-                this.loading = false;
+              case 'Docente':
                 this.router.navigate(['/teacher-dashboard']);
-
-              }
                 break;
               case 'Aprendiz':
-                {
-                  this.loading = false;
-                  this.router.navigate(['/aprendiz-dashboard']);
-                }
+                this.router.navigate(['/aprendiz-dashboard']);
                 break;
               case 'Admin':
-                {
-                  this.loading = false;
                   this.router.navigate(['/admin-dashboard']);
-                }
                 break;
               default:
-                { this.loading = false;
-                  this.router.navigate(['/']);}
+                  this.router.navigate(['/']);
                 break;
             }
 

@@ -4,10 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod",
+    "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "vercel-build": "ng build --prod",
+    "vercel-build": "ng build --configuration production",
     "serve:ssr:ProyectFootTalentG-13": "node dist/proyect-foot-talent-g-13/server/server.mjs",
     "build:css": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
   },

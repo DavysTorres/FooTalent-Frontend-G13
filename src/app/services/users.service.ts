@@ -3,8 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Users } from '../models/user.model';
 import { jwtDecode } from 'jwt-decode';
 import { Login } from '../models/login.model';
-import { Observable } from 'rxjs';
-import { response } from 'express';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../environments/enviroment';
 import { environmentProd } from '../../environments/environment.prod';
 
@@ -15,6 +14,10 @@ import { environmentProd } from '../../environments/environment.prod';
 export class UsersService {
   private apiUrl =  environmentProd.API_URL
   private http = inject(HttpClient)
+  private loginStatus = new BehaviorSubject<boolean>(this.isLogged());
+
+  loginStatus$ = this.loginStatus.asObservable();
+
   constructor() { }
 
   login(formValues: Login) {
@@ -38,13 +41,15 @@ export class UsersService {
   }
 
   setToken(token: string) {
-
     localStorage.setItem('user_token', token);
+    this.loginStatus.next(true);
   }
-  setUsuario(idUsuario:any, nombre:string, email:string){
+
+  setUsuario(idUsuario:any, nombre:string, email:string, avatarUrl: string){
     localStorage.setItem('user_id', idUsuario)
     localStorage.setItem('user_nombre', nombre)
     localStorage.setItem('user_email', email)
+    localStorage.setItem('user_avatar', avatarUrl);
   }
 
   getDecodedToken(): any {
@@ -61,14 +66,6 @@ export class UsersService {
     return null;
   }
 
-  isLogged(): boolean {
-    if (typeof window !== 'undefined') {
-    const user = localStorage.getItem('user');
-    return user !== null;
-  }
-  return false;
-  }
-
   getUser() {
     const userId = this.getDecodedToken();
     if (userId) {
@@ -81,9 +78,17 @@ export class UsersService {
 
   removeToken() {
     localStorage.removeItem('user_token');
-    localStorage.removeItem('user_id')
-    localStorage.removeItem('user_nombre')
-    localStorage.removeItem('user_email')
+    localStorage.removeItem('user_id');
+    localStorage.removeItem('user_nombre');
+    localStorage.removeItem('user_email');
+    this.loginStatus.next(false);
+  }
 
+  isLogged(): boolean {
+    if (typeof window !== 'undefined') {
+      const token = localStorage.getItem('user_token');
+    return token !== null;
+  }
+  return false;
   }
 }

@@ -12,13 +12,16 @@ import { CursoManagementComponent } from './pages/curso-management/curso-managem
 import { CrearCursoComponent } from './pages/crear-curso/crear-curso.component';
 import { EditarCursoComponent } from './pages/editar-curso/editar-curso.component';
 import { EliminarCursoComponent } from './pages/eliminar-curso/eliminar-curso.component';
-import { ContenidoManagementComponent } from './pages/contenido-management/contenido-management.component';
+//import { ContenidoManagementComponent } from './pages/contenido-management/contenido-management.component';
 import { AprendizDashboardComponent } from './pages/aprendiz-dashboard/aprendiz-dashboard.component';
 import { VistaCursoComponent } from './pages/vista-curso/vista-curso.component';
 import { ConfirmAccountComponent } from './pages/confirm-account/confirm-account.component';
+import { CommonModule } from '@angular/common';
+import { FeatureComponent } from './feature/feature/feature.component';
 
 export const routes: Routes = [
   { path: '', component: LandingComponent },
+  { path: 'feature', loadChildren: () => import('../feature/feature.module').then(m => m.FeatureModule) },
   { path: 'inicio-sesion', component: LoginComponent },
   { path: 'registro', component: RegisterComponent },
   { path: 'validacion', component: ValidacionCorreoComponent },
@@ -32,7 +35,7 @@ export const routes: Routes = [
   { path: 'crear-curso', component: CrearCursoComponent },
   { path: 'editar-curso/:id', component: EditarCursoComponent },
   { path: 'eliminar-curso/:id', component: EliminarCursoComponent },
-  { path: 'contenido-management', component: ContenidoManagementComponent },
+  //{ path: 'contenido-management', component: ContenidoManagementComponent },
   { path: 'listCurso', component: CourseListComponent  },
   { path: 'aprendiz-dashboard', component: AprendizDashboardComponent },
   { path: 'verifyAccount', component: ConfirmAccountComponent },
@@ -42,7 +45,8 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+
+  imports: [CommonModule, RouterModule.forChild(routes), FeatureComponent],
   exports: [RouterModule],
 })
 
