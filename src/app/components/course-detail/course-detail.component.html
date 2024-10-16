@@ -1,93 +1,24 @@
 <app-header />
 
-<!-- Sección navbar -->
-<div
-  class="w-[820px] h-[117px] bg-gradient-to-r from-[#dae8fa] via-[#b5d0f6] to-[#dae8fa] rounded-3xl justify-center items-center gap-10 inline-flex"
->
-  <div
-    class="w-6 h-6 origin-top-left rotate-180 justify-center items-center flex"
-  >
-    <div class="w-6 h-6 justify-center items-center inline-flex">
-      <div class="w-6 h-6 relative"></div>
-    </div>
-  </div>
-  <div
-    class="grow shrink basis-0 p-4 flex-col justify-center items-center gap-1 inline-flex"
-  >
-    <div class="w-12 h-12 relative"></div>
-    <div class="w-[120px] h-[33px] justify-center items-center inline-flex">
-      <div
-        class="w-[120px] h-[33px] text-center text-[#282727] text-[15px] font-bold font-['Lato'] leading-[18px]"
-      >
-        PHP y Bases de datos
-      </div>
-    </div>
-  </div>
-  <div
-    class="grow shrink basis-0 p-4 flex-col justify-center items-center gap-1 inline-flex"
-  >
-    <div class="w-12 h-12 relative"></div>
-    <div class="w-[120px] h-[33px] justify-center items-center inline-flex">
-      <div
-        class="w-[120px] h-[33px] text-center text-[#282727] text-[15px] font-bold font-['Lato'] leading-[18px]"
-      >
-        Java
-      </div>
-    </div>
-  </div>
-  <div
-    class="grow shrink basis-0 p-4 flex-col justify-center items-center gap-1 inline-flex"
-  >
-    <div class="w-12 h-12 justify-center items-center inline-flex">
-      <div class="w-12 h-12 relative"></div>
-    </div>
-    <div class="w-[120px] h-[33px] justify-center items-center inline-flex">
-      <div
-        class="w-[120px] h-[33px] text-center text-[#282727] text-[15px] font-bold font-['Lato'] leading-[18px]"
-      >
-        Javascript
-      </div>
-    </div>
-  </div>
-  <div
-    class="grow shrink basis-0 p-4 flex-col justify-center items-center gap-1 inline-flex"
-  >
-    <div class="w-12 h-12 relative"></div>
-    <div class="w-[120px] h-[33px] justify-center items-center inline-flex">
-      <div
-        class="w-[120px] h-[33px] text-center text-[#282727] text-[15px] font-bold font-['Lato'] leading-[18px]"
-      >
-        Python
-      </div>
-    </div>
-  </div>
-  <div
-    class="grow shrink basis-0 p-4 flex-col justify-center items-center gap-1 inline-flex"
-  >
-    <div class="w-12 h-12 justify-center items-center inline-flex">
-      <div class="w-12 h-12 relative"></div>
-    </div>
-    <div class="w-[120px] h-[33px] justify-center items-center inline-flex">
-      <div
-        class="w-[120px] h-[33px] text-center text-[#282727] text-[15px] font-bold font-['Lato'] leading-[18px]"
-      >
-        C++
-      </div>
-    </div>
-  </div>
-  <div class="w-6 h-6 justify-center items-center flex">
-    <div class="w-6 h-6 justify-center items-center inline-flex">
-      <div class="w-6 h-6 relative"></div>
-    </div>
-  </div>
-</div>
-
 <!-- Sección página detalles -->
 <div class="container mx-auto py-12 px-6 font-['Lato'] text-lg">
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
     <!-- Sección izquierda -->
     <div class="lg:col-span-2">
-      <h1 class="text-4xl font-bold mb-4">{{ course.title }}</h1>
+      <div class="flex items-left">
+        <div class="flex items-center space-x-4 mb-4">
+          <button
+            class="flex justify-center items-center ml-[-65px] w-8 h-8 rounded-full border border-[#11448a] hover:bg-gray-200"
+            (click)="goBack()"
+          >
+            <fa-icon
+              [icon]="['fas', 'arrow-left']"
+              class="text-[#11448a]"
+            ></fa-icon>
+          </button>
+        </div>
+        <h1 class="text-4xl font-bold mb-4">{{ course.title }}</h1>
+      </div>
       <p class="mb-6">{{ course.description }}</p>
 
       <div class="bg-[#e6edf2] p-4 mb-6 rounded-lg text-center">

@@ -1,13 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-course-detail',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, FooterComponent],
+  imports: [CommonModule, HeaderComponent, FooterComponent, FontAwesomeModule],
   templateUrl: './course-detail.component.html',
   styleUrls: ['./course-detail.component.css'],
 })
@@ -198,7 +203,14 @@ export class CourseDetailComponent implements OnInit {
     },
   ];
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private location: Location,
+    private library: FaIconLibrary
+  ) {
+    this.library.addIcons(faArrowLeft);
+  }
 
   ngOnInit(): void {
     // Obtén el parámetro 'id' de la ruta y busca el curso
@@ -208,5 +220,9 @@ export class CourseDetailComponent implements OnInit {
         this.course = this.courses.find((c) => c.id === this.courseId);
       }
     });
+  }
+
+  goBack(): void {
+    this.router.navigate(['/cursos']);
   }
 }
