@@ -5,13 +5,14 @@ import { jwtDecode } from 'jwt-decode';
 import { Login } from '../models/login.model';
 import { response } from 'express';
 import { environment } from '../../environments/enviroment';
+import { environmentProd } from '../../environments/environment.prod';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
-  private apiUrl = environment.API_URL
+  private apiUrl =  environmentProd.API_URL
   private http = inject(HttpClient)
   constructor() { }
 

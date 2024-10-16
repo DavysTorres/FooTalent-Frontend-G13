@@ -2,12 +2,13 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/enviroment';
+import { environmentProd } from '../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContenidoService {
-  private apiUrl = environment.API_URL; 
+  private apiUrl =  environmentProd.API_URL;
   private http = inject(HttpClient)
 
   constructor() {}
