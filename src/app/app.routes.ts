@@ -18,11 +18,12 @@ import { VistaCursoComponent } from './pages/vista-curso/vista-curso.component';
 import { ConfirmAccountComponent } from './pages/confirm-account/confirm-account.component';
 import { CommonModule } from '@angular/common';
 import { FeatureComponent } from './feature/feature/feature.component';
+import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   { path: '', component: LandingComponent },
   { path: 'feature', loadChildren: () => import('../feature/feature.module').then(m => m.FeatureModule) },
-  { path: 'inicio-sesion', component: LoginComponent },
+  { path: 'inicio-sesion', component: LoginComponent, canActivate: [AuthGuard] },
   { path: 'registro', component: RegisterComponent },
   { path: 'validacion', component: ValidacionCorreoComponent },
   { path: 'reset', component: ResetPasswordComponent },

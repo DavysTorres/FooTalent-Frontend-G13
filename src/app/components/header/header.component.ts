@@ -21,6 +21,8 @@ export class HeaderComponent implements OnInit{
   userAvatar: string | null = null;
   userName: string | null = null;
   menuOpen: boolean = false;
+  userRole: string | null = null;
+  prifileLink: string ='/aprendiz-dashboard';
 
   constructor() {}
 
@@ -35,8 +37,16 @@ export class HeaderComponent implements OnInit{
 
   loadUserData() {
     const userName = localStorage.getItem('user_nombre');
+    const userRole = localStorage.getItem('user_role')
     this.userName = userName || 'usuario';
     this.userAvatar = localStorage.getItem('user_avatar') || '/assets/images/default-avatar.png';
+    this.userRole = userRole;
+
+    if (this.userRole ==='Docente') {
+      this.prifileLink = '/teacher-dashboard';
+    }else if (this.userRole ==='Aprendiz'){
+      this.prifileLink = 'aprndiz-dashboard';
+    }
   }
 
   toggleMenu() {

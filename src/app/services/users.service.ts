@@ -21,11 +21,11 @@ export class UsersService {
   constructor() { }
 
   login(formValues: Login) {
-    return this.http.post(`${this.apiUrl}/usuario/login`, formValues);
+    return this.http.post(`${this.apiUrl}/usuario/inicio-sesion`, formValues);
   }
 
   register(formValues: Users) {
-    return this.http.post(`${this.apiUrl}/usuario/register`, formValues)
+    return this.http.post(`${this.apiUrl}/usuario/registro`, formValues)
   }
   requestResetPassword(formValues: Users) {
     return this.http.post(`${this.apiUrl}/usuario/requestResetPassword`, formValues)
