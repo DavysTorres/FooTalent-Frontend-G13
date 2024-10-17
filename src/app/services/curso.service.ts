@@ -2,6 +2,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable, inject  } from "@angular/core";
 import { Observable } from "rxjs";
+import { environment } from "../../environments/enviroment";
 
 
 @Injectable ({
@@ -9,7 +10,7 @@ import { Observable } from "rxjs";
 })
 
 export class CursoService{
-  private apiUrl = 'http://localhost:4000/api';
+  private apiUrl = environment.API_URL
   private http= inject(HttpClient)
 
   constructor(){}
@@ -33,7 +34,8 @@ export class CursoService{
   //Obtener Curso por Id de Usuario
   obtenerCursoPorUsuario(idUsuario: string): Observable<any> {
     console.log(idUsuario)
-    return this.http.get(`${this.apiUrl}/suscripcion/${idUsuario}`)
+    return this.http.get(`${this.apiUrl}/
+      suscripcion/${idUsuario}`)
   }
 
 }
