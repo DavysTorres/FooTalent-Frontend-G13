@@ -3,8 +3,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-feature',
-  standalone: true,
-  imports: [CommonModule],
+  standalone: false,
   templateUrl: './feature.component.html',
   styleUrl: './feature.component.css'
 })
