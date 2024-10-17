@@ -13,7 +13,7 @@ import { FooterComponent } from '../../components/footer/footer.component';
 import { Login } from '../../models/login.model';
 import { ProgressSpinnerOverviewComponent } from '../../components/progress-spinner-overview/progress-spinner-overview.component';
 import { CommonModule } from '@angular/common';
-import { MatSnackBar } from '@angular/material/snack-bar'
+import { MatSnackBar,  MatSnackBarConfig } from '@angular/material/snack-bar'
 
 
 @Component({
@@ -102,11 +102,13 @@ export class LoginComponent {
   }
 
   openSnackBar(message: string) {
-    this.snackBar.open(message, 'Cerrar', {
-      duration: 3000, // Duración en milisegundos (3 segundos en este caso)
-      horizontalPosition: 'center', // Posición horizontal
-      verticalPosition: 'top',   // Posición vertical
-    });
+
+    const config = new MatSnackBarConfig();
+    config.duration = 3000;
+    config.horizontalPosition = 'center';
+    config.verticalPosition = 'top';
+    config.panelClass = ['snackbar'];
+    this.snackBar.open(message, 'Cerrar', config);
   }
 
 

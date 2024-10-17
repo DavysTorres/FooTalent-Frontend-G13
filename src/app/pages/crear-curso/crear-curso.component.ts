@@ -4,6 +4,8 @@ import { Router, RouterModule } from '@angular/router';
 import { CursoService } from '../../services/curso.service';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
+import { MatDialog } from '@angular/material/dialog';
+import { MensajeDialogoComponent } from '../../components/mensaje-dialogo/mensaje-dialogo.component';
 
 
 @Component({
@@ -15,7 +17,7 @@ import { FooterComponent } from '../../components/footer/footer.component';
 })
 export class CrearCursoComponent {
   
-  
+
   curso = {
     nombre: '',
     descripcion: '',
@@ -24,6 +26,7 @@ export class CrearCursoComponent {
 
   private cursoService = inject(CursoService);
   private router = inject(Router);
+  private dialog = inject(MatDialog);
 
 
   onSubmit() {
@@ -36,6 +39,9 @@ export class CrearCursoComponent {
             console.log('Curso creado exitosamente:', response);
             // Redirigir a la vista de gestión de cursos
             this.router.navigate(['/teacher-dashboard']);
+            this.dialog.open(MensajeDialogoComponent,{
+              data: { title: 'Curso creado exitosamente', content: 'Ya puedes visualizar tu curso en gestión de cursos' }
+            });
           },
           (error) => {
             console.error('Error al crear el curso:', error);
