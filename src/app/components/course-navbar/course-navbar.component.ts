@@ -8,20 +8,29 @@ import { Router, RouterLinkWithHref } from '@angular/router';
   templateUrl: './course-navbar.component.html',
   styleUrl: './course-navbar.component.css',
 })
-export class CourseNavbarComponent implements AfterViewInit {
+
+export class CourseNavbarComponent {
+
+}
+
+/* export class CourseNavbarComponent implements AfterViewInit {
   @ViewChild('carouselInner', { static: false }) carouselInner!: ElementRef;
   currentIndex: number = 0;
   itemsToShow: number = 5;
   totalItems: number = 0;
+  itemWidth: number = 0;
 
   constructor(private router: Router) {}
 
   ngAfterViewInit(): void {
     this.totalItems = this.carouselInner.nativeElement.children.length;
+    const carousel = this.carouselInner.nativeElement as HTMLElement;
+    this.itemWidth = carousel.clientWidth / this.itemsToShow; // Ancho dinámico basado en el número de ítems a mostrar
+    this.updateCarousel(); // Asegura que los ítems se ubiquen correctamente
   }
 
   // Mover hacia la izquierda
-  prev(): void {
+  scrollLeft(): void {
     if (this.currentIndex > 0) {
       this.currentIndex--;
       this.updateCarousel();
@@ -29,7 +38,7 @@ export class CourseNavbarComponent implements AfterViewInit {
   }
 
   // Mover hacia la derecha
-  next(): void {
+  scrollRight(): void {
     if (this.currentIndex < this.totalItems - this.itemsToShow) {
       this.currentIndex++;
       this.updateCarousel();
@@ -39,8 +48,7 @@ export class CourseNavbarComponent implements AfterViewInit {
   // Actualiza la posición del carrusel
   updateCarousel(): void {
     const carousel = this.carouselInner.nativeElement as HTMLElement;
-    const itemWidth = carousel.clientWidth / this.totalItems;
-    const translateX = -(itemWidth * this.currentIndex * this.itemsToShow);
+    const translateX = -(this.itemWidth * this.currentIndex);
     carousel.style.transform = `translateX(${translateX}px)`;
-  }
-}
+  } 
+}*/
