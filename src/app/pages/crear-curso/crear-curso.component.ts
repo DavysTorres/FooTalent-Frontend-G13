@@ -36,22 +36,30 @@ export class CrearCursoComponent {
         this.curso.docenteId = userId; 
         this.cursoService.crearCurso(this.curso).subscribe(
           (response) => {
-            console.log('Curso creado exitosamente:', response);
+            this.dialog.open(MensajeDialogoComponent,{
+              data: { title: 'Curso creado exitosamente', content: 'Ya puedes visualizar tu curso en gestión de cursos', isSuccess:true }
+            });
             // Redirigir a la vista de gestión de cursos
             this.router.navigate(['/teacher-dashboard']);
-            this.dialog.open(MensajeDialogoComponent,{
-              data: { title: 'Curso creado exitosamente', content: 'Ya puedes visualizar tu curso en gestión de cursos' }
-            });
+            
           },
           (error) => {
             console.error('Error al crear el curso:', error);
+            this.dialog.open(MensajeDialogoComponent,{
+              data: { title: 'Error al crear el curso', content: 'Por favor, reintenta crear nuevamente el curso', isSuccess:false }
+            });
           }
         );
       } else {
         console.error('No se encontró el ID del usuario');
+        this.dialog.open(MensajeDialogoComponent,{
+          data: { title: 'Error al crear el curso', content: 'Usuario no encontrado', isSuccess:false }
+        });
       }
     } else {
-      console.error('Por favor completa todos los campos');
+      this.dialog.open(MensajeDialogoComponent,{
+        data: { title: 'Error al crear el curso', content: 'Campos incompletos', isSuccess:false }
+      });
     }
   }
   
