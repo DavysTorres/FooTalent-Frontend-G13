@@ -35,7 +35,7 @@ export class TeacherDashboardComponent implements OnInit {
   obtenerCursosPropios(idUsuario: string): void {  // Tipado de 'idUsuario' como string
     this.cursoService.obtenerCursoPorIdUsuario(idUsuario).subscribe(
       (response: any) => {
-        this.cursos = response.data || [];  // Manejo seguro de 'response.data'
+        this.cursos = response.data.filter((curso: any) => curso.activo === true);  // Manejo seguro de 'response.data'
       },
       error => {
         console.error('Error al obtener los cursos:', error);

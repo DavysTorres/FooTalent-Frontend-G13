@@ -5,7 +5,7 @@
     </div>
     <h3 class="my-6 text-[#11448a]"><b>{{ curso.nombre }}</b></h3>
     <p class="text-xs">{{ curso.descripcion }}</p>
-    <button class="bg-[#11448a] text-white text-xs rounded-[8px] w-[110px] h-[30px] mt-6 hover:bg-[#0d366d]" [routerLink]="['/vista-curso', curso.id]">
+    <button class="bg-[#11448a] text-white text-xs rounded-[8px] w-[110px] h-[30px] mt-6 hover:bg-[#0d366d]" [routerLink]="['/editar-curso', curso._id]">
       Editar
     </button>
   </div>
