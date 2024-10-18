@@ -63,7 +63,7 @@ export class HeaderComponent implements OnInit{
   logout() {
     this.userService.removeToken();
     this.isLoggedIn = false;
-    this.router.navigate(['/login']);
+    this.router.navigate(['/']);
   }
 
 
