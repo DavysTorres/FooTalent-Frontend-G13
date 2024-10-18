@@ -4,6 +4,9 @@
 <div id="register-container" class="">
     <h2 class="content-center text-lg mt-4"><b>Únete a DevAcademy y comienza tu viaje en programación. Crea tu cuenta en solo unos pasos y empieza a desarrollar las habilidades que te llevarán a la cima ¡La tecnología está a un clic de distancia!</b></h2>
     <div id="register-form">
+        <div>
+            <img class="w-96" src="../../../assets/images/hombrecito2.png" alt="">
+        </div>
         <form [formGroup]="registerForm" (submit)="OnSubmit($event)" class="w-1/2 gap-y-2.5">
             <h3 class="text-base mt-4 mb-2"><b>Registro</b></h3>
             <div class="mb-2">
@@ -32,9 +35,6 @@
             </div>
             <button class="bg-blue-900 w-full rounded h-8 text-white hover:opacity-75" type="submit">Registrarme</button>
         </form>
-        <div>
-            <img class="w-96" src="../../../assets/images/hombrecito2.png" alt="">
-        </div>
     </div>
     
 </div>

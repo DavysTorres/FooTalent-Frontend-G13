@@ -11,10 +11,13 @@ import { NgFor, NgIf } from '@angular/common';
   styleUrl: './course-viewcard.component.css'
 })
 export class CourseViewcardComponent implements OnInit{
+  
   private cursoService = inject(CursoService)
 
   cursos: any[] = [];
   userId: string = '';
+
+  //constructor() {}
 
   ngOnInit(): void{
     console.log(this.userId)
