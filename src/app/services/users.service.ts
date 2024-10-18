@@ -51,6 +51,27 @@ export class UsersService {
     localStorage.setItem('user_email', email)
     localStorage.setItem('user_avatar', avatarUrl);
   }
+  getIdUsuario() {
+    return localStorage.getItem('user_id');
+  }
+
+  getUsuario() {
+    const idUsuario = localStorage.getItem('user_id');
+    const nombre = localStorage.getItem('user_nombre');
+    const email = localStorage.getItem('user_email');
+    const avatarUrl = localStorage.getItem('user_avatar') || "";
+  
+    if (idUsuario && nombre && email) {
+      return {
+        idUsuario,
+        nombre,
+        email,
+        avatarUrl
+      };
+    } else {
+      return null; 
+    }
+  }
 
   getDecodedToken(): any {
     const token = localStorage.getItem('user_token');
