@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/proyect-foot-talent-g-13/browser",
+            "outputPath": "dist/proyect-foot-talent-g-13",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
