@@ -37,7 +37,6 @@ export const routes: Routes = [
   { path: 'editar-curso/:id', component: EditarCursoComponent },
   { path: 'eliminar-curso/:id', component: EliminarCursoComponent },
   //{ path: 'contenido-management', component: ContenidoManagementComponent },
-  { path: 'listCurso', component: CourseListComponent  },
   { path: 'verifyAccount', component: ConfirmAccountComponent },
   /*
   ,
@@ -46,9 +45,9 @@ export const routes: Routes = [
 
 @NgModule({
 
-  imports: [CommonModule, RouterModule.forRoot(routes)],
+  imports: [CommonModule, RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
 
 export class AppRoutingModule {}
-// tengo problemas al hacer ub nuevo commit
+

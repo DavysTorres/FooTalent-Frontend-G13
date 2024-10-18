@@ -1,3 +1,5 @@
+//Cspell:disable
+
 import { Component, Inject, inject } from '@angular/core';
 import {
   FormBuilder,
@@ -59,12 +61,13 @@ export class LoginComponent {
               response.data.usuario.id,
               response.data.usuario.nombre,
               response.data.usuario.email,
-              response.data.usuario.avatar
+              response.data.usuario.avatar,
+              response.data.usuario.role,
               );
 
             // Obtiene el rol del usuario desde la respuesta
             const userRole = response.data.usuario.role;
-            
+
 
             // Redirecciona según el rol del usuario
             switch (userRole) {

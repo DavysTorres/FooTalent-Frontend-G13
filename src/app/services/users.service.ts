@@ -1,11 +1,13 @@
+//Cspell:disable
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Users } from '../models/user.model';
 import { jwtDecode } from 'jwt-decode';
 import { Login } from '../models/login.model';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { environment } from '../../environments/enviroment';
 import { environmentProd } from '../../environments/environment.prod';
+import { response } from 'express';
 
 
 @Injectable({
@@ -21,7 +23,18 @@ export class UsersService {
   constructor() { }
 
   login(formValues: Login) {
-    return this.http.post(`${this.apiUrl}/usuario/login`, formValues);
+    return this.http.post(`${this.apiUrl}/usuario/login`, formValues).pipe(
+      tap((response:any) => {
+        if (response && response.status === 200) {
+          const { token, usuario } = response.data;
+          this.setToken(token);
+          this.setUsuario(usuario.id, usuario.nombre, usuario.email, usuario.avatar, usuario.role);
+
+          console.log('Rol almacenado en localStorage:', usuario.role);
+          console.log('Contenido de localStorage:', localStorage);
+        }
+      })
+    );
   }
 
   register(formValues: Users) {
@@ -45,19 +58,20 @@ export class UsersService {
     this.loginStatus.next(true);
   }
 
-  setUsuario(idUsuario:any, nombre:string, email:string, avatarUrl: string){
-    localStorage.setItem('user_id', idUsuario)
-    localStorage.setItem('user_nombre', nombre)
-    localStorage.setItem('user_email', email)
+  setUsuario(idUsuario: any, nombre: string, email: string, avatarUrl: string, role: string) {
+    localStorage.setItem('user_id', idUsuario);
+    localStorage.setItem('user_nombre', nombre);
+    localStorage.setItem('user_email', email);
     localStorage.setItem('user_avatar', avatarUrl);
-  }
+    localStorage.setItem('user_role', role);
+}
 
   getDecodedToken(): any {
     const token = localStorage.getItem('user_token');
     if (token) {
       try {
         const decodedToken = jwtDecode(token);
-        return decodedToken.sub;
+        return decodedToken;
       } catch (error) {
         console.error('Error decoding token:', error);
         return null;
