@@ -1,20 +1,48 @@
-<div class="container mx-auto p-4">
-  <h2 class="text-xl font-bold mb-4">Gestión de Cursos</h2>
-  <table class="min-w-full bg-white">
-    <thead>
-      <tr>
-        <th class="py-2">Nombre del Curso</th>
-        <th class="py-2">Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let curso of cursos">
-        <td class="border px-4 py-2">{{ curso.nombre }}</td>
-        <td class="border px-4 py-2">
-          <a [routerLink]="['/editar-curso', curso._id]" class="text-blue-500 hover:underline">Editar</a>
-          <a [routerLink]="['/eliminar-curso', curso._id]" class="text-red-500 hover:underline ml-4">Eliminar</a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<div class="container mx-auto p-4" style="background-color: var(--color-fondo); color: var(--color-texto);">
+  <h2 class="text-2xl font-semibold mb-6" style="color: var(--color-primario);">Gestión de Cursos</h2>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full bg-white border border-gray-200 shadow-sm rounded-lg">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="py-3 px-6 text-left text-sm font-semibold uppercase tracking-wider" style="color: var(--color-texto);">
+            Nombre del Curso
+          </th>
+          <th class="py-3 px-6 text-left text-sm font-semibold uppercase tracking-wider" style="color: var(--color-texto);">
+            Acciones
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let curso of cursos" class="bg-white hover:bg-gray-50 transition-colors duration-150">
+          <td class="border-t border-gray-200 px-6 py-4 text-sm" style="color: var(--color-texto);">
+            {{ curso.nombre }}
+          </td>
+          <td class="border-t border-gray-200 px-6 py-4">
+            <div class="flex space-x-4">
+              <!-- Botón Editar -->
+              <a [routerLink]="['/editar-curso', curso._id]"
+                class="inline-flex items-center px-3 py-2 text-white text-sm font-medium rounded-lg transition duration-150"
+                style="background-color: var(--color-secundario);">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-1">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 3.487a2.25 2.25 0 00-3.182 0L3.487 13.68a4.5 4.5 0 00-1.155 2.31l-.693 4.152a.75.75 0 00.88.88l4.152-.693a4.5 4.5 0 002.31-1.155l10.193-10.193a2.25 2.25 0 000-3.182z"></path>
+                </svg>
+                Editar
+              </a>
+
+              <!-- Botón Eliminar -->
+              <a [routerLink]="['/eliminar-curso', curso._id]"
+                class="inline-flex items-center px-3 py-2 text-white text-sm font-medium rounded-lg transition duration-150"
+                style="background-color: var(--color-error);">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-1">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 7.5L4.5 7.5m2.25 0l-.375 12.375A2.25 2.25 0 008.625 22.5h6.75a2.25 2.25 0 002.25-2.625L17.25 7.5m-6.75 0V5.25a2.25 2.25 0 014.5 0V7.5m-4.5 0h4.5"></path>
+                </svg>
+                Eliminar
+              </a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
