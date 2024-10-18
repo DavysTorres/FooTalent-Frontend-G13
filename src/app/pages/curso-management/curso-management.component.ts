@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CursoService } from '../../services/curso.service';
+import { UsersService } from '../../services/users.service';
 
 @Component({
   selector: 'app-curso-management',
@@ -12,12 +13,14 @@ import { CursoService } from '../../services/curso.service';
 })
 export class CursoManagementComponent implements OnInit {
 
-  cursos: any[] = [];  
+  cursos: any[] = [];
+  idUsuario: string | null = null;
 
-  constructor(private cursoService: CursoService) { }
+  constructor(private cursoService: CursoService, private usuarioService: UsersService) { }
 
   ngOnInit(): void {
-    this.obtenerCursos();  // Llama a la función para obtener los cursos al inicializar el componente
+    this.idUsuario = this.usuarioService.getIdUsuario();
+    this.obtenerCursosPropios(this.idUsuario);  // Llama a la función para obtener los cursos al inicializar el componente
   }
 
   obtenerCursos(): void {
@@ -25,4 +28,15 @@ export class CursoManagementComponent implements OnInit {
       this.cursos = response.data;  // Asigna los cursos a la propiedad
     });
   }
+
+  obtenerCursosPropios(idUsuario:any): void {
+
+    this.cursoService.obtenerCursoPorIdUsuario(idUsuario).subscribe((response: any) => {
+      this.cursos = response.data;  // Asigna los cursos a la propiedad
+    });
+
+  }
+
+
 }
+

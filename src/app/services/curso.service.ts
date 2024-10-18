@@ -33,4 +33,8 @@ export class CursoService{
     return this.http.put(`${this.apiUrl}/curso/${id}`, { activo: false });
   }
 
+  obtenerCursoPorIdUsuario(id: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/curso/cursos/${id}`);
+  }
+
 }

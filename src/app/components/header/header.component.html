@@ -2,12 +2,9 @@
   class="w-full h-auto px-6 py-3 bg-[#e6edf2] flex justify-between items-center"
 >
   <!-- Logo -->
-  <a href="/">
-    <img
-      class="w-[179px] h-[87px] cursor-pointer"
-      src="/assets/images/logo.png"
-      alt="Logo"
-    />
+  <a href="/" class="flex-shrink-0">
+    <img class="w-[150px] h-auto md:w-[179px] md:h-[87px] cursor-pointer"
+         src="/assets/images/logo.png" alt="Logo" />
   </a>
 
   <!-- Barra de búsqueda -->
@@ -57,6 +54,20 @@
         </div>
       </div>
     </div>
+
+    <!-- Menú desplegable del usuario -->
+    <ng-template #loggedInMenu>
+      <div class="relative">
+        <img [src]="userAvatar || '/assets/default-avatar.png'" alt="Avatar"
+          class="w-10 h-10 rounded-full cursor-pointer" (click)="toggleMenu()" />
+
+          <div *ngIf="menuOpen" class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg dropdown-menu">
+            <a *ngIf="profileLink" [routerLink]="profileLink" class="block px-4 py-2 hover:bg-gray-100">Perfil</a>
+            <a routerLink="/cursos" class="block px-4 py-2 hover:bg-gray-100">Mis Cursos</a>
+            <button (click)="logout()" class="block w-full text-left px-4 py-2 hover:bg-gray-100">Cerrar sesión</button>
+          </div>
+      </div>
+    </ng-template>
   </div>
 
   <!-- Menú desplegable del usuario -->

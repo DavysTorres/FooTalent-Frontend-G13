@@ -17,7 +17,7 @@ export class LandingComponent {
   courses = [
     { id: 1, name: 'PHP y Bases de datos', img: '/assets/images/php.png' },
     { id: 2, name: 'Diseño web', img: '/assets/images/html.png' },
-    { id: 3, name: 'Phyton', img: '/assets/images/phyton.png' },
+    { id: 3, name: 'Python', img: '/assets/images/python.png' },
     { id: 4, name: 'Java', img: '/assets/images/java.png' },
     { id: 5, name: 'Javascript', img: '/assets/images/javascript.png' },
     { id: 6, name: 'C++', img: '/assets/images/c.png' },

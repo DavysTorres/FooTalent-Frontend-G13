@@ -9,6 +9,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [CommonModule, RouterModule.forChild(routes), FeatureComponent]
+  declarations: [FeatureComponent],
+  imports: [CommonModule, RouterModule.forChild(routes)] 
 })
 export class FeatureModule {}

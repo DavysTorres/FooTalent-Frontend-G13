@@ -10,12 +10,21 @@
         <li><a routerLink="/crear-curso" class="text-blue-500 hover:underline">Crear Curso</a></li>
         <li><a routerLink="/curso-management" class="text-blue-500 hover:underline">Gestionar Cursos</a></li>
       </ul>
+
+
     </div>
+
+
 
     <div class="bg-white shadow-md p-4 rounded-lg">
       <h2 class="text-lg font-semibold">Gestión de Contenido</h2>
       <a routerLink="/contenido-management" class="text-blue-500 hover:underline">Administrar Contenido</a>
     </div>
+  </div>
+  
+  <div class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <!-- Usa el componente de curso-tarjeta para cada curso -->
+    <app-curso-tarjeta *ngFor="let curso of cursos" [curso]="curso"></app-curso-tarjeta>
   </div>
 </div>
 

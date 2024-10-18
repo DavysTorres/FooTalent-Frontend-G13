@@ -1,3 +1,4 @@
+//Cspell: disable;
 import { Routes, RouterModule } from '@angular/router';
 import { Component, NgModule } from '@angular/core';
 import { LoginComponent } from './pages/login/login.component';
@@ -17,12 +18,12 @@ import { AprendizDashboardComponent } from './pages/aprendiz-dashboard/aprendiz-
 import { VistaCursoComponent } from './pages/vista-curso/vista-curso.component';
 import { ConfirmAccountComponent } from './pages/confirm-account/confirm-account.component';
 import { CommonModule } from '@angular/common';
-import { FeatureComponent } from './feature/feature/feature.component';
+
 
 export const routes: Routes = [
   { path: '', component: LandingComponent },
   { path: 'feature', loadChildren: () => import('../feature/feature.module').then(m => m.FeatureModule) },
-  { path: 'inicio-sesion', component: LoginComponent },
+  { path: 'inicio-sesion', component: LoginComponent, },
   { path: 'registro', component: RegisterComponent },
   { path: 'validacion', component: ValidacionCorreoComponent },
   { path: 'reset', component: ResetPasswordComponent },
@@ -36,18 +37,16 @@ export const routes: Routes = [
   { path: 'editar-curso/:id', component: EditarCursoComponent },
   { path: 'eliminar-curso/:id', component: EliminarCursoComponent },
   //{ path: 'contenido-management', component: ContenidoManagementComponent },
-  { path: 'listCurso', component: CourseListComponent  },
-  { path: 'aprendiz-dashboard', component: AprendizDashboardComponent },
   { path: 'verifyAccount', component: ConfirmAccountComponent },
   /*
-  ,
   { path: 'admin-dashboard', component: AdminDashboardComponent }*/
 ];
 
 @NgModule({
 
-  imports: [CommonModule, RouterModule.forChild(routes), FeatureComponent],
+  imports: [CommonModule, RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
 
 export class AppRoutingModule {}
+

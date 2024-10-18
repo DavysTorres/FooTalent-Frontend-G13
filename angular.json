@@ -25,7 +25,8 @@
               "src/assets",
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "public",
+                "output": "/public"
               }
             ],
             "styles": [
@@ -45,6 +46,7 @@
               "sourceMap": false,
               "namedChunks": false,
               "aot": true,
+              "extractLicenses": true,
               "budgets": [
                 {
                   "type": "initial",
