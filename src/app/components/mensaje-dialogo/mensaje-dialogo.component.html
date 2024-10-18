@@ -1,0 +1,16 @@
+<div class="dialog-container" [ngClass]="{'success': data.isSuccess, 'error': !data.isSuccess}">
+  <div class="dialog-header">
+    <div class="checkmark-container" [ngClass]="{'success': data.isSuccess, 'error': !data.isSuccess}">
+      <div class="checkmark" [ngClass]="{'success': data.isSuccess, 'error': !data.isSuccess}">
+        {{ data.isSuccess ? '&#10003;' : '&#10005;' }} <!-- Checkmark o X -->
+      </div>
+    </div>
+    <h2 mat-dialog-title>{{ data.title }}</h2>
+  </div>
+  <div mat-dialog-content class="dialog-content">
+    <p>{{ data.content }}</p>
+  </div>
+  <div mat-dialog-actions class="dialog-actions">
+    <button class="custom-button" mat-button (click)="onClose()">Cerrar</button>
+  </div>
+</div>

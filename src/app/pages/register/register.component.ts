@@ -78,7 +78,7 @@ export class RegisterComponent {
     if(this.registerForm.valid){
       this.userService.register(this.registerForm.value as Users).subscribe({
         next: (response) => {
-          this.router.navigate(['login']);
+          this.router.navigate(['inicio-sesion']);
         },
         error: (error) => {
           console.log(error);

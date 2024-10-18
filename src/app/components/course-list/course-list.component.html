@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header />
 
 <section class="py-16">
   <div class="max-w-7xl mx-auto px-6">
@@ -18,7 +18,7 @@
           Aprende los fundamentos de PHP y cómo manejar bases de datos.
         </p>
         <a
-          [routerLink]="['/detalle-curso', 1]"
+          [routerLink]="['/curso', 1]"
           class="text-blue-500 hover:text-blue-700 font-semibold"
           >Ver Más</a
         >
@@ -38,33 +38,13 @@
           Aprende a estructurar páginas web con HTML.
         </p>
         <a
-          [routerLink]="['/detalle-curso', 2]"
+          [routerLink]="['/curso', 2]"
           class="text-blue-500 hover:text-blue-700 font-semibold"
           >Ver Más</a
         >
       </div>
 
       <!-- Curso 3 -->
-      <div
-        class="bg-white shadow-lg rounded-lg p-6 text-center transition transform hover:scale-105"
-      >
-        <img
-          src="/assets/images/java.png"
-          alt="Curso de Java"
-          class="mb-4 rounded-lg"
-        />
-        <h3 class="text-xl font-bold mb-4">Curso de Java</h3>
-        <p class="mb-4 text-gray-600">
-          Domina la programación orientada a objetos con Java.
-        </p>
-        <a
-          [routerLink]="['/detalle-curso', 3]"
-          class="text-blue-500 hover:text-blue-700 font-semibold"
-          >Ver Más</a
-        >
-      </div>
-
-      <!-- Curso 4 -->
       <div
         class="bg-white shadow-lg rounded-lg p-6 text-center transition transform hover:scale-105"
       >
@@ -78,7 +58,27 @@
           Aprende a programar con Python y sus múltiples aplicaciones.
         </p>
         <a
-          [routerLink]="['/detalle-curso', 4]"
+          [routerLink]="['/curso', 3]"
+          class="text-blue-500 hover:text-blue-700 font-semibold"
+          >Ver Más</a
+        >
+      </div>
+
+      <!-- Curso 4 -->
+      <div
+        class="bg-white shadow-lg rounded-lg p-6 text-center transition transform hover:scale-105"
+      >
+        <img
+          src="/assets/images/java.png"
+          alt="Curso de Java"
+          class="mb-4 rounded-lg"
+        />
+        <h3 class="text-xl font-bold mb-4">Curso de Java</h3>
+        <p class="mb-4 text-gray-600">
+          Domina la programación orientada a objetos con Java.
+        </p>
+        <a
+          [routerLink]="['/curso', 4]"
           class="text-blue-500 hover:text-blue-700 font-semibold"
           >Ver Más</a
         >
@@ -98,7 +98,7 @@
           Domina el lenguaje de la web y crea aplicaciones interactivas.
         </p>
         <a
-          [routerLink]="['/detalle-curso', 5]"
+          [routerLink]="['/curso', 5]"
           class="text-blue-500 hover:text-blue-700 font-semibold"
           >Ver Más</a
         >
@@ -118,7 +118,7 @@
           Aprende a programar aplicaciones de alto rendimiento con C++.
         </p>
         <a
-          [routerLink]="['/detalle-curso', 6]"
+          [routerLink]="['/curso', 6]"
           class="text-blue-500 hover:text-blue-700 font-semibold"
           >Ver Más</a
         >
@@ -127,4 +127,4 @@
   </div>
 </section>
 
-<app-footer></app-footer>
+<app-footer />

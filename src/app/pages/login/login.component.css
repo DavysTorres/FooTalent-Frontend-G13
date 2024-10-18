@@ -10,3 +10,17 @@
 h2, label, p, a, button {
     font-family: "Lato", sans-serif;
 }
+.spinner-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999; /* Asegúrate de que esté por encima de todo */
+  }
+   .snackbar {
+    background-color: #2196F3 !important ; /* Azul de Material Design */
+    color: white !important ; /* Texto blanco */
+  }
+
+  
+  
