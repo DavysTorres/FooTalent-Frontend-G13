@@ -18,7 +18,7 @@ import { AprendizDashboardComponent } from './pages/aprendiz-dashboard/aprendiz-
 import { VistaCursoComponent } from './pages/vista-curso/vista-curso.component';
 import { ConfirmAccountComponent } from './pages/confirm-account/confirm-account.component';
 import { CommonModule } from '@angular/common';
-import { AuthGuard } from './guards/auth.guard';
+
 
 export const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -39,7 +39,6 @@ export const routes: Routes = [
   //{ path: 'contenido-management', component: ContenidoManagementComponent },
   { path: 'verifyAccount', component: ConfirmAccountComponent },
   /*
-  ,
   { path: 'admin-dashboard', component: AdminDashboardComponent }*/
 ];
 
