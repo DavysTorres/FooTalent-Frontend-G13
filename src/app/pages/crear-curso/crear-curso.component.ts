@@ -4,6 +4,8 @@ import { Router, RouterModule } from '@angular/router';
 import { CursoService } from '../../services/curso.service';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
+import { MatDialog } from '@angular/material/dialog';
+import { MensajeDialogoComponent } from '../../components/mensaje-dialogo/mensaje-dialogo.component';
 
 
 @Component({
@@ -15,7 +17,7 @@ import { FooterComponent } from '../../components/footer/footer.component';
 })
 export class CrearCursoComponent {
   
-  
+
   curso = {
     nombre: '',
     descripcion: '',
@@ -24,6 +26,7 @@ export class CrearCursoComponent {
 
   private cursoService = inject(CursoService);
   private router = inject(Router);
+  private dialog = inject(MatDialog);
 
 
   onSubmit() {
@@ -33,19 +36,30 @@ export class CrearCursoComponent {
         this.curso.docenteId = userId; 
         this.cursoService.crearCurso(this.curso).subscribe(
           (response) => {
-            console.log('Curso creado exitosamente:', response);
+            this.dialog.open(MensajeDialogoComponent,{
+              data: { title: 'Curso creado exitosamente', content: 'Ya puedes visualizar tu curso en gestión de cursos', isSuccess:true }
+            });
             // Redirigir a la vista de gestión de cursos
             this.router.navigate(['/teacher-dashboard']);
+            
           },
           (error) => {
             console.error('Error al crear el curso:', error);
+            this.dialog.open(MensajeDialogoComponent,{
+              data: { title: 'Error al crear el curso', content: 'Por favor, reintenta crear nuevamente el curso', isSuccess:false }
+            });
           }
         );
       } else {
         console.error('No se encontró el ID del usuario');
+        this.dialog.open(MensajeDialogoComponent,{
+          data: { title: 'Error al crear el curso', content: 'Usuario no encontrado', isSuccess:false }
+        });
       }
     } else {
-      console.error('Por favor completa todos los campos');
+      this.dialog.open(MensajeDialogoComponent,{
+        data: { title: 'Error al crear el curso', content: 'Campos incompletos', isSuccess:false }
+      });
     }
   }
   

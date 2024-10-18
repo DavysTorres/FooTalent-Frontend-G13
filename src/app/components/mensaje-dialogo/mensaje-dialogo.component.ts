@@ -1,4 +1,5 @@
 
+import { CommonModule } from '@angular/common';
 import { Component, Inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -16,11 +17,11 @@ import { Router } from '@angular/router';
   selector: 'app-mensaje-dialogo',
   templateUrl: './mensaje-dialogo.component.html',
   standalone: true,
-  imports: [MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose, MatButtonModule],
+  imports: [MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose, MatButtonModule, CommonModule],
   styleUrls: ['./mensaje-dialogo.component.css']
 })
 export class MensajeDialogoComponent {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: { title: string, content: string, redirectTo: string },
+  constructor(@Inject(MAT_DIALOG_DATA) public data: { title: string, content: string, redirectTo: string, isSuccess:boolean },
     private dialogRef: MatDialogRef<MensajeDialogoComponent>,
     private router: Router) { }
 

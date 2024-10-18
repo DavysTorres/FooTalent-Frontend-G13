@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -13,6 +13,8 @@ import { FooterComponent } from '../../components/footer/footer.component';
 import { Login } from '../../models/login.model';
 import { ProgressSpinnerOverviewComponent } from '../../components/progress-spinner-overview/progress-spinner-overview.component';
 import { CommonModule } from '@angular/common';
+import { MatSnackBar,  MatSnackBarConfig } from '@angular/material/snack-bar'
+
 
 @Component({
   selector: 'app-login',
@@ -25,6 +27,7 @@ export class LoginComponent {
   private router = inject(Router);
   private userService = inject(UsersService);
   private fb = inject(FormBuilder);
+  private snackBar=inject(MatSnackBar)
 
   constructor() {}
   loading = false
@@ -61,6 +64,8 @@ export class LoginComponent {
 
             // Obtiene el rol del usuario desde la respuesta
             const userRole = response.data.usuario.role;
+            
+
             // Redirecciona según el rol del usuario
             switch (userRole) {
               case 'Docente':
@@ -77,21 +82,34 @@ export class LoginComponent {
                 break;
             }
 
-            alert('Ingreso exitoso');
+            this.openSnackBar('¡Login exitoso!');
           } else {
             this.loading = false;
             this.formInvalid = true;
-            alert('Error al iniciar sesión');
+            this.openSnackBar('Error al iniciar sesión');;
           }
         },
         error: (error) => {
           console.log('Error en el login:', error);
-          alert('Error al iniciar sesión. Verifica tus credenciales.');
+          this.loading = false;
+          this.openSnackBar('ERROR: Verifica tus credenciales');
         },
       });
     } else {
-      alert('Campos incompletos o inválidos.');
+      this.openSnackBar('Campos incompletos');
+      this.loading = false;
     }
   }
+
+  openSnackBar(message: string) {
+
+    const config = new MatSnackBarConfig();
+    config.duration = 3000;
+    config.horizontalPosition = 'center';
+    config.verticalPosition = 'top';
+    config.panelClass = ['snackbar'];
+    this.snackBar.open(message, 'Cerrar', config);
+  }
+
 
 }

@@ -1,0 +1,5 @@
+.dropdown-menu {
+    z-index: 9999; /* Asegura que esté por encima de otros elementos */
+    position: absolute; /* Ya lo tienes, lo dejamos para asegurarnos de que esté bien posicionado */
+    background-color: white; /* Mantener el color de fondo */
+}

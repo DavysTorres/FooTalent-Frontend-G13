@@ -1,7 +1,9 @@
-<div class="dialog-container">
+<div class="dialog-container" [ngClass]="{'success': data.isSuccess, 'error': !data.isSuccess}">
   <div class="dialog-header">
-    <div class="checkmark-container">
-      <div class="checkmark">&#10003;</div> <!-- Código HTML para el checkmark -->
+    <div class="checkmark-container" [ngClass]="{'success': data.isSuccess, 'error': !data.isSuccess}">
+      <div class="checkmark" [ngClass]="{'success': data.isSuccess, 'error': !data.isSuccess}">
+        {{ data.isSuccess ? '&#10003;' : '&#10005;' }} <!-- Checkmark o X -->
+      </div>
     </div>
     <h2 mat-dialog-title>{{ data.title }}</h2>
   </div>

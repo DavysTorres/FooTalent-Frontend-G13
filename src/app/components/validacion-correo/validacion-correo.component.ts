@@ -35,15 +35,19 @@ export class ValidacionCorreoComponent {
         next: (response) => {
           console.log("Revisa tu correo electronico:", response);
           this.dialog.open(MensajeDialogoComponent,{
-            data: { title: 'Correo Enviado', content: 'Revisa tu correo electrónico para más instrucciones.' }
+            data: { title: 'Correo Enviado', content: 'Revisa tu correo electrónico para más instrucciones.', isSuccess: true }
           });
         },
         error: (error) => {
-          console.log(error);
+          this.dialog.open(MensajeDialogoComponent,{
+            data: { title: 'Error al procesar los datos', content: 'Vuelve a realizar la petición de reestablecimiento de contraseña', isSuccess: false }
+          });
         },
       });
     } else {
-      alert("Campos incompletos")
+      this.dialog.open(MensajeDialogoComponent,{
+        data: { title: 'Campos vacios', content: 'Ingrese su email, por favor', isSuccess: false }
+      });
     }
   }
 }
