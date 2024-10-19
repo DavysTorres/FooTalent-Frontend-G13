@@ -1,17 +1,27 @@
-<header class="w-full h-auto px-6 py-3 bg-[#e6edf2] flex justify-between items-center">
+<header
+  class="w-full h-auto px-6 py-3 bg-[#e6edf2] flex justify-between items-center"
+>
   <!-- Logo -->
-  <a href="/">
-    <img class="w-[179px] h-[87px] cursor-pointer" src="/assets/images/logo.png" alt="Logo" />
+  <a href="/" class="flex-shrink-0">
+    <img class="w-[150px] h-auto md:w-[179px] md:h-[87px] cursor-pointer"
+         src="/assets/images/logo.png" alt="Logo" />
   </a>
 
-  <!-- Barra de búsqueda y opciones de usuario -->
-  <div class="flex justify-end items-center gap-4">
-    <div class="hidden md:flex w-[378px] flex-col justify-start items-start gap-1">
+  <!-- Barra de búsqueda -->
+  <div class="flex items-center gap-4">
+    <div class="hidden md:flex w-[378px] flex-col justify-end items-end">
       <div
-        class="self-stretch px-2 py-3.5 bg-[#dae8fa] rounded-lg border-l-4 border-[#11448a] flex justify-between items-center">
-        <input class="text-sm font-normal font-['Lato'] leading-[16.80px] bg-transparent w-[19.5vw]"
-          placeholder="Busca tu próximo curso" />
-        <button class="w-4 h-4 flex justify-center items-center">
+        class="self-stretch px-2 py-3.5 bg-[#dae8fa] rounded-lg border-l-4 border-[#11448a] flex justify-between items-center"
+      >
+        <input
+          [(ngModel)]="searchQuery"
+          class="text-sm font-normal font-['Lato'] leading-[16.80px] bg-transparent w-[19.5vw]"
+          placeholder="Busca tu próximo curso"
+        />
+        <button
+          class="w-4 h-4 flex justify-center items-center"
+          (click)="searchCourse()"
+        >
           <i class="fa fa-search"></i>
         </button>
       </div>
@@ -20,15 +30,25 @@
     <!-- Mostrar botones de registro o avatar del usuario -->
     <div *ngIf="!isLoggedIn; else loggedInMenu" class="flex gap-4">
       <div class="w-auto">
-        <div class="h-[42px] px-6 bg-[#0a2750] rounded-lg flex justify-center items-center">
-          <a href="/registro" class="text-neutral-50 text-base font-normal font-['Lato'] leading-tight">
+        <div
+          class="h-[42px] px-6 bg-[#0a2750] rounded-lg flex justify-center items-center"
+        >
+          <a
+            href="/registro"
+            class="text-neutral-50 text-base font-normal font-['Lato'] leading-tight"
+          >
             Registrarse
           </a>
         </div>
       </div>
       <div class="w-auto">
-        <div class="h-[42px] px-6 bg-[#557fa5] rounded-lg flex justify-center items-center">
-          <a href="/inicio-sesion" class="text-neutral-50 text-base font-normal font-['Lato'] leading-tight">
+        <div
+          class="h-[42px] px-6 bg-[#557fa5] rounded-lg flex justify-center items-center"
+        >
+          <a
+            href="/inicio-sesion"
+            class="text-neutral-50 text-base font-normal font-['Lato'] leading-tight"
+          >
             Iniciar sesión
           </a>
         </div>
@@ -49,4 +69,34 @@
       </div>
     </ng-template>
   </div>
+
+  <!-- Menú desplegable del usuario -->
+  <ng-template #loggedInMenu>
+    <div class="relative">
+      <img
+        [src]="userAvatar || '/assets/default-avatar.png'"
+        alt="Avatar"
+        class="w-10 h-10 rounded-full cursor-pointer"
+        (click)="toggleMenu()"
+      />
+
+      <div
+        *ngIf="menuOpen"
+        class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg"
+      >
+        <a href="/aprendiz-dashboard" class="block px-4 py-2 hover:bg-gray-100"
+          >Perfil</a
+        >
+        <a href="/courses" class="block px-4 py-2 hover:bg-gray-100"
+          >Mis Cursos</a
+        >
+        <button
+          (click)="logout()"
+          class="block w-full text-left px-4 py-2 hover:bg-gray-100"
+        >
+          Cerrar sesión
+        </button>
+      </div>
+    </div>
+  </ng-template>
 </header>
