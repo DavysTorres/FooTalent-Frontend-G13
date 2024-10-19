@@ -30,7 +30,7 @@ export class CursoService{
     return this.http.put(`${this.apiUrl}/curso/${id}`, cursoData);
   }
   eliminarCurso(id: string): Observable<any> {
-    return this.http.put(`${this.apiUrl}/curso/${id}`, { activo: false });
+    return this.http.delete(`${this.apiUrl}/curso/${id}`);
   }
 
   obtenerCursoPorIdUsuario(id: string): Observable<any> {

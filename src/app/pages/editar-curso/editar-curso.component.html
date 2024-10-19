@@ -1,7 +1,8 @@
 <div class="max-w-4xl mx-auto mt-10">
-  <h2 class="text-2xl font-bold mb-6 text-center">Editar Curso</h2>
+  <h2 class="text-2xl font-bold mb-6 text-center" *ngIf="curso">Editar Curso</h2>
 
-  <form (ngSubmit)="onSubmit()" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+  <!-- Verificamos que los datos del curso estén cargados -->
+  <form *ngIf="curso" (ngSubmit)="onSubmit()" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
     
     <!-- Nombre del curso -->
     <div class="mb-4">
@@ -19,12 +20,44 @@
       <input [(ngModel)]="curso.descripcion" name="descripcion" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="descripcion" type="text" placeholder="Ingresa la descripción del curso" required>
     </div>
 
-    <!-- Profesor asignado -->
-    <div class="mb-6">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="profesor">
-        Profesor Asignado (ID)
+    <!-- Imagen del curso -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="imagen">
+        Imagen del Curso
       </label>
-      <input [(ngModel)]="curso.docenteId" name="docenteId" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="profesor" type="text" placeholder="ID del profesor asignado" required>
+      <input [(ngModel)]="curso.imagen" name="imagen" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="imagen" type="text" placeholder="Ingresa la URL de la imagen del curso">
+    </div>
+
+    <!-- Qué aprenderás -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="que_aprenderas">
+        ¿Qué aprenderás?
+      </label>
+      <textarea [(ngModel)]="curso.que_aprenderas" name="que_aprenderas" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="que_aprenderas" rows="3" placeholder="Describe lo que los estudiantes aprenderán en este curso"></textarea>
+    </div>
+
+    <!-- Requisitos del curso -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="requisitos">
+        Requisitos
+      </label>
+      <textarea [(ngModel)]="curso.requisitos" name="requisitos" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="requisitos" rows="3" placeholder="Requisitos para tomar el curso"></textarea>
+    </div>
+
+    <!-- Razón de elección del curso -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="razon_eleccion">
+        Razón para elegir este curso
+      </label>
+      <textarea [(ngModel)]="curso.razon_eleccion" name="razon_eleccion" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="razon_eleccion" rows="3" placeholder="¿Por qué deberían elegir este curso?"></textarea>
+    </div>
+
+    <!-- Información adicional -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="informacion_adicional">
+        Información Adicional
+      </label>
+      <textarea [(ngModel)]="curso.informacion_adicional" name="informacion_adicional" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="informacion_adicional" rows="3" placeholder="Información adicional sobre el curso"></textarea>
     </div>
 
     <!-- Botón para guardar los cambios -->

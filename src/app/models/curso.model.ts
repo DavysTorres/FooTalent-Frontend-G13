@@ -1,6 +1,10 @@
 export interface Curso {
-  _id: string;
+  _id?: string;
   nombre: string;
   descripcion: string;
-  docenteId: string;
+  imagen?: string;
+  que_aprenderas?: string;
+  requisitos?: string;
+  razon_eleccion?: string;
+  informacion_adicional?: string;
 }
