@@ -4,7 +4,6 @@
   <!-- Logo -->
   <a href="/" class="flex-shrink-0">
     <img class="w-[150px] h-auto md:w-[179px] md:h-[87px] cursor-pointer" src="/assets/images/logo.png" alt="Logo" />
-    <img class="w-[150px] h-auto md:w-[179px] md:h-[87px] cursor-pointer" src="/assets/images/logo.png" alt="Logo" />
   </a>
 
   <!-- Icono del menú para móviles -->
@@ -64,8 +63,8 @@
     <ng-template #loggedInMenu>
       <div class="relative">
         <img [src]="userAvatar" alt="Avatar" class="w-10 h-10 rounded-full cursor-pointer" (click)="toggleMenu()" />
-        <div *ngIf="menuOpen" class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg">
-          <p class="px-4 py-2 text-gray-700">{{userName}}</p>
+        <p >{{userName}}</p>
+        <div *ngIf="menuOpen" class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg dropdown-menu">
           <a *ngIf="profileLink" [routerLink]="profileLink" class="block px-4 py-2 hover:bg-gray-100">Perfil</a>
           <a routerLink="/cursos" class="block px-4 py-2 hover:bg-gray-100">Mis Cursos</a>
           <button (click)="logout()" class="block w-full text-left px-4 py-2 hover:bg-gray-100">
@@ -80,7 +79,7 @@
   <ng-template #loggedInMenu>
     <div class="relative">
       <img
-        [src]="userAvatar || '/assets/default-avatar.png'"
+        src="/assets/default-avatar.png"
         alt="Avatar"
         class="w-10 h-10 rounded-full cursor-pointer"
         (click)="toggleMenu()"
