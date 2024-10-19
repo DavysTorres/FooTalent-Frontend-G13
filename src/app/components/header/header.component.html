@@ -37,8 +37,9 @@
     <!-- Menú desplegable del usuario -->
     <ng-template #loggedInMenu>
       <div class="relative">
-        <img [src]="userAvatar || '/assets/default-avatar.png'" alt="Avatar"
+        <img src="/assets/images/default-avatar.png" lt="Avatar"
           class="w-10 h-10 rounded-full cursor-pointer" (click)="toggleMenu()" />
+          <p>{{userName}}</p>
         <div *ngIf="menuOpen" class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg dropdown-menu">
           <a *ngIf="profileLink" [routerLink]="profileLink" class="block px-4 py-2 hover:bg-gray-100">Perfil</a>
           <a routerLink="/cursos" class="block px-4 py-2 hover:bg-gray-100">Mis Cursos</a>

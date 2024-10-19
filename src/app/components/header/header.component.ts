@@ -40,7 +40,7 @@ export class HeaderComponent implements OnInit{
 
   loadUserData() {
     this.userName = localStorage.getItem('user_nombre') || 'usuario';
-    this.userAvatar = localStorage.getItem('user_avatar') || '/assets/images/default-avatar.png';
+    //this.userAvatar = localStorage.getItem('user_avatar') || '/assets/images/default-avatar.png';
     this.userRole = localStorage.getItem('user_role');
 
     console.log('Rol de usuario:', this.userRole);
