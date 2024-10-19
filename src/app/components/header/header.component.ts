@@ -49,10 +49,7 @@ export class HeaderComponent implements OnInit{
       this.profileLink = '/teacher-dashboard';
     } else if (this.userRole === 'Aprendiz') {
       this.profileLink = '/aprendiz-dashboard';
-    } else {
-      this.profileLink = '/default-dashboard';
-    }
-
+    } 
     console.log('Profile Link:', this.profileLink);
   }
 
