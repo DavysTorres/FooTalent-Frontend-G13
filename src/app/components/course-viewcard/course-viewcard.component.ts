@@ -21,7 +21,7 @@ export class CourseViewcardComponent implements OnInit{
 
   ngOnInit(): void{
     console.log(this.userId)
-    this.cursoService.obtenerCursoPorUsuario(this.userId).subscribe(
+    this.cursoService.obtenerCursoPorIdUsuario(this.userId).subscribe(
       (response) => {
         this.cursos = response.data
         console.log("Informacion de cursos: ", response.data)
