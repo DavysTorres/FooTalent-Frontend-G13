@@ -1,14 +1,11 @@
 <header class="w-full h-auto px-4 md:px-6 py-3 bg-[#e6edf2] flex justify-between items-center">
   <!-- Logo -->
   <a href="/" class="flex-shrink-0">
-    <img class="w-[150px] h-auto md:w-[179px] md:h-[87px] cursor-pointer"
-         src="/assets/images/logo.png" alt="Logo" />
+    <img class="w-[150px] h-auto md:w-[179px] md:h-[87px] cursor-pointer" src="/assets/images/logo.png" alt="Logo" />
   </a>
 
   <!-- Icono del menú para móviles -->
-  <button
-    class="block md:hidden text-2xl"
-    (click)="toggleMenu()">
+  <button class="block md:hidden text-2xl" (click)="toggleMenu()">
     <i class="fa fa-bars"></i>
   </button>
 
@@ -16,10 +13,8 @@
   <div class="hidden md:flex justify-end items-center gap-4 flex-grow">
     <!-- Barra de búsqueda -->
     <div class="w-full max-w-[378px]">
-      <div
-        class="px-2 py-2 bg-[#dae8fa] rounded-lg border-l-4 border-[#11448a] flex justify-between items-center">
-        <input
-          class="text-sm font-['Lato'] bg-transparent w-full focus:outline-none"
+      <div class="px-2 py-2 bg-[#dae8fa] rounded-lg border-l-4 border-[#11448a] flex justify-between items-center">
+        <input class="text-sm font-['Lato'] bg-transparent w-full focus:outline-none"
           placeholder="Busca tu próximo curso" />
         <button class="w-5 h-5 flex justify-center items-center">
           <i class="fa fa-search"></i>
@@ -30,11 +25,11 @@
     <!-- Mostrar botones de registro o avatar del usuario -->
     <div *ngIf="!isLoggedIn; else loggedInMenu" class="flex gap-2">
       <a href="/registro"
-         class="h-10 px-4 bg-[#0a2750] rounded-lg flex items-center justify-center text-neutral-50 text-sm font-['Lato']">
+        class="h-10 px-4 bg-[#0a2750] rounded-lg flex items-center justify-center text-neutral-50 text-sm font-['Lato']">
         Registrarse
       </a>
       <a href="/inicio-sesion"
-         class="h-10 px-4 bg-[#557fa5] rounded-lg flex items-center justify-center text-neutral-50 text-sm font-['Lato']">
+        class="h-10 px-4 bg-[#557fa5] rounded-lg flex items-center justify-center text-neutral-50 text-sm font-['Lato']">
         Iniciar sesión
       </a>
     </div>
@@ -42,20 +37,12 @@
     <!-- Menú desplegable del usuario -->
     <ng-template #loggedInMenu>
       <div class="relative">
-        <img [src]="userAvatar || '/assets/default-avatar.png'"
-             alt="Avatar"
-             class="w-10 h-10 rounded-full cursor-pointer"
-             (click)="toggleMenu()" />
-        <div
-          *ngIf="menuOpen"
-          class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg">
-          <a *ngIf="profileLink" [routerLink]="profileLink"
-             class="block px-4 py-2 hover:bg-gray-100">Perfil</a>
-          <a routerLink="/cursos"
-             class="block px-4 py-2 hover:bg-gray-100">Mis Cursos</a>
-          <button
-             (click)="logout()"
-             class="block w-full text-left px-4 py-2 hover:bg-gray-100">
+        <img [src]="userAvatar || '/assets/default-avatar.png'" alt="Avatar"
+          class="w-10 h-10 rounded-full cursor-pointer" (click)="toggleMenu()" />
+        <div *ngIf="menuOpen" class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg">
+          <a *ngIf="profileLink" [routerLink]="profileLink" class="block px-4 py-2 hover:bg-gray-100">Perfil</a>
+          <a routerLink="/cursos" class="block px-4 py-2 hover:bg-gray-100">Mis Cursos</a>
+          <button (click)="logout()" class="block w-full text-left px-4 py-2 hover:bg-gray-100">
             Cerrar sesión
           </button>
         </div>
@@ -64,21 +51,18 @@
   </div>
 
   <!-- Menú móvil desplegable -->
-  <div *ngIf="menuOpen" class="absolute top-[80px] inset-x-0 bg-white p-4 md:hidden z-10 shadow-lg">
+  <div *ngIf="menuOpen" class="absolute top-[80px] inset-x-0 bg-white p-4 md:hidden z-10 shadow-lg dropdown-menu">
     <div *ngIf="!isLoggedIn; else loggedInMenuMobile" class="flex flex-col gap-2">
       <a href="/registro" class="block px-4 py-2 bg-[#0a2750] text-neutral-50 rounded-lg text-center">Registrarse</a>
-      <a href="/inicio-sesion" class="block px-4 py-2 bg-[#557fa5] text-neutral-50 rounded-lg text-center">Iniciar sesión</a>
+      <a href="/inicio-sesion" class="block px-4 py-2 bg-[#557fa5] text-neutral-50 rounded-lg text-center">Iniciar
+        sesión</a>
     </div>
 
     <ng-template #loggedInMenuMobile>
       <div class="flex flex-col gap-2">
-        <a *ngIf="profileLink" [routerLink]="profileLink"
-           class="block px-4 py-2 hover:bg-gray-100">Perfil</a>
-        <a routerLink="/cursos"
-           class="block px-4 py-2 hover:bg-gray-100">Mis Cursos</a>
-        <button
-          (click)="logout()"
-          class="block w-full text-left px-4 py-2 hover:bg-gray-100">
+        <a *ngIf="profileLink" [routerLink]="profileLink" class="block px-4 py-2 hover:bg-gray-100">Perfil</a>
+        <a routerLink="/cursos" class="block px-4 py-2 hover:bg-gray-100">Mis Cursos</a>
+        <button (click)="logout()" class="block w-full text-left px-4 py-2 hover:bg-gray-100">
           Cerrar sesión
         </button>
       </div>
