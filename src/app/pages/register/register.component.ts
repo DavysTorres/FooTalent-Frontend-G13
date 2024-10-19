@@ -12,6 +12,8 @@ import {
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { __values } from 'tslib';
+import { MensajeDialogoComponent } from '../../components/mensaje-dialogo/mensaje-dialogo.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-register',
@@ -28,6 +30,7 @@ import { __values } from 'tslib';
 export class RegisterComponent {
   private router = inject(Router);
   private userService = inject(UsersService);
+  private dialog = inject(MatDialog);
 
   registerForm = new FormGroup({
     nombre: new FormControl('', {
@@ -78,6 +81,9 @@ export class RegisterComponent {
     if(this.registerForm.valid){
       this.userService.register(this.registerForm.value as Users).subscribe({
         next: (response) => {
+          this.dialog.open(MensajeDialogoComponent,{
+            data: { title: 'Usuario creado exitosamente', content: '¡En hora buena! te has registrado exitosamente en DevAcademy ', isSuccess:true }
+          });
           this.router.navigate(['inicio-sesion']);
         },
         error: (error) => {
@@ -85,7 +91,9 @@ export class RegisterComponent {
         },
       });
     } else {
-      alert("Campos incompletos")
+      this.dialog.open(MensajeDialogoComponent,{
+        data: { title: 'Campos incompletos', content: 'Por favor, complete los campos', isSuccess:false }
+      });
     }
   }
 }
