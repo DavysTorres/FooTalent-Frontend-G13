@@ -6,41 +6,37 @@
         solo unos pasos y empieza a desarrollar las habilidades que te llevarán a la cima ¡La tecnología está a un clic
         de distancia!</b></h2>
     <div id="register-form">
-      <form [formGroup]="registerForm" (submit)="OnSubmit($event)" class="w-1/2 gap-y-2.5">
-        <h3 class="text-base mt-4 mb-2"><b>Registro</b></h3>
-        <div class="mb-2">
-          <label for="nombre" class="text-xs"><b>Nombre y Apellido *</b></label>
-          <input type="text" id="nombre" formControlName="nombre" class="border border-black w-full rounded pl-2 h-8"
-            placeholder="Juan Perez" />
+        <div>
+            <img class="w-96" src="../../../assets/images/hombrecito2.png" alt="">
         </div>
-        <div class="mb-2">
-          <label for="email" class="text-xs"><b>Correo Electrónico *</b></label>
-          <input type="email" id="email" formControlName="email" class="border border-black w-full rounded pl-2 h-8"
-            placeholder="juan.perez@mail.com" />
-        </div>
-        <div class="mb-4">
-          <label for="password" class="text-xs"><b>Contraseña *</b></label>
-          <input type="password" id="password" formControlName="password"
-            class="border border-black w-full rounded pl-2 h-8" placeholder="xxxxxxxx" />
-        </div>
-        <div class="mb-4">
-          <label for="confirmPassword" class="text-xs"><b>Confirmar contraseña *</b></label>
-          <input type="password" id="confirmPassword" formControlName="confirmPassword"
-            class="border border-black w-full rounded pl-2 h-8" placeholder="xxxxxxxx" />
-        </div>
-        <div class="mb-4">
-          <label for="role" class="text-xs"><b>Rol que vas a desempeñar *</b></label>
-          <select name="role" id="role" formControlName="role" class=" border border-black rounded w-3/4 h-8">
-            <option value="">--Escoge tu rol--</option>
-            <option value="Docente">Docente</option>
-            <option value="Aprendiz">Aprendiz</option>
-          </select>
-        </div>
-        <button class="bg-blue-900 w-full rounded h-8 text-white hover:opacity-75" type="submit">Registrarme</button>
-      </form>
-      <div>
-        <img class="w-96" src="/assets/images/hombrecito2.png" alt="">
-      </div>
+        <form [formGroup]="registerForm" (submit)="OnSubmit($event)" class="w-1/2 gap-y-2.5">
+            <h3 class="text-base mt-4 mb-2"><b>Registro</b></h3>
+            <div class="mb-2">
+                <label for="nombre" class="text-xs"><b>Nombre y Apellido *</b></label>
+                <input type="text" id="nombre" formControlName="nombre" class="border border-black w-full rounded pl-2 h-8" placeholder="Juan Perez"/>
+            </div>
+            <div class="mb-2">
+                <label for="email" class="text-xs"><b>Correo Electrónico *</b></label>
+                <input type="email" id="email" formControlName="email" class="border border-black w-full rounded pl-2 h-8" placeholder="juan.perez@mail.com"/>
+            </div>
+            <div class="mb-4">
+                <label for="password" class="text-xs"><b>Contraseña *</b></label>
+                <input type="password" id="password" formControlName="password" class="border border-black w-full rounded pl-2 h-8" placeholder="xxxxxxxx"/>
+            </div>
+            <div class="mb-4">
+                <label for="confirmPassword" class="text-xs"><b>Confirmar contraseña *</b></label>
+                <input type="password" id="confirmPassword" formControlName="confirmPassword" class="border border-black w-full rounded pl-2 h-8" placeholder="xxxxxxxx"/>
+            </div>
+            <div class="mb-4">
+                <label for="role" class="text-xs"><b>Rol que vas a desempeñar *</b></label>
+                <select name="role" id="role" formControlName="role" class=" border border-black rounded w-3/4 h-8">
+                    <option value="">--Escoge tu rol--</option>
+                    <option value="Docente">Docente</option>
+                    <option value="Aprendiz">Aprendiz</option>
+                </select>
+            </div>
+            <button class="bg-blue-900 w-full rounded h-8 text-white hover:opacity-75" type="submit">Registrarme</button>
+        </form>
     </div>
 
   </div>
