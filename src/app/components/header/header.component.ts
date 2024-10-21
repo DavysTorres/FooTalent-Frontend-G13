@@ -84,6 +84,7 @@ export class HeaderComponent implements OnInit {
     const foundCourse = this.availableCourses.find(
       (course) => course.toLowerCase() === this.searchQuery.toLowerCase()
     );
+    console.log("foundcourcse: ", foundCourse)
 
     if (foundCourse) {
       // Si el curso está disponible, redirige a la página de /cursos
