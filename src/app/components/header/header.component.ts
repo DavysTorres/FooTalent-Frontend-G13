@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit {
   availableCourses: string[] = [
     'PHP y Bases de datos',
     'Diseño Web',
-    'Phyton',
+    'Python',
     'Java',
     'JavaScript',
     'C++',

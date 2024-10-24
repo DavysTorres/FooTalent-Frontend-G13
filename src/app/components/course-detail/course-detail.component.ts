@@ -84,10 +84,10 @@ export class CourseDetailComponent implements OnInit {
     },
     {
       id: '3',
-      title: 'Curso de Phyton',
+      title: 'Curso de Python',
       description:
-        'Este curso de Phyton está diseñado para quienes desean iniciarse en la programación. Con un enfoque práctico y accesible, aprenderás los fundamentos de Phyton, uno de los lenguajes de programación más populares y versátiles del mundo. A través de ejemplos y ejercicios, desarrollarás tus habilidades para resolver problemas y crear aplicaciones.',
-      image: '/assets/images/phyton.png',
+        'Este curso de Python está diseñado para quienes desean iniciarse en la programación. Con un enfoque práctico y accesible, aprenderás los fundamentos de Python, uno de los lenguajes de programación más populares y versátiles del mundo. A través de ejemplos y ejercicios, desarrollarás tus habilidades para resolver problemas y crear aplicaciones.',
+      image: '/assets/images/python.png',
       details: {
         modality: 'Virtual y 100% gratuito.',
         requirements:
@@ -95,7 +95,7 @@ export class CourseDetailComponent implements OnInit {
         duration:
           'El curso se divide en 8 módulos, con una duración total de 4 semanas. Cada módulo incluye vídeos, lecturas y ejercicios prácticos.',
         objectives: [
-          'Introducción a la sintaxis de Phyton y sus estructuras básicas.',
+          'Introducción a la sintaxis de Python y sus estructuras básicas.',
           'Tipos de datos, variables y operaciones.',
           'Control de flujo: condicionales y bucles.',
           'Funciones y manejo de errores.',
@@ -103,7 +103,7 @@ export class CourseDetailComponent implements OnInit {
           'Uso de bibliotecas populares para proyectos prácticos.',
         ],
         thiscourse:
-          'Phyton es un lenguaje muy demandado en diversas industrias, desde desarrollo web hasta ciencia de datos. Este curso gratuito te proporcionará una base sólida y te preparará para seguir explorando el mundo de la programación. Al finalizar, recibirás un certificado que avala tus conocimientos.',
+          'Python es un lenguaje muy demandado en diversas industrias, desde desarrollo web hasta ciencia de datos. Este curso gratuito te proporcionará una base sólida y te preparará para seguir explorando el mundo de la programación. Al finalizar, recibirás un certificado que avala tus conocimientos.',
         teacher: {
           name: 'Héctor González Rojas',
           bio: 'Desarrollador web. Profesor en DevAcademy',
