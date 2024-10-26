@@ -7,4 +7,6 @@ export interface Curso {
   requisitos?: string;
   razon_eleccion?: string;
   informacion_adicional?: string;
+  activo?:boolean;
+  createdAt?: Date;
 }
