@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit {
   availableCourses: string[] = [
     'PHP y Bases de datos',
     'Diseño Web',
-    'Phyton',
+    'Python',
     'Java',
     'JavaScript',
     'C++',
@@ -53,7 +53,7 @@ export class HeaderComponent implements OnInit {
 
   loadUserData() {
     this.userName = localStorage.getItem('user_nombre') || 'usuario';
-    this.userAvatar = localStorage.getItem('user_avatar') || '/assets/images/default-avatar.png';
+    //this.userAvatar = localStorage.getItem('user_avatar') || '/assets/images/default-avatar.png';
     this.userRole = localStorage.getItem('user_role');
 
     console.log('Rol de usuario:', this.userRole);
@@ -84,6 +84,7 @@ export class HeaderComponent implements OnInit {
     const foundCourse = this.availableCourses.find(
       (course) => course.toLowerCase() === this.searchQuery.toLowerCase()
     );
+    console.log("foundcourcse: ", foundCourse)
 
     if (foundCourse) {
       // Si el curso está disponible, redirige a la página de /cursos
