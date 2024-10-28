@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
@@ -10,6 +10,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { CursoService } from '../../services/curso.service';
+import { SuscripcionService } from '../../services/suscripcion.service';
+import { UsersService } from '../../services/users.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
+import { MensajeDialogoComponent } from '../mensaje-dialogo/mensaje-dialogo.component';
 
 @Component({
   selector: 'app-course-detail',
@@ -30,10 +35,15 @@ export class CourseDetailComponent implements OnInit {
     private router: Router,
     private location: Location,
     private library: FaIconLibrary,
-    private cursoService: CursoService
+    private cursoService: CursoService,
+    private suscripcionService: SuscripcionService,
+    private userService: UsersService
   ) {
     this.library.addIcons(faArrowLeft);
   }
+  private dialog = inject(MatDialog);
+  
+
 
   ngOnInit(): void {
     // Obtén el parámetro 'id' de la ruta y busca el curso
@@ -48,10 +58,57 @@ export class CourseDetailComponent implements OnInit {
     if (cursoId) {
       this.cursoService.obtenerCursoPorId(cursoId).subscribe((data) => {
         this.course = data.data; // Almacena los datos del curso
-        console.log("Cursos", this.course)
-        console.log("docente", this.course.docenteId.nombre)
       });
     }
+  }
+
+
+  suscribir(cursoId: string): void {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '300px',
+      data: {
+        cursoId,
+        title: 'Confirmar inscripción',
+        message: '¿Estás seguro de que deseas inscribirte en este curso?'
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        const idUsuario = this.userService.getIdUsuario();
+        this.suscripcionService.generarSuscripcion({ idCurso: cursoId, idUsuario }).subscribe(
+          response => {
+            // Mostrar el diálogo de inscripción exitosa
+            this.dialog.open(MensajeDialogoComponent, {
+              width: '300px',
+              data: {
+                title: '¡Inscripción exitosa!',
+                content: '¡Enhorabuena! Te has inscrito exitosamente en el curso',
+                isSuccess: true
+              }
+            });
+          },
+          error => {
+            console.error('Error al inscribirse:', error);
+
+            // Verificar si el error es debido a una inscripción duplicada
+            const mensajeError = error?.error?.mensaje === 'El usuario ya está suscrito a este curso'
+            ? 'Ya estás inscrito en este curso.'
+            : 'Hubo un problema con la inscripción. Inténtalo más tarde.';
+
+            // Mostrar el diálogo de error
+            this.dialog.open(MensajeDialogoComponent, {
+              width: '300px',
+              data: {
+                title: 'Error de inscripción',
+                content: mensajeError,
+                isSuccess: false
+              }
+            });
+          }
+        );
+      }
+    });
   }
  
 }

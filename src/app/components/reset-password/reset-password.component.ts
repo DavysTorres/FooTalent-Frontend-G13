@@ -47,7 +47,6 @@ export class ResetPasswordComponent implements OnInit {
         };
         this.userService.resetPassword(resetData).subscribe({
           next: (response) => {
-            console.log('Contraseña restablecida con éxito:', response);
             const dialogRef = this.dialog.open(MensajeDialogoComponent,{
               data: { title: 'Contraseña restablecida con éxito', content: 'Ya puedes volver a iniciar sesión con tu nueva contraseña', redirectTo:'/login' }
             });
@@ -56,7 +55,6 @@ export class ResetPasswordComponent implements OnInit {
             });
           },
           error: (error) => {
-            console.log('Error al restablecer la contraseña:', error);
             const dialogRef = this.dialog.open(MensajeDialogoComponent,{
               data: { title: 'Error', content: 'Ha ocurrido un error al restablecer la contraseña. Por favor, inténtalo de nuevo.', redirectTo:'/error' }
             });

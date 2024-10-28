@@ -20,7 +20,6 @@ export class PanelDeControlComponent implements OnInit{
   ngOnInit() {
     this.userService.loginStatus$.subscribe((loggedIn) => {
       this.isLoggedIn = loggedIn;
-      console.log('Estado de login:', loggedIn);
       if (loggedIn) {
         this.loadUserData();
       }

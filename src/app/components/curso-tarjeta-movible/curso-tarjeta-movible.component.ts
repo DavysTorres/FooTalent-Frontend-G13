@@ -39,8 +39,6 @@ export class CursoTarjetaMovibleComponent {
         const idUsuario = this.userService.getIdUsuario();
         this.suscripcionService.generarSuscripcion({ idCurso: cursoId, idUsuario }).subscribe(
           response => {
-            console.log('Suscripción exitosa:', response);
-            
             // Mostrar el diálogo de inscripción exitosa
             this.dialog.open(MensajeDialogoComponent, {
               width: '300px',
