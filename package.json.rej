@@ -1,0 +1,9 @@
+diff a/package.json b/package.json	(rejected hunks)
+@@ -47,7 +47,7 @@
+     "@types/express": "^4.17.17",
+     "@types/jasmine": "~5.1.0",
+     "@types/node": "^18.18.0",
+     "@vercel/static-build": "^2.5.33",
+     "autoprefixer": "^10.4.20",
+     "jasmine-core": "~5.1.0",
+     "karma": "~6.4.0",

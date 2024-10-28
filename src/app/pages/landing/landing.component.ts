@@ -37,6 +37,7 @@ export class LandingComponent implements OnInit {
       (response: any) => {
         this.cursos = response.data; // Ajusta esto según la estructura de tu respuesta
         this.explorarCursos = [...this.cursos]; // También inicializa la lista para explorar cursos
+       
       },
       (error) => {
         console.error('Error al obtener los cursos:', error);
