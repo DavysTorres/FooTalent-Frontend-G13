@@ -1,7 +1,7 @@
 <app-header />
 
 <!-- Sección página detalles -->
- <app-course-navbar />
+<app-course-navbar />
 <div class="container flex flex-col py-12 px-6 font-['Lato'] text-lg w-[90%] items-center mx-[5%]">
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
     <!-- Sección izquierda -->
@@ -9,7 +9,7 @@
       <div class="flex items-left">
         <div class="flex items-center space-x-4 mb-4">
           <button
-            class="flex justify-center items-center ml-[-65px] w-8 h-8 rounded-full border border-[#11448a] hover:bg-gray-200"
+            class="flex justify-center items-center ml-[-45px] w-8 h-8 rounded-full border border-[#11448a] hover:bg-gray-200"
             (click)="goBack()"
           >
             <fa-icon
@@ -18,9 +18,9 @@
             ></fa-icon>
           </button>
         </div>
-        <h1 class="text-4xl font-bold mb-4">{{ course.title }}</h1>
+        <h1 class="text-4xl font-bold mb-4">{{ course?.nombre }}</h1>
       </div>
-      <p class="mb-6">{{ course.description }}</p>
+      <p class="mb-6">{{ course?.descripcion }}</p>
 
       <div class="bg-[#e6edf2] p-4 mb-6 rounded-lg text-center">
         <p class="font-semibold text-[#11448a]">💻 Virtual y 100% gratuito</p>
@@ -29,42 +29,42 @@
 
       <h2 class="text-[17px] font-semibold mb-4">¿Qué aprenderás?</h2>
       <ul class="list-disc list-inside space-y-2">
-        <li *ngFor="let objective of course.details.objectives">
+        <li *ngFor="let objective of course.details?.objectives || []">
           {{ objective }}
         </li>
       </ul>
 
       <h2 class="text-[17px] font-bold mt-8 mb-4">Requisitos:</h2>
-      <p>{{ course.details.requirements }}</p>
+      <p>{{ course.details?.requirements || 'N/A' }}</p>
 
       <h2 class="text-[17px] font-bold mt-8 mb-4">Duración:</h2>
-      <p>{{ course.details.duration }}</p>
+      <p>{{ course.details?.duration || 'N/A' }}</p>
 
-      <h2 class="text-[17px] font-bold mt-8 mb-4">
-        ¿Por qué elegir este curso?
-      </h2>
-      <p>{{ course.details.thiscourse }}</p>
+      <h2 class="text-[17px] font-bold mt-8 mb-4">¿Por qué elegir este curso?</h2>
+      <p>{{ course.details?.thiscourse || 'N/A' }}</p>
     </div>
 
     <!-- Sección derecha -->
     <div class="bg-[#e6edf2] p-6 flex flex-col shadow-lg rounded-lg text-center h-[50%]">
       <img
-        src="/assets/images/video.png"
+        src="assets/images/video.png"
         alt="Imagen del video"
         class="w-16 h-16 rounded-full self-center mb-[10px]"
       />
       <button
         class="bg-[#0d366d] text-white font-semibold py-2 px-6 rounded hover:bg-blue-600 mb-6"
+        (click)="suscribir(course?._id)"
+        [disabled]="!course"
       >
         Inscribirte a este curso
       </button>
 
       <div class="mb-6">
         <p class="text-sm text-gray-500">
-          <span class="font-semibold">{{ course.reviews }}</span> opiniones
+          <span class="font-semibold">{{ course.reviews || 0 }}</span> opiniones
         </p>
         <p class="text-sm text-gray-500">
-          <span class="font-semibold">{{ course.students }}</span> estudiantes
+          <span class="font-semibold">{{ course.students || 0 }}</span> estudiantes
         </p>
       </div>
 
@@ -95,8 +95,8 @@
           class="w-16 h-16 rounded-full mx-auto sm:mx-0"
         /> -->
         <div class="ml-0 sm:ml-5 mt-4 sm:mt-0 text-center sm:text-left">
-          <h3 class="font-bold">{{ course.details.teacher.name }}</h3>
-          <p>{{ course.details.teacher.bio }}</p>
+          <h3 class="font-bold">{{ course?.docenteId?.nombre || 'Desconocido' }}</h3>
+          <p>{{ course.details?.teacher?.bio || 'No disponible' }}</p>
         </div>
       </div>
     </div>

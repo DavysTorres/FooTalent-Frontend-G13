@@ -1,0 +1,15 @@
+<div class="flex overflow-x-auto space-x-4 py-4 px-2">
+  <div *ngFor="let curso of cursos | slice:0:10"
+    class="bg-[#dae8fa] h-full min-w-[250px] max-w-[300px] px-4 py-6 rounded-[24px] border-l-4 border-[#11448a] shadow-[0px_4px_4px_0px_#00000024] transition ease-out hover:bg-[#90b9f1] hover:ease-in">
+    <div class="flex justify-between items-center">
+      <p class="text-xs">Comienzo <b>{{ curso.createdAt | date: 'shortDate' }}</b></p>
+      <!-- <img [src]="curso.icono" alt="Icono del Curso" class="w-[32px] h-[32px]" /> -->
+    </div>
+    <h3 class="my-4 text-[#11448a] font-bold">{{ curso.nombre }}</h3>
+    <p class="text-xs">{{ curso.descripcion }}</p>
+    <button class="bg-[#11448a] text-white text-xs rounded-lg w-[110px] h-[30px] mt-4 hover:bg-[#0d366d]"
+      (click)="suscribir(curso._id!)">
+      Inscribirse
+    </button>
+  </div>
+</div>

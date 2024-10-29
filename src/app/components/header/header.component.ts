@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit {
   availableCourses: string[] = [
     'PHP y Bases de datos',
     'Diseño Web',
-    'Phyton',
+    'Python',
     'Java',
     'JavaScript',
     'C++',
@@ -44,7 +44,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.userService.loginStatus$.subscribe((loggedIn) => {
       this.isLoggedIn = loggedIn;
-      console.log('Estado de login:', loggedIn);
+     
       if (loggedIn) {
         this.loadUserData();
       }
@@ -56,7 +56,7 @@ export class HeaderComponent implements OnInit {
     //this.userAvatar = localStorage.getItem('user_avatar') || '/assets/images/default-avatar.png';
     this.userRole = localStorage.getItem('user_role');
 
-    console.log('Rol de usuario:', this.userRole);
+   
 
     if (this.userRole === 'Docente') {
       this.profileLink = '/teacher-dashboard';
@@ -66,7 +66,7 @@ export class HeaderComponent implements OnInit {
       this.profileLink = '/default-dashboard';
     }
 
-    console.log('Profile Link:', this.profileLink);
+
   }
 
   toggleMenu() {

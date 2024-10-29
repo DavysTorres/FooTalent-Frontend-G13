@@ -11,7 +11,7 @@ import { PanelDeControlComponent } from '../../components/panel-de-control/panel
 @Component({
   selector: 'app-teacher-dashboard',
   standalone: true,
-  imports: [RouterModule, HeaderComponent, FooterComponent, PanelDeControlComponent],
+  imports: [RouterModule, HeaderComponent, FooterComponent, PanelDeControlComponent, CursoTarjetaComponent, CommonModule],
   templateUrl: './teacher-dashboard.component.html',
   styleUrls: ['./teacher-dashboard.component.css']  // Corrección: 'styleUrls' en plural
 })

@@ -14,9 +14,9 @@
     <!-- Barra de búsqueda -->
     <div class="w-full max-w-[378px]">
       <div class="px-2 py-2 bg-[#dae8fa] rounded-lg border-l-4 border-[#11448a] flex justify-between items-center">
-        <input class="text-sm font-['Lato'] bg-transparent w-full focus:outline-none"
+        <input  [(ngModel)]="searchQuery" class="text-sm font-['Lato'] bg-transparent w-full focus:outline-none"
           placeholder="Busca tu próximo curso" />
-        <button class="w-5 h-5 flex justify-center items-center">
+        <button class="w-5 h-5 flex justify-center items-center" (click)="searchCourse()">
           <i class="fa fa-search"></i>
         </button>
       </div>
