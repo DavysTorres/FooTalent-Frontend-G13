@@ -75,13 +75,15 @@ getUsuario() {
   const nombre = localStorage.getItem('user_nombre');
   const email = localStorage.getItem('user_email');
   const avatarUrl = localStorage.getItem('user_avatar') || "";
+  const role=localStorage.getItem('user_role')
 
-  if (idUsuario && nombre && email) {
+  if (idUsuario && nombre && email && role) {
     return {
       idUsuario,
       nombre,
       email,
-      avatarUrl
+      avatarUrl,
+      role
     };
   } else {
     return null; 

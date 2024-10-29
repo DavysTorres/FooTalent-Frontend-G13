@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
@@ -16,12 +16,14 @@ import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { MensajeDialogoComponent } from '../mensaje-dialogo/mensaje-dialogo.component';
 import { FormsModule } from '@angular/forms';
+import { ProgressSpinnerOverviewComponent } from '../progress-spinner-overview/progress-spinner-overview.component';
+
 
 
 @Component({
   selector: 'app-course-detail',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, FooterComponent, CourseNavbarComponent, FontAwesomeModule, FormsModule],
+  imports: [CommonModule, HeaderComponent, FooterComponent, CourseNavbarComponent, FontAwesomeModule, FormsModule, ProgressSpinnerOverviewComponent],
   templateUrl: './course-detail.component.html',
   styleUrls: ['./course-detail.component.css'],
 })
@@ -30,6 +32,8 @@ export class CourseDetailComponent implements OnInit {
   course: any = null; // Para almacenar los datos del curso seleccionado
   editMode: boolean = false;
   userRole: string | null=null;
+  loading: boolean = true; 
+  usuario: any;
 
   // Arreglo ficticio de cursos
 
@@ -41,13 +45,15 @@ export class CourseDetailComponent implements OnInit {
     private library: FaIconLibrary,
     private cursoService: CursoService,
     private suscripcionService: SuscripcionService,
-    private userService: UsersService
+    private userService: UsersService,
+    private cdr: ChangeDetectorRef
   ) {
     this.library.addIcons(faArrowLeft);
+    this.usuario = this.userService.getUsuario()
   }
   private dialog = inject(MatDialog);
   
-
+   
 
   ngOnInit(): void {
     // Obtén el parámetro 'id' de la ruta y busca el curso
@@ -58,14 +64,33 @@ export class CourseDetailComponent implements OnInit {
     this.router.navigate(['/cursos']);
   }
   private cargarCurso(): void {
-     this.cursoId = this.route.snapshot.paramMap.get('id');
+
+    
+    this.loading = true; // Inicia el spinner al cargar
+    this.cursoId = this.route.snapshot.paramMap.get('id');
     if (this.cursoId) {
-      this.cursoService.obtenerCursoPorId(this.cursoId).subscribe((data) => {
-        this.course = data.data; // Almacena los datos del curso
-        console.log("curso: ", this.course)
-      });
+      this.cursoService.obtenerCursoPorId(this.cursoId).subscribe(
+        (data) => {
+          this.course = data.data; // Almacena los datos del curso
+          this.loading = false; // Detiene el spinner al finalizar la carga
+          console.log("ROL: ", this.course?.docenteId.role);
+          this.cdr.detectChanges()
+          
+        },
+        (error) => {
+          console.error('Error al cargar el curso:', error);
+          this.loading = false; // Detiene el spinner en caso de error
+          
+          
+        }
+      );
+    } else {
+      // Maneja el caso en que no se encuentra el curso ID
+      console.error('No se encontró el ID del curso.');
+      this.loading = false; // Asegura que el spinner se detenga
     }
   }
+  
   suscribirCurso() {
     if (this.userService.isLogged()) {
       // Lógica para suscribir al usuario
@@ -131,11 +156,11 @@ export class CourseDetailComponent implements OnInit {
   }
 
   toggleEditMode() {
-    this.editMode = !this.editMode;
 
-    if (!this.editMode) {
-      this.saveChanges();
+    if (this.editMode) {
+      this.onSubmit(); // Llama a onSubmit cuando se está guardando
     }
+    this.editMode = !this.editMode;
   }
 
   onSubmit(): void {
@@ -167,8 +192,6 @@ export class CourseDetailComponent implements OnInit {
       }
     });
   }
-
- 
 }
 
 
