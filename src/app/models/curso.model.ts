@@ -9,4 +9,5 @@ export interface Curso {
   informacion_adicional?: string;
   activo?:boolean;
   createdAt?: Date;
+  duracion?:String
 }

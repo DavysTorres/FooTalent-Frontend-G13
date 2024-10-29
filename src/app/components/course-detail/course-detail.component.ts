@@ -15,17 +15,21 @@ import { UsersService } from '../../services/users.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { MensajeDialogoComponent } from '../mensaje-dialogo/mensaje-dialogo.component';
+import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-course-detail',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, FooterComponent, CourseNavbarComponent, FontAwesomeModule],
+  imports: [CommonModule, HeaderComponent, FooterComponent, CourseNavbarComponent, FontAwesomeModule, FormsModule],
   templateUrl: './course-detail.component.html',
   styleUrls: ['./course-detail.component.css'],
 })
 export class CourseDetailComponent implements OnInit {
-  courseId: string | null = null;
+  cursoId: string | null = null;
   course: any = null; // Para almacenar los datos del curso seleccionado
+  editMode: boolean = false;
+  userRole: string | null=null;
 
   // Arreglo ficticio de cursos
 
@@ -54,11 +58,21 @@ export class CourseDetailComponent implements OnInit {
     this.router.navigate(['/cursos']);
   }
   private cargarCurso(): void {
-    const cursoId = this.route.snapshot.paramMap.get('id');
-    if (cursoId) {
-      this.cursoService.obtenerCursoPorId(cursoId).subscribe((data) => {
+     this.cursoId = this.route.snapshot.paramMap.get('id');
+    if (this.cursoId) {
+      this.cursoService.obtenerCursoPorId(this.cursoId).subscribe((data) => {
         this.course = data.data; // Almacena los datos del curso
+        console.log("curso: ", this.course)
       });
+    }
+  }
+  suscribirCurso() {
+    if (this.userService.isLogged()) {
+      // Lógica para suscribir al usuario
+      this.suscribir(this.cursoId ?? '');
+    } else {
+      // Redirigir a la página de login
+      this.router.navigate(['/inicio-sesion']);
     }
   }
 
@@ -110,8 +124,54 @@ export class CourseDetailComponent implements OnInit {
       }
     });
   }
+
+  saveChanges() {
+    // Lógica para guardar los cambios
+    console.log('Cambios guardados.', this.course);
+  }
+
+  toggleEditMode() {
+    this.editMode = !this.editMode;
+
+    if (!this.editMode) {
+      this.saveChanges();
+    }
+  }
+
+  onSubmit(): void {
+    // Abre el diálogo de confirmación
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '300px',
+      data: {
+        title: 'Confirmar cambios',
+        message: '¿Estás seguro de que deseas guardar los cambios?'
+      }
+    });
+  
+    // Después de cerrar el diálogo, proceder con la actualización si el usuario confirma
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === true) { // Verifica si el usuario confirmó
+        if (this.cursoId) {
+          this.cursoService.editarCurso(this.cursoId, this.course).subscribe(
+            (response) => {
+              console.log('Curso actualizado:', response);
+              this.router.navigate(['/teacher-dashboard']); // Navegar de vuelta a la lista de cursos
+            },
+            (error) => {
+              console.error('Error al actualizar el curso:', error);
+            }
+          );
+        }
+      } else {
+        console.log('Cambios cancelados por el usuario');
+      }
+    });
+  }
+
  
 }
+
+
 /*
 courses = [
   {
