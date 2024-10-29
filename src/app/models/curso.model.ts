@@ -10,4 +10,9 @@ export interface Curso {
   activo?:boolean;
   createdAt?: Date;
   duracion?:String
+  docenteId?: {
+    id: string;
+    nombre: string;
+    role: string;
+  };
 }

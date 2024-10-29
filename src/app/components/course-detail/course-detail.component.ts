@@ -61,7 +61,7 @@ export class CourseDetailComponent implements OnInit {
   }
 
   goBack(): void {
-    this.router.navigate(['/cursos']);
+    this.location.back();
   }
   private cargarCurso(): void {
 

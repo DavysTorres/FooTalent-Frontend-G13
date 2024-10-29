@@ -1,0 +1,57 @@
+.curso-tarjeta {
+    background-color: #dae8fa;
+    min-width: 250px;
+    max-width: 300px;
+    padding: 1rem;
+    border-left: 4px solid #11448a;
+    border-radius: 24px;
+    box-shadow: 0px 4px 4px 0px #00000024;
+    transition: background-color 0.3s ease;
+    height: 300px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.curso-tarjeta:hover {
+    background-color: #90b9f1;
+}
+
+/* Contenedor de los botones en la parte inferior */
+.botones-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    /* Empuja los botones a la parte inferior */
+    gap: 0.5rem;
+}
+
+.btn-inscribirse{
+    background-color: #11448a;
+    color: white;
+    font-size: 0.75rem;
+    border-radius: 8px;
+    width: 110px;
+    height: 30px;
+}
+.btn-ver-mas {
+    background-color: #557fa5;
+    color: white;
+    font-size: 0.75rem;
+    border-radius: 8px;
+    width: 110px;
+    height: 30px;
+}
+
+.btn-inscribirse:hover {
+    background-color: #0d366d;
+}
+.btn-ver-mas:hover {
+    background-color: #9db6cc;
+}
+
+.text-xs {
+    margin-bottom: 4px;
+    /* Espaciado superior para el nombre del docente */
+}
