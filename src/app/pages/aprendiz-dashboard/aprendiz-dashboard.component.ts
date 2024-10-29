@@ -5,11 +5,12 @@ import { CourseNavbarComponent } from '../../components/course-navbar/course-nav
 import { UsersService } from '../../services/users.service';
 import { CourseViewcardComponent } from '../../components/course-viewcard/course-viewcard.component';
 import { CursoService } from '../../services/curso.service';
+import { SaludoComponent } from '../../components/saludo/saludo.component';
 
 @Component({
   selector: 'app-aprendiz-dashboard',
   standalone: true,
-  imports: [PanelDeControlComponent, RouterLinkWithHref, CourseNavbarComponent, CourseViewcardComponent],
+  imports: [PanelDeControlComponent, RouterLinkWithHref, CourseNavbarComponent, CourseViewcardComponent, SaludoComponent],
   templateUrl: './aprendiz-dashboard.component.html',
   styleUrl: './aprendiz-dashboard.component.css'
 })
