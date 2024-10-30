@@ -19,6 +19,9 @@ export class SuscripcionService{
   generarSuscripcion(suscripcionData:any): Observable <any>{
     return this.http.post(`${this.apiUrl}/suscripcion/`, suscripcionData);
   }
+  mostrarSuscripciones(idUsuario: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/suscripcion/${idUsuario}`);
+  }
 
 
 }

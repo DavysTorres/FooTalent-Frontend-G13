@@ -23,8 +23,9 @@
     display: flex;
     justify-content: space-between;
     margin-top: auto;
-    /* Empuja los botones a la parte inferior */
     gap: 0.5rem;
+    align-items: center,
+    margin-top: 1rem
 }
 
 .btn-inscribirse{
@@ -55,3 +56,22 @@
     margin-bottom: 4px;
     /* Espaciado superior para el nombre del docente */
 }
+.btn-continuar {
+    background-color: #0d366d;
+    color: #fff;
+    font-size: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    text-align: center;
+    width: 80%; 
+    margin: 1rem auto 0;
+    border: none;
+    border-radius: 8px;
+    display: block;
+    transition: background-color 0.3s ease;
+    margin-left: auto;
+  }
+  
+  .btn-continuar:hover {
+    background-color: #09294d;
+    cursor: pointer;
+  }

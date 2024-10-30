@@ -15,4 +15,5 @@ export interface Curso {
     nombre: string;
     role: string;
   };
+  progreso?: number;
 }
