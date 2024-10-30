@@ -20,15 +20,20 @@
       </ng-container>
       <!-- Mensaje cuando no hay cursos suscritos -->
       <ng-template #noCourses>
-        <div class="flex items-center justify-between h-full text-center" style="max-height: 400px;"> 
-          <img src="assets/images/hombrecitosinCursos.png" alt="Sin Cursos" class="w-1/5 h-auto" /> 
-          <p class="text-lg text-[#11448a] w-3/5"> ¡Aún no has agregado ningún curso!<br>
-            Una vez lo hayas hecho, aparecerán en esta sección.</p>
+        <div class="flex items-center justify-between h-full text-center p-4 rounded-lg border-l-4 border-[#11448a]" style="max-height: 400px;">
+          <img src="assets/images/hombrecitosinCursos.png" alt="Sin Cursos" class="w-1/5 h-auto" />
+          <p class="text-lg text-[#11448a] w-3/5">
+            ¡Aún no has agregado ningún curso!<br>
+            Una vez lo hayas hecho, aparecerán en esta sección.
+          </p>
           <div class="w-1/5 flex justify-center items-center">
-            <a href="/cursos" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition">Buscar Cursos</a>
+            <a href="/cursos" class="bg-[#11448a] text-white py-2 px-4 rounded hover:bg-[#0d366d] transition">
+              Buscar Cursos
+            </a>
           </div>
         </div>
       </ng-template>
+      
       
     </div>
 
