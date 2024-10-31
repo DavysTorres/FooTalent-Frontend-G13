@@ -11,25 +11,9 @@
     <div class="p-6"> 
       <app-crear-curso-tarjeta></app-crear-curso-tarjeta>
     </div>
-
-    <!-- <div class="grid grid-cols-2 gap-4 mt-4">
-      <div class="bg-white shadow-md p-4 rounded-lg">
-        <h2 class="text-lg font-semibold">Gestión de Cursos</h2>
-        <ul>
-          <li><a routerLink="/crear-curso" class="text-blue-500 hover:underline">Crear Curso</a></li>
-          <li><a routerLink="/curso-management" class="text-blue-500 hover:underline">Gestionar Cursos</a></li>
-        </ul>
-      </div>
-
-      <div class="bg-white shadow-md p-4 rounded-lg">
-        <h2 class="text-lg font-semibold">Gestión de Contenido</h2>
-        <a routerLink="/contenido-management" class="text-blue-500 hover:underline">Administrar Contenido</a>
-      </div>
-    </div> -->
-
     <!-- Tarjetas de Cursos -->
     <div class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-      <app-curso-tarjeta *ngFor="let curso of cursos" [curso]="curso"></app-curso-tarjeta>
+      <app-curso-tarjeta *ngFor="let curso of cursos" [curso]="curso" (cursoEliminado)="obtenerCursosPropios(idUsuario!)"></app-curso-tarjeta>
     </div>
   </div>
 </main>
