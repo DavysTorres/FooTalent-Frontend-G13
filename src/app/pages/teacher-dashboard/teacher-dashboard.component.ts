@@ -8,11 +8,12 @@ import { CursoTarjetaComponent } from '../../components/curso-tarjeta/curso-tarj
 import { CommonModule } from '@angular/common';
 import { PanelDeControlComponent } from '../../components/panel-de-control/panel-de-control.component';
 import { HeaderGreetingComponent } from '../../components/header-greeting/header-greeting.component';
+import { CrearCursoTarjetaComponent } from '../../components/crear-curso-tarjeta/crear-curso-tarjeta.component';
 
 @Component({
   selector: 'app-teacher-dashboard',
   standalone: true,
-  imports: [RouterModule, HeaderComponent, FooterComponent, PanelDeControlComponent, CursoTarjetaComponent, CommonModule, HeaderGreetingComponent],
+  imports: [RouterModule, HeaderComponent, FooterComponent, PanelDeControlComponent, CursoTarjetaComponent, CommonModule, HeaderGreetingComponent, CrearCursoTarjetaComponent],
   templateUrl: './teacher-dashboard.component.html',
   styleUrls: ['./teacher-dashboard.component.css']  // Corrección: 'styleUrls' en plural
 })
