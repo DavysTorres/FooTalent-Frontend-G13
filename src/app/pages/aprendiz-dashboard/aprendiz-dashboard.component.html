@@ -1,44 +1,67 @@
-<main class="bg-gray-200 h-fit flex flex-row">
+<main class="bg-gray-200 h-fit flex flex-row font-['Lato']">
   <app-panel-de-control class="mr-[6%] max-w-[15%] relative" />
 
   <div class="w-[75%] h-fit my-[2%] pb-[2%] z-100">
     <!-- seccion de inicio -->
     <app-header-greeting [usuario]="usuario"></app-header-greeting>
 
-    <h2 class="bg-gray-200 text-center text-blue-800 underline mt-[25px]" [routerLink]="['/cursos']">
-      <b>Todos los cursos</b>
+    <h2
+      class="flex items-center justify-center text-center text-[#11448a] underline hover:cursor-pointer mt-[25px] mb-[-15px]"
+      [routerLink]="['/cursos']"
+    >
+      Todos los cursos
     </h2>
     <app-course-navbar />
     <div class="mt-[5%]">
       <div class="flex flex-row place-content-between">
         <h2 class="text-blue-800 mb-[2%]"><b>Cursos en progreso</b></h2>
-        <a href="" class="text-[#557FA5] underline">Ver todos</a>
+        <a href="" class="text-[#11448a] underline">Ver todos</a>
       </div>
       <!-- Verifica si hay cursos suscritos -->
       <ng-container *ngIf="cursosSuscritos.length > 0; else noCourses">
-        <app-curso-tarjeta-movible [cursos]="cursosSuscritos" [mostrarProgreso]="true"></app-curso-tarjeta-movible>
+        <app-curso-tarjeta-movible
+          [cursos]="cursosSuscritos"
+          [mostrarProgreso]="true"
+        ></app-curso-tarjeta-movible>
       </ng-container>
       <!-- Mensaje cuando no hay cursos suscritos -->
       <ng-template #noCourses>
-        <div class="flex items-center justify-between h-full text-center" style="max-height: 400px;"> 
-          <img src="assets/images/hombrecitosinCursos.png" alt="Sin Cursos" class="w-1/5 h-auto" /> 
-          <p class="text-lg text-[#11448a] w-3/5"> ¡Aún no has agregado ningún curso!<br>
-            Una vez lo hayas hecho, aparecerán en esta sección.</p>
-          <div class="w-1/5 flex justify-center items-center">
-            <a href="/cursos" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition">Buscar Cursos</a>
+        <div
+          class="flex items-center h-full text-center"
+          style="max-height: 400px"
+        >
+          <img
+            src="assets/images/hombrecitosinCursos.png"
+            alt="Sin Cursos"
+            class="w-1/5 h-auto"
+          />
+          <div
+            class="flex flex-col justify-center items-center text-center w-[60%]"
+          >
+            <p class="text-lg text-[#11448a] mb-4">
+              ¡Aún no has agregado ningún curso!<br />
+              Una vez lo hayas hecho, aparecerán en esta sección.
+            </p>
+            <a
+              href="/cursos"
+              class="text-[#11448a] bg-[#dae8fa] py-2 px-4 rounded hover:bg-[#90b9f1]"
+              >Buscar cursos</a
+            >
           </div>
         </div>
       </ng-template>
-      
     </div>
 
     <div class="mt-[5%]">
       <div class="flex flex-row place-content-between">
         <h2 class="text-blue-800 mb-[2%]"><b>Cursos en demanda</b></h2>
-        <a href="" class="text-[#557FA5] underline">Ver todos</a>
+        <a href="" class="text-[#11448a] underline">Ver todos</a>
       </div>
 
-      <app-curso-tarjeta-movible [cursos]="cursos.slice(0,10)" [mostrarProgreso]="false"></app-curso-tarjeta-movible>
+      <app-curso-tarjeta-movible
+        [cursos]="cursos.slice(0, 10)"
+        [mostrarProgreso]="false"
+      ></app-curso-tarjeta-movible>
     </div>
   </div>
 </main>
