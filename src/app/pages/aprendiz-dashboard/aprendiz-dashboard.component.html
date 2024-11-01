@@ -1,6 +1,5 @@
 <main class="bg-gray-200 h-fit flex flex-row">
   <app-panel-de-control class="mr-[6%] max-w-[15%] relative" />
-
   <div class="w-[75%] h-fit my-[2%] pb-[2%] z-100">
     <div class="flex flex-row justify-between z-100 relative">
       <div
@@ -61,11 +60,13 @@
     </h2>
     <app-course-navbar />
     <div class="mt-[5%]">
-      <div class="flex flex-row place-content-between">
-        <h2 class="text-blue-800 mb-[2%]"><b>Cursos en progreso</b></h2>
+      <div class="flex flex-row place-content-between">       
+        <h2 class="text-blue-800 mb-[2%]"><b>Cursos inscritos</b></h2>
         <a href="" class="text-[#557FA5] underline">Ver todos</a>
       </div>
+      <app-course-viewcard></app-course-viewcard>
 
+      <!--
       <div class="gap-[25px] flex flex-row">
         <div
           class="bg-white h-[40%] w-[35%] px-4 py-12 rounded-[24px] border-l-4 border-[#11448a] shadow-[0px_4px_4px_0px_#00000024] transition ease-out hover:bg-[#90b9f1] hover:ease-in"
@@ -93,6 +94,10 @@
             desarrolla habilidades para crear experiencias digitales dinámicas y
             profesionales.
           </p>
+          <div class="flex items-center flex-col mt-[10%]"> 
+            <progress id="progress" max="100" value="20" class="h-[3px] bg-[#11448a]">0%</progress>
+            <label for="progress" class="text-xs">Progreso</label>
+        </div>
           <button
             class="bg-[#11448a] text-white text-xs rounded-[8px] w-[110px] h-[30px] mt-6 hover:bg-[#0d366d]"
             [routerLink]="['/vista-curso']"
@@ -273,8 +278,9 @@
           </button>
         </div>
       </div>
+      -->
     </div>
-   
+  
     <div class="mt-[5%]">
         <div class="flex flex-row place-content-between">
             <h2 class="text-blue-800 mb-[2%]"><b>Cursos en demanda</b></h2>

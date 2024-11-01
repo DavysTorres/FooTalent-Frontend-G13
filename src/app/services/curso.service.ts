@@ -33,7 +33,7 @@ export class CursoService{
   }
 
   obtenerCursoPorIdUsuario(id: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/curso/cursos/${id}`);
+    return this.http.get(`${this.apiUrl}/suscripcion/mostrarPorId/${id}`);
   }
 
 }
