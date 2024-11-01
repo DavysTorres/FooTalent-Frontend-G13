@@ -17,7 +17,6 @@ export class SaludoComponent {
   ngOnInit() {
     this.usersService.loginStatus$.subscribe((loggedIn) => {
       this.isLoggedIn = loggedIn;
-      console.log('Estado de login:', loggedIn);
       if (loggedIn) {
         this.loadUserData();
       }

@@ -49,13 +49,14 @@
     background-color: #0d366d;
 }
 .btn-ver-mas:hover {
-    background-color: #9db6cc;
+    background-color: #3c5974;
 }
 
 .text-xs {
     margin-bottom: 4px;
     /* Espaciado superior para el nombre del docente */
 }
+/*
 .btn-continuar {
     background-color: #dae8fa;
     color: #11448a;
@@ -71,7 +72,16 @@
     margin-left: auto;
     box-shadow: 0px 4px 4px 0px #00000024;
   }
-  
+  */
   .btn-continuar:hover {
     cursor: pointer;
+  }
+
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none; /* Oculta el scrollbar en navegadores basados en WebKit */
+  }
+  
+  .scrollbar-hidden {
+    -ms-overflow-style: none; /* Oculta el scrollbar en Internet Explorer y Edge */
+    scrollbar-width: none; /* Oculta el scrollbar en Firefox */
   }

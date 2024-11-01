@@ -25,29 +25,22 @@
       </ng-container>
       <!-- Mensaje cuando no hay cursos suscritos -->
       <ng-template #noCourses>
-        <div
-          class="flex items-center h-full text-center"
-          style="max-height: 400px"
-        >
-          <img
-            src="assets/images/hombrecitosinCursos.png"
-            alt="Sin Cursos"
-            class="w-1/5 h-auto"
-          />
-          <div
-            class="flex flex-col justify-center items-center text-center w-[60%]"
-          >
-            <p class="text-lg text-[#11448a] mb-4">
-              ¡Aún no has agregado ningún curso!<br />
-              Una vez lo hayas hecho, aparecerán en esta sección.
-            </p>
-            <a
-              href="/cursos"
-              class="text-[#11448a] bg-[#dae8fa] py-2 px-4 rounded hover:bg-[#90b9f1]"
-              >Buscar cursos</a
-            >
-          </div>
-        </div>
+        <div class="h-[80vh] my-[2%] border-l-4 border-[#11448a] rounded-[24px] py-[4%] flex flex-row content-between items-center">
+          <div class="flex flex-row align-middle">
+               <img src="../../../assets/images/hombrecito3.png" alt="" class="h-[30vh]">
+               <h4 class="max-w-[40%] text-[#11448a] text-center">
+                   <strong>
+                   Aun no haz agregado ningún curso! 
+                   una vez lo hayas hecho aparecerán
+                   en esta sección.  
+                   </strong>
+               </h4>
+           </div>
+           <div class="flex flex-col items-center h-[100%] w-[35%] px-4 py-12 rounded-[24px] border-l-4 border-[#11448a] shadow-[0px_4px_4px_0px_#00000024] justify-between">
+               <h4 class="text-[#11448a]">Es hora de empezar un nuevo reto, ¿que deseas aprender?</h4>
+               <button [routerLink]="['/cursos']" class="bg-[#11448a] text-white text-xs rounded-[8px] w-[110px] h-[30px] mt-6 hover:bg-[#0d366d] block">Agregar Curso</button>
+           </div>
+       </div>
       </ng-template>
     </div>
 

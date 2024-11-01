@@ -73,7 +73,6 @@ export class CourseDetailComponent implements OnInit {
         (data) => {
           this.course = data.data; // Almacena los datos del curso
           this.loading = false; // Detiene el spinner al finalizar la carga
-          console.log("ROL: ", this.course?.docenteId.role);
           this.cdr.detectChanges()
           
         },
@@ -152,7 +151,6 @@ export class CourseDetailComponent implements OnInit {
 
   saveChanges() {
     // Lógica para guardar los cambios
-    console.log('Cambios guardados.', this.course);
   }
 
   toggleEditMode() {
@@ -179,7 +177,6 @@ export class CourseDetailComponent implements OnInit {
         if (this.cursoId) {
           this.cursoService.editarCurso(this.cursoId, this.course).subscribe(
             (response) => {
-              console.log('Curso actualizado:', response);
               this.router.navigate(['/teacher-dashboard']); // Navegar de vuelta a la lista de cursos
             },
             (error) => {
@@ -187,8 +184,6 @@ export class CourseDetailComponent implements OnInit {
             }
           );
         }
-      } else {
-        console.log('Cambios cancelados por el usuario');
       }
     });
   }

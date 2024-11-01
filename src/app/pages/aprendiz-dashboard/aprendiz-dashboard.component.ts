@@ -70,7 +70,6 @@ export class AprendizDashboardComponent {
           }));
           
           this.loading = false;
-          console.log("SUSCRIPCIONES: ", this.cursosSuscritos);
         },
         (error) => {
           console.error('Error al obtener las suscripciones:', error);

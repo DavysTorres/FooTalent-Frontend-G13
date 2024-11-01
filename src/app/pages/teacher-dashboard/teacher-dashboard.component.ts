@@ -32,6 +32,7 @@ export class TeacherDashboardComponent implements OnInit {
     // Validación de idUsuario para asegurarnos de que no es null
     if (this.idUsuario) {
       this.obtenerCursosPropios(this.idUsuario);
+      console.log(this.obtenerCursosPropios)
     } else {
       console.error('No se encontró un ID de usuario');
     }

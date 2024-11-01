@@ -93,7 +93,6 @@ export class LoginComponent {
           }
         },
         error: (error) => {
-          console.log('Error en el login:', error);
           this.loading = false;
           this.openSnackBar('ERROR: Verifica tus credenciales');
         },

@@ -21,6 +21,10 @@ export class CrearCursoComponent {
   curso = {
     nombre: '',
     descripcion: '',
+    que_aprenderas: '',
+    requisitos: '',
+    razon_eleccion: '',
+    duracion: '',
     docenteId:''
   };
 

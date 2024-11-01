@@ -22,7 +22,7 @@ export class ConfirmAccountComponent implements OnInit {
           },
           error: (error) => {
             this.message = 'Ha ocurrido un error al confirmar tu cuenta.';
-            console.log('Error:', error);
+            console.error('Error:', error);
           }
         });
       } else {

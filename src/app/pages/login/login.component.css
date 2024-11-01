@@ -1,11 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
-#form-block {
-    max-width: 80%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-}
+
 
 h2, label, p, a, button {
     font-family: "Lato", sans-serif;
@@ -21,6 +16,8 @@ h2, label, p, a, button {
     background-color: #2196F3 !important ; /* Azul de Material Design */
     color: white !important ; /* Texto blanco */
   }
+
+
 
   
   

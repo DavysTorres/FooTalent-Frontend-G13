@@ -36,7 +36,6 @@ export class CursoTarjetaComponent {
         this.loading = true;
         this.cursoService.eliminarCurso(idCurso).subscribe(
           () => {
-            console.log('Curso eliminado');
             this.cursoEliminado.emit(); // Notifica al componente padre
             this.loading = false;
           },

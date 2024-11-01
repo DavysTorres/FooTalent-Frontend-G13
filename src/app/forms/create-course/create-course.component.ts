@@ -16,7 +16,6 @@ export class CreateCourseComponent {
   };
 
   onSubmit() {
-    console.log(this.course);
     // Aquí puedes enviar los datos al backend
   }
 }
