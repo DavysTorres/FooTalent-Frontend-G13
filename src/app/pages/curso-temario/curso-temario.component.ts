@@ -1,38 +1,47 @@
-import { Component } from '@angular/core';
-import { PanelDeControlComponent } from '../../components/panel-de-control/panel-de-control.component';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { PanelDeControlComponent } from '../../components/panel-de-control/panel-de-control.component';
 import { HeaderCursoComponent } from '../../components/header-curso/header-curso.component';
 import { CrearCursoTarjetaComponent } from '../../components/crear-curso-tarjeta/crear-curso-tarjeta.component';
-import { MatDialog } from '@angular/material/dialog';
 import { CrearClaseModalComponent } from '../../components/crear-clase-modal/crear-clase-modal.component';
-import { MatDialogModule } from '@angular/material/dialog';
-
+import { ContenidoService } from '../../services/contenido.service';
 
 @Component({
   selector: 'app-curso-temario',
   standalone: true,
-  imports: [PanelDeControlComponent, CommonModule, HeaderCursoComponent,CrearCursoTarjetaComponent, MatDialogModule ],
+  imports: [PanelDeControlComponent, CommonModule, HeaderCursoComponent, CrearCursoTarjetaComponent, MatDialogModule],
+  providers: [MatDialog],
   templateUrl: './curso-temario.component.html',
-  styleUrl: './curso-temario.component.css'
+  styleUrls: ['./curso-temario.component.css'] // Corregir 'styleUrl' a 'styleUrls'
 })
 export class CursoTemarioComponent {
+  private dialog: MatDialog;
 
+  constructor(dialog: MatDialog,  private contenidoService: ContenidoService,) {
+    this.dialog = dialog;
+    
+  }
 
-  constructor(private dialog: MatDialog) {}
-
-  openCrearClaseModal() {
+  openCrearClaseModal = () => {
     const dialogRef = this.dialog.open(CrearClaseModalComponent, {
       width: '600px'
     });
-
+  
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        console.log('Clase creada:', result); // Aquí puedes manejar los datos (guardar en el backend, etc.)
+        this.contenidoService.agregarContenido(result).subscribe({
+          next: (response) => {
+            console.log('Contenido creado:', response);
+            // Aquí puedes actualizar la lista de clases si es necesario
+          },
+          error: (error) => {
+            console.error('Error al crear contenido:', error);
+          }
+        });
       }
     });
-  }
-
-
+  };
 
   activeIndex: number | null = null;
 
@@ -55,5 +64,4 @@ export class CursoTemarioComponent {
   toggleAccordion(index: number): void {
     this.activeIndex = this.activeIndex === index ? null : index;
   }
-
 }
