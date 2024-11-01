@@ -17,6 +17,8 @@ import { MensajeDialogoComponent } from '../mensaje-dialogo/mensaje-dialogo.comp
 })
 export class CursoTarjetaMovibleComponent {
   @Input() cursos: Curso[] = [];
+  @Input() mostrarProgreso: boolean = false; // Nuevo input
+  
   private dialog = inject(MatDialog);
   
   constructor(
@@ -39,7 +41,6 @@ export class CursoTarjetaMovibleComponent {
         const idUsuario = this.userService.getIdUsuario();
         this.suscripcionService.generarSuscripcion({ idCurso: cursoId, idUsuario }).subscribe(
           response => {
-            // Mostrar el diálogo de inscripción exitosa
             this.dialog.open(MensajeDialogoComponent, {
               width: '300px',
               data: {
@@ -50,14 +51,10 @@ export class CursoTarjetaMovibleComponent {
             });
           },
           error => {
-            console.error('Error al inscribirse:', error);
-
-            // Verificar si el error es debido a una inscripción duplicada
             const mensajeError = error?.error?.mensaje === 'El usuario ya está suscrito a este curso'
-            ? 'Ya estás inscrito en este curso.'
-            : 'Hubo un problema con la inscripción. Inténtalo más tarde.';
+              ? 'Ya estás inscrito en este curso.'
+              : 'Hubo un problema con la inscripción. Inténtalo más tarde.';
 
-            // Mostrar el diálogo de error
             this.dialog.open(MensajeDialogoComponent, {
               width: '300px',
               data: {

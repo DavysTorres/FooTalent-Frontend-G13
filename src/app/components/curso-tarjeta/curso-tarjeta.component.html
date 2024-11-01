@@ -1,12 +1,26 @@
-<div class="bg-[#dae8fa] h-full w-full px-4 py-12 rounded-[24px] border-l-4 border-[#11448a] shadow-[0px_4px_4px_0px_#00000024] transition ease-out hover:bg-[#90b9f1] hover:ease-in">
-    <div class="flex flex-row justify-between align-middle">
-      <p class="text-xs">Comienzo <b>{{ curso.createdAt | date: 'shortDate'}}</b></p>
-      <img [src]="curso.icono" alt="Icono del Curso" class="w-[32px] h-[32px]">
-    </div>
-    <h3 class="my-6 text-[#11448a]"><b>{{ curso.nombre }}</b></h3>
-    <p class="text-xs">{{ curso.descripcion }}</p>
-    <button class="bg-[#11448a] text-white text-xs rounded-[8px] w-[110px] h-[30px] mt-6 hover:bg-[#0d366d]" [routerLink]="['/editar-curso', curso._id]">
-      Editar
-    </button>
+<div
+  class="bg-[#dae8fa] h-full w-full px-4 py-12 rounded-[24px] border-l-4 border-[#11448a] shadow-[0px_4px_4px_0px_#00000024] transition ease-out hover:bg-[#90b9f1] hover:ease-in font-['Lato']"
+>
+  <div class="flex flex-row justify-between align-middle">
+    <p class="text-xs">
+      Comienzo <b>{{ curso.createdAt | date : "MMM d, y" }}</b>
+    </p>
+    <img [src]="curso.icono" alt="Icono del Curso" class="w-[32px] h-[32px]" />
   </div>
-  
+  <h3 class="my-6 text-[#11448a]">
+    <b>{{ curso.nombre }}</b>
+  </h3>
+  <p class="text-xs">{{ curso.descripcion }}</p>
+  <button
+    class="bg-[#11448a] text-white text-xs rounded-[8px] w-[110px] h-[30px] mt-6 hover:bg-[#0d366d]"
+    [routerLink]="['/editar-curso', curso._id]"
+  >
+    Editar
+  </button>
+  <button
+    (click)="eliminarCurso(curso._id)"
+    class="btn-eliminar bg-[#11448a] text-white text-xs rounded-[8px] w-[110px] h-[30px] hover:bg-[#0d366d]"
+  >
+    Eliminar
+  </button>
+</div>

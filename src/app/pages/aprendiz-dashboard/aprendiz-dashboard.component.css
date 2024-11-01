@@ -3,4 +3,10 @@
 h2, h3, p, a {
     font-family: "Lato", sans-serif;
 }
-
+.text-lg {
+    font-weight: 600; /* O cualquier otro ajuste que desees */
+  }
+  
+  .bg-blue-600 {
+    transition: background-color 0.3s ease; /* Para un efecto suave al pasar el ratón */
+  }

@@ -24,7 +24,8 @@ export class EditarCursoComponent implements OnInit {
     que_aprenderas: '',
     requisitos: '',
     razon_eleccion: '',
-    informacion_adicional: ''
+    informacion_adicional: '',
+    duracion:''
   };
   idCurso: string | null = null;
   private dialog = inject(MatDialog);
