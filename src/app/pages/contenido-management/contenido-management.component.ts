@@ -1,4 +1,4 @@
-/*import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ContenidoService } from '../../services/contenido.service';
 import { ToastrService } from 'ngx-toastr';
 import { RouterModule } from '@angular/router';
@@ -31,7 +31,7 @@ export class ContenidoManagementComponent implements OnInit{
     this.obtenerContenidos();
   }
 
-  // Obtener todos los contenidos del curso
+  //Obtener todos los contenidos del curso
   obtenerContenidos() {
     this.contenidoService.getContenidos().subscribe(
       (data: any[]) => {
@@ -44,7 +44,7 @@ export class ContenidoManagementComponent implements OnInit{
     );
   }
 
-  // Agregar nuevo contenido
+  //Agregar nuevo contenido
   agregarContenido() {
     this.contenidoService.agregarContenido(this.nuevoContenido).subscribe(
       (data) => {
@@ -59,7 +59,7 @@ export class ContenidoManagementComponent implements OnInit{
     );
   }
 
-  // Editar contenido existente
+ // Editar contenido existente
   iniciarEdicion(contenido: any) {
     this.editandoContenido = { ...contenido };
   }
@@ -79,7 +79,7 @@ export class ContenidoManagementComponent implements OnInit{
     );
   }
 
-  // Eliminar contenido
+  //Eliminar contenido
   eliminarContenido(id: string) {
     this.contenidoService.eliminarContenido(id).subscribe(
       () => {
@@ -92,4 +92,4 @@ export class ContenidoManagementComponent implements OnInit{
       }
     );
   }
-}*/
+}

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-crear-curso-tarjeta',
@@ -8,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './crear-curso-tarjeta.component.css'
 })
 export class CrearCursoTarjetaComponent {
+  @Input() titulo: string = '';
+  @Input() descripcion: string = '';
+  @Input() botonUrl: string = '';
 
 }

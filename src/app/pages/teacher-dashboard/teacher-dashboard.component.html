@@ -8,12 +8,22 @@
     <div class="p-6">
       <app-header-greeting [usuario]="usuario"></app-header-greeting>
     </div>
-    <div class="p-6"> 
-      <app-crear-curso-tarjeta></app-crear-curso-tarjeta>
+    <div class="p-6">
+      <app-crear-curso-tarjeta
+      [titulo]="'¡Comienza a aprender!'"
+      [descripcion]="'Únete a un curso hoy y mejora tus habilidades en programación.'"
+      [botonUrl]="''">
+      
+      >
+       
+
+
+      </app-crear-curso-tarjeta>
     </div>
     <!-- Tarjetas de Cursos -->
     <div class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-      <app-curso-tarjeta *ngFor="let curso of cursos" [curso]="curso" (cursoEliminado)="obtenerCursosPropios(idUsuario!)"></app-curso-tarjeta>
+      <app-curso-tarjeta *ngFor="let curso of cursos" [curso]="curso"
+        (cursoEliminado)="obtenerCursosPropios(idUsuario!)"></app-curso-tarjeta>
     </div>
   </div>
 </main>

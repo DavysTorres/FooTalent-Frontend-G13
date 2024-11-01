@@ -15,21 +15,21 @@ export class ContenidoService {
 
   // Obtener todos los contenidos
   getContenidos(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/contenidos`);
+    return this.http.get<any[]>(`${this.apiUrl}/clase`);
   }
 
   // Agregar nuevo contenido
   agregarContenido(contenido: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/contenidos`, contenido);
+    return this.http.post<any>(`${this.apiUrl}/clase`, contenido);
   }
 
   // Actualizar contenido existente
   actualizarContenido(id: string, contenido: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/contenidos/${id}`, contenido);
+    return this.http.put<any>(`${this.apiUrl}/clase/${id}`, contenido);
   }
 
   // Eliminar contenido
   eliminarContenido(id: string): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/contenidos/${id}`);
+    return this.http.delete<any>(`${this.apiUrl}/clase/${id}`);
   }
 }
