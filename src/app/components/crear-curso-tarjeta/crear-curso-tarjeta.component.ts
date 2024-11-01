@@ -11,5 +11,14 @@ export class CrearCursoTarjetaComponent {
   @Input() titulo: string = '';
   @Input() descripcion: string = '';
   @Input() botonUrl: string = '';
+  @Input() clickHandler?: () => void;
+
+  onClick() {
+    if (this.clickHandler) {
+      this.clickHandler();
+    } else if (this.botonUrl) {
+      window.location.href = this.botonUrl;
+    }
+  }
 
 }

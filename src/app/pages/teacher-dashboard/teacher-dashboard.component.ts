@@ -47,4 +47,7 @@ export class TeacherDashboardComponent implements OnInit {
       }
     );
   }
+  redirectToPage() {
+    window.location.href = '/crear-curso';
+  }
 }

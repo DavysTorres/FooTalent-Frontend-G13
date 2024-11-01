@@ -14,9 +14,15 @@
         <app-crear-curso-tarjeta
         [titulo]="'¿Deseas crear una nueva clase?'"
         [descripcion]="'Recuerda escoger un nombre relevante al tema y una imagen acorde a la temática de la clase'"
-        [botonUrl]="'/crear-curso'">
+        [botonUrl]="'/crear-curso'"
+        [clickHandler]="openCrearClaseModal"
+        
+        
         
         >
+
+
+
          
         </app-crear-curso-tarjeta>
         
@@ -26,6 +32,7 @@
         <div>
           <h2 class="text-xl font-semibold text-gray-800">Prueba</h2>
           <p class="text-sm text-gray-600">Publicado el: 12 Octubre </p>
+          <button mat-button (click)="openCrearClaseModal()">Crear Clase</button>
         </div>
       </div>
   

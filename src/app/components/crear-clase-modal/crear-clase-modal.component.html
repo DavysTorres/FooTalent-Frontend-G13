@@ -1,0 +1,31 @@
+<h2 class="text-lg font-bold mb-4">Crear Clase</h2>
+
+<form (ngSubmit)="onSubmit()" #claseForm="ngForm">
+  <div class="mb-4">
+    <label for="title" class="block text-sm font-medium">Título</label>
+    <input
+      type="text"
+      id="title"
+      name="title"
+      class="w-full p-2 border rounded"
+      [(ngModel)]="titulo"
+      required
+    />
+  </div>
+
+  <div class="mb-4">
+    <label for="videoUrl" class="block text-sm font-medium">Enlace del Video</label>
+    <input
+      type="url"
+      id="videoUrl"
+      name="videoUrl"
+      class="w-full p-2 border rounded"
+      [(ngModel)]="videoUrl"
+    />
+  </div>
+
+  <div class="flex justify-end space-x-2">
+    <button type="button" mat-button (click)="closeDialog()">Cancelar</button>
+    <button type="submit" mat-button color="primary" [disabled]="!claseForm.valid">Crear</button>
+  </div>
+</form>
