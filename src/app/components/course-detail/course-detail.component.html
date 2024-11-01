@@ -2,46 +2,66 @@
 
 <!-- Sección página detalles -->
 <app-course-navbar />
-<div class="container flex flex-col py-12 px-6 font-['Lato'] text-lg w-[90%] items-center mx-[5%]">
-  
+<div
+  class="container flex flex-col py-12 px-6 font-['Lato'] text-lg w-[90%] items-center mx-[5%]"
+>
   <div *ngIf="loading" class="spinner-container">
-    <app-progress-spinner-overview></app-progress-spinner-overview> <!-- Mostrar el spinner -->
+    <app-progress-spinner-overview></app-progress-spinner-overview>
+    <!-- Mostrar el spinner -->
   </div>
 
   <!-- Contenido del curso -->
   <div *ngIf="!loading">
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-
       <!-- Sección izquierda -->
       <div class="lg:col-span-2">
         <div class="flex items-left">
-          <div class="flex items-center space-x-4 mb-4">
+          <div class="flex items-center space-x-4 mb-4 ml-2 mt-2">
             <button
               class="flex justify-center items-center ml-[-45px] w-8 h-8 rounded-full border border-[#11448a] hover:bg-gray-200"
-              (click)="goBack()">
-              <fa-icon [icon]="['fas', 'arrow-left']" class="text-[#11448a]"></fa-icon>
+              (click)="goBack()"
+            >
+              <fa-icon
+                [icon]="['fas', 'arrow-left']"
+                class="text-[#11448a]"
+              ></fa-icon>
             </button>
           </div>
           <h1 class="text-4xl font-bold mb-4">
-            <input *ngIf="editMode" [(ngModel)]="course.nombre"
-              class="text-4xl font-bold border border-gray-300 rounded px-2 py-1" placeholder="Nombre del curso" />
+            <input
+              *ngIf="editMode"
+              [(ngModel)]="course.nombre"
+              class="text-4xl font-bold border border-gray-300 rounded px-2 py-1"
+              placeholder="Nombre del curso"
+            />
             <span *ngIf="!editMode">{{ course?.nombre }}</span>
           </h1>
 
           <!-- Botón de editar/guardar -->
-          <div class="w-full flex justify-end mb-4" *ngIf="usuario?.role === 'Docente'">
-            <button class="ml-4 bg-blue-600 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700"
-              (click)="toggleEditMode()">
-              <fa-icon [icon]="editMode ? ['fas', 'check'] : ['fas', 'pen']"></fa-icon>
-              {{ editMode ? 'Guardar' : 'Editar' }}
+          <div
+            class="w-full flex justify-end mb-4"
+            *ngIf="usuario?.role === 'Docente'"
+          >
+            <button
+              class="ml-4 bg-blue-600 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700"
+              (click)="toggleEditMode()"
+            >
+              <fa-icon
+                [icon]="editMode ? ['fas', 'check'] : ['fas', 'pen']"
+              ></fa-icon>
+              {{ editMode ? "Guardar" : "Editar" }}
             </button>
           </div>
         </div>
 
         <!-- Descripción del curso -->
         <div *ngIf="editMode">
-          <textarea [(ngModel)]="course.descripcion" class="w-full border border-gray-300 rounded px-2 py-1 mb-6" rows="3"
-            placeholder="Descripción del curso"></textarea>
+          <textarea
+            [(ngModel)]="course.descripcion"
+            class="w-full border border-gray-300 rounded px-2 py-1 mb-6"
+            rows="3"
+            placeholder="Descripción del curso"
+          ></textarea>
         </div>
         <p *ngIf="!editMode" class="mb-6">{{ course?.descripcion }}</p>
 
@@ -52,38 +72,65 @@
 
         <h2 class="text-[17px] font-semibold mb-4">¿Qué aprenderás?</h2>
         <ul class="list-disc list-inside space-y-2">
-          <li *ngFor="let topic of (course?.que_aprenderas ? course.que_aprenderas.split('\n') : ['N/A'])">
-            {{ topic || 'N/A' }}
+          <li
+            *ngFor="
+              let topic of course?.que_aprenderas
+                ? course.que_aprenderas.split('\n')
+                : ['N/A']
+            "
+          >
+            {{ topic || "N/A" }}
           </li>
         </ul>
 
         <h2 class="text-[17px] font-bold mt-8 mb-4">Requisitos:</h2>
         <div *ngIf="editMode">
-          <input [(ngModel)]="course.requisitos" class="w-full border border-gray-300 rounded px-2 py-1 mb-6"
-            placeholder="Requisitos del curso" />
+          <input
+            [(ngModel)]="course.requisitos"
+            class="w-full border border-gray-300 rounded px-2 py-1 mb-6"
+            placeholder="Requisitos del curso"
+          />
         </div>
-        <p *ngIf="!editMode">{{ course?.requisitos || 'N/A' }}</p>
+        <p *ngIf="!editMode">{{ course?.requisitos || "N/A" }}</p>
 
         <h2 class="text-[17px] font-bold mt-8 mb-4">Duración:</h2>
         <div *ngIf="editMode">
-          <input [(ngModel)]="course.duracion" class="w-full border border-gray-300 rounded px-2 py-1 mb-6"
-            placeholder="Duración del curso" />
+          <input
+            [(ngModel)]="course.duracion"
+            class="w-full border border-gray-300 rounded px-2 py-1 mb-6"
+            placeholder="Duración del curso"
+          />
         </div>
-        <p *ngIf="!editMode">{{ course?.duracion || 'N/A' }}</p>
+        <p *ngIf="!editMode">{{ course?.duracion || "N/A" }}</p>
 
-        <h2 class="text-[17px] font-bold mt-8 mb-4">¿Por qué elegir este curso?</h2>
+        <h2 class="text-[17px] font-bold mt-8 mb-4">
+          ¿Por qué elegir este curso?
+        </h2>
         <div *ngIf="editMode">
-          <textarea [(ngModel)]="course.razon_eleccion" class="w-full border border-gray-300 rounded px-2 py-1 mb-6"
-            rows="3" placeholder="Razón para elegir este curso"></textarea>
+          <textarea
+            [(ngModel)]="course.razon_eleccion"
+            class="w-full border border-gray-300 rounded px-2 py-1 mb-6"
+            rows="3"
+            placeholder="Razón para elegir este curso"
+          ></textarea>
         </div>
-        <p *ngIf="!editMode">{{ course?.razon_eleccion || 'N/A' }}</p>
+        <p *ngIf="!editMode">{{ course?.razon_eleccion || "N/A" }}</p>
       </div>
 
       <!-- Sección derecha -->
-      <div class="bg-[#e6edf2] p-6 flex flex-col shadow-lg rounded-lg text-center h-[50%]">
-        <img src="assets/images/video.png" alt="Imagen del video" class="w-16 h-16 rounded-full self-center mb-[10px]" />
-        <button class="bg-[#0d366d] text-white font-semibold py-2 px-6 rounded hover:bg-blue-600 mb-6"
-          (click)="suscribirCurso()" [disabled]="!course">
+      <div
+        class="bg-[#e6edf2] p-6 flex flex-col shadow-lg rounded-lg text-center sm:h-[90%] lg:h-[70%]"
+      >
+        <img
+          src="assets/images/video.png"
+          alt="Imagen del video"
+          class="w-16 h-16 rounded-full self-center mb-[10px]"
+        />
+        <button
+          class="bg-[#0d366d] text-white font-semibold py-2 px-6 rounded hover:bg-blue-600 mb-6"
+          (click)="suscribirCurso()"
+          [disabled]="!course"
+        >
           Inscribirte a este curso
         </button>
 
@@ -106,19 +153,23 @@
               ✅ Certificado al finalizar
             </li>
             <p>
-              Obtendrás un certificado al completar el curso y otro tras rendir el
-              examen final
+              Obtendrás un certificado al completar el curso y otro tras rendir
+              el examen final
             </p>
           </ul>
         </div>
       </div>
 
       <!-- Sección del tutor -->
-      <div class="mt-12 bg-gray-100 p-6 rounded-lg w-full max-w-[810px] mx-auto">
+      <div
+        class="mt-12 bg-gray-100 p-6 rounded-lg w-full max-w-[810px] mx-auto"
+      >
         <h2 class="text-2xl font-bold mb-4">Sobre el tutor</h2>
         <div class="flex flex-col sm:flex-row sm:items-center">
-          <div class="ml-0 sm:ml-5 mt-4 sm:mt-0 text-center sm:text-left">
-            <h3 class="font-bold">{{ course?.docenteId?.nombre || 'Desconocido' }}</h3>
+          <div class="flex flex-col justify-start">
+            <h3 class="font-bold">
+              {{ course?.docenteId?.nombre || "Desconocido" }}
+            </h3>
             <p>Descripción</p>
           </div>
         </div>
