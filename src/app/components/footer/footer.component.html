@@ -2,12 +2,12 @@
   class="w-full h-auto relative overflow-x-hidden bg-[#e6edf2] font-['Lato']"
 >
   <div
-    class="w-full h-auto flex flex-col md:flex-row justify-between items-start p-4 space-y-6 md:space-y-0 md:space-x-4"
+    class="w-full h-auto flex flex-col md:flex-row justify-center md:justify-between items-center p-4 space-y-6 md:space-y-0 md:space-x-4"
   >
     <!-- Logo y enlaces "Sobre DevAcademy" y "Contacto" -->
-    <div class="flex flex-col">
+    <div class="flex flex-col items-center md:items-start">
       <div
-        class="flex flex-col space-y-2 text-[#282727] text-[15px] font-semibold"
+        class="flex flex-col space-y-2 text-[#282727] text-[15px] font-semibold text-center md:text-left"
       >
         <a href="#">Sobre DevAcademy</a>
         <a href="#">Contacto</a>
@@ -21,7 +21,7 @@
 
     <!-- Enlaces de Soporte y otras secciones -->
     <div
-      class="flex flex-col space-y-2 text-[#282727] text-[15px] font-semibold"
+      class="flex flex-col space-y-2 text-[#282727] text-[15px] font-semibold text-center md:text-left"
     >
       <a href="#">Soporte</a>
       <a href="#">Preguntas frecuentes</a>
@@ -31,11 +31,13 @@
     </div>
 
     <!-- Redes sociales -->
-    <div class="flex flex-col items-start space-y-2">
-      <div class="text-[#282727] text-[15px] font-semibold">
+    <div class="flex flex-col items-center md:items-start space-y-2">
+      <div
+        class="text-[#282727] text-[15px] font-semibold text-center md:text-left"
+      >
         Síguenos en redes:
       </div>
-      <div class="flex space-x-3">
+      <div class="flex space-x-3 justify-center">
         <a href="#" class="w-8 h-8">
           <img
             src="/assets/images/facebook.png"
@@ -58,6 +60,7 @@
           />
         </a>
       </div>
+
       <!-- Copyright -->
       <div
         class="text-[#282727] text-[13px] font-semibold text-center md:text-right mt-4 md:mt-0"

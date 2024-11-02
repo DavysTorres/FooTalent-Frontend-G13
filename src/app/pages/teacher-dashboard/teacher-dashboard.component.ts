@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { PanelDeControlComponent } from '../../components/panel-de-control/panel-de-control.component';
 import { HeaderGreetingComponent } from '../../components/header-greeting/header-greeting.component';
 import { CrearCursoTarjetaComponent } from '../../components/crear-curso-tarjeta/crear-curso-tarjeta.component';
+import { SuscripcionService } from '../../services/suscripcion.service';
 
 @Component({
   selector: 'app-teacher-dashboard',
@@ -23,7 +24,7 @@ export class TeacherDashboardComponent implements OnInit {
   idUsuario: string | null = null;
   usuario: any| null = null;
 
-  constructor(private cursoService: CursoService, private usuarioService: UsersService) { }
+  constructor(private cursoService: CursoService, private usuarioService: UsersService, private suscripcionService: SuscripcionService) { }
 
   ngOnInit(): void {
     this.idUsuario = this.usuarioService.getIdUsuario();
@@ -32,6 +33,7 @@ export class TeacherDashboardComponent implements OnInit {
     // Validación de idUsuario para asegurarnos de que no es null
     if (this.idUsuario) {
       this.obtenerCursosPropios(this.idUsuario);
+      
     } else {
       console.error('No se encontró un ID de usuario');
     }
@@ -41,6 +43,7 @@ export class TeacherDashboardComponent implements OnInit {
     this.cursoService.obtenerCursoPorIdUsuario(idUsuario).subscribe(
       (response: any) => {
         this.cursos = response.data.filter((curso: any) => curso.activo === true);  // Manejo seguro de 'response.data'
+      console.log('Cursos: ', this.cursos)
       },
       error => {
         console.error('Error al obtener los cursos:', error);

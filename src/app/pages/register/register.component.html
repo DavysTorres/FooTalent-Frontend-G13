@@ -1,15 +1,15 @@
 <app-header />
 
-<main class="bg-gray-100 h-screen">
-  <div id="register-container" class="">
+<main class="h-[100%] mt-[5%]">
+  <div class="max-w-[75%] mx-auto flex flex-col ">
     <h2 class="content-center text-lg mt-4"><b>Únete a DevAcademy y comienza tu viaje en programación. Crea tu cuenta en
         solo unos pasos y empieza a desarrollar las habilidades que te llevarán a la cima ¡La tecnología está a un clic
         de distancia!</b></h2>
-    <div id="register-form">
+    <div class="flex lg:flex-row items-center flex-col mb-[15%]">
         <div>
             <img class="w-96" src="../../../assets/images/hombrecito2.png" alt="">
         </div>
-        <form [formGroup]="registerForm" (submit)="OnSubmit($event)" class="w-1/2 gap-y-2.5">
+        <form [formGroup]="registerForm" (submit)="OnSubmit($event)" class="lg:w-1/2 gap-y-2.5 w-[80%]">
             <h3 class="text-base mt-4 mb-2"><b>Registro</b></h3>
             <div class="mb-2">
                 <label for="nombre" class="text-xs"><b>Nombre y Apellido *</b></label>

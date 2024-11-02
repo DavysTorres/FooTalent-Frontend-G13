@@ -33,7 +33,6 @@ export class ValidacionCorreoComponent {
     if (this.validatoremailForm.valid) {
       this.userService.requestResetPassword(this.validatoremailForm.value as Users).subscribe({
         next: (response) => {
-          console.log("Revisa tu correo electronico:", response);
           this.dialog.open(MensajeDialogoComponent,{
             data: { title: 'Correo Enviado', content: 'Revisa tu correo electrónico para más instrucciones.', isSuccess: true }
           });

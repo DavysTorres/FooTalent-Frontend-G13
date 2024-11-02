@@ -1,25 +1,61 @@
 <app-header></app-header>
-<div class="max-w-4xl mx-auto mt-10">
-  <h2 class="text-2xl font-bold mb-6 text-center">Crear Nuevo Curso</h2>
+<div class="lg:max-w-[60%] mx-auto mt-10 md:max-w-[70%] max-w-[80%]">
+  <button
+    class="flex justify-center items-center ml-[10px] md:ml-[-45px] w-8 h-8 rounded-full border border-[#11448a] hover:bg-gray-200"
+    (click)="goBack()">
+    <fa-icon [icon]="['fas', 'arrow-left']" class="text-[#11448a]"></fa-icon>
+  </button>
 
-  <form (ngSubmit)="onSubmit()" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-    
+  <form (ngSubmit)="onSubmit()" class="bg-[#E8EFF9] shadow-md rounded-[8px] px-8 pt-6 pb-8 mb-4 flex flex-col">
+    <h2 class="text-2xl font-bold mb-6 text-center text-[#11448a]">Crear Nuevo Curso</h2>
     <!-- Nombre del curso -->
     <div class="mb-4">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="nombre">
         Nombre del Curso
       </label>
-      <input [(ngModel)]="curso.nombre" name="nombre" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="nombre" type="text" placeholder="Ingresa el nombre del curso" required>
+      <input [(ngModel)]="curso.nombre" name="nombre" class="h-[100px] bg-[#E8EFF9] border border-[#1860C3] shadow-[inset_2px_4px_2px_0px_#00000024] appearance-none rounded-[8px] w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="nombre" type="text" placeholder="Ingresa el nombre del curso" required>
     </div>
     
     <!-- Descripción del curso -->
     <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="descripcion">
+      <label class="block text-gray-700 text-sm font-bold mb-2 " for="descripcion">
         Descripción del Curso
       </label>
-      <input [(ngModel)]="curso.descripcion" name="descripcion" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="descripcion" type="text" placeholder="Ingresa la descripción del curso" required>
+      <input [(ngModel)]="curso.descripcion" name="descripcion" class="h-[100px] bg-[#E8EFF9] border border-[#1860C3] shadow-[inset_2px_4px_2px_0px_#00000024] appearance-none  rounded-[8px] w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="descripcion" type="text" placeholder="Ingresa la descripción del curso" required>
+    </div>
+
+    <!-- Que se aprenderá del curso -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="que_aprenderas">
+        Que se aprenderá en el curso
+      </label>
+      <textarea [(ngModel)]="curso.que_aprenderas" name="que_aprenderas" class=" h-[100px] bg-[#E8EFF9] border border-[#1860C3] shadow-[inset_2px_4px_2px_0px_#00000024] appearance-none  rounded-[8px] w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="que_aprenderas" type="text" placeholder="Ingresa los puntos a aprender" required></textarea>
     </div>
     
+    <!-- Requisitos del curso -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="requisitos">
+        Requisitos
+      </label>
+      <input [(ngModel)]="curso.requisitos" name="requisitos" class="h-[100px] bg-[#E8EFF9] border border-[#1860C3] shadow-[inset_2px_4px_2px_0px_#00000024] appearance-none  rounded-[8px] w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="requisitos" type="text" placeholder="Ingresa los requisitos del curso" required>
+    </div>
+
+    <!-- Razones para elegir el curso -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="razon_eleccion">
+        Razones para elegir el curso
+      </label>
+      <textarea [(ngModel)]="curso.razon_eleccion" name="razon_eleccion" class="h-[100px] bg-[#E8EFF9] border border-[#1860C3] shadow-[inset_2px_4px_2px_0px_#00000024] appearance-none  rounded-[8px] w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="razon_eleccion" type="text" placeholder="Ingresa por qué elegir el curso" required></textarea>
+    </div>
+
+    <!-- Duración del curso -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="duracion">
+        Duración del curso
+      </label>
+      <input [(ngModel)]="curso.duracion" name="duracion" class="h-[100px] bg-[#E8EFF9] border border-[#1860C3] shadow-[inset_2px_4px_2px_0px_#00000024] appearance-none  rounded-[8px] w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="duracion" type="text" placeholder="Ingresa la duración del curso" required>
+    </div>
+
     <!-- Profesor asignado -->
     <!-- <div class="mb-6">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="profesor">
@@ -28,9 +64,14 @@
       <input [(ngModel)]="curso.docenteId" name="docenteId" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="profesor" type="text" placeholder="ID del profesor asignado" required>
     </div> -->
 
+    <div class="my-[5%] h-[25%] w-[100%] flex flex-col shadow-[inset_2px_4px_4px_0px_#00000024] p-[20px] mx-auto items-center rounded-[8px]">
+      <h3 class="text-[#11448a] text-lg ">Carga un video de introducción</h3>
+      <button class="bg-[#11448a] text-white rounded-[8px] w-[50%] h-[40px] mt-6 hover:bg-[#0d366d] block md:text-lg text-xs">Seleccionar archivo</button>
+    </div>
+
     <!-- Botón para crear el curso -->
-    <div class="flex items-center justify-between">
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+    <div class="flex items-center justify-between self-center ">
+      <button class="w-[100%] bg-[#11448a] hover:bg-[#0d366d] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
         Crear Curso
       </button>
     </div>

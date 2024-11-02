@@ -1,49 +1,61 @@
-<main class="bg-gray-200 h-fit flex flex-row">
-  <app-panel-de-control class="mr-[6%] max-w-[15%] relative" />
-
-  <div class="w-[75%] h-fit my-[2%] pb-[2%] z-100">
+<app-header class="md:hidden relative"/>
+<main class="bg-gray-200 h-fit flex flex-row font-['Lato'] p-[10px]">
+  
+  <app-panel-de-control class="mr-[6%] lg:max-w-[15%] md:block w-[100%] relative z-200 hidden" />
+  <div class="w-[100%] md:w-[75%] h-fit my-[2%] pb-[2%] z-100 relative">
     <!-- seccion de inicio -->
     <app-header-greeting [usuario]="usuario"></app-header-greeting>
 
-    <h2 class="bg-gray-200 text-center text-blue-800 underline mt-[25px]" [routerLink]="['/cursos']">
-      <b>Todos los cursos</b>
+    <h2
+      class="flex items-center justify-center text-center text-[#11448a] underline hover:cursor-pointer mt-[25px] mb-[-15px]"
+      [routerLink]="['/cursos']"
+    >
+      Todos los cursos
     </h2>
     <app-course-navbar />
     <div class="mt-[5%]">
-      <div class="flex flex-row place-content-between">
-        <h2 class="text-blue-800 mb-[2%]"><b>Cursos en progreso</b></h2>
+      <div class="flex flex-row place-content-between">       
+        <h2 class="text-blue-800 mb-[2%]"><b>Cursos inscritos</b></h2>
         <a href="" class="text-[#557FA5] underline">Ver todos</a>
       </div>
       <!-- Verifica si hay cursos suscritos -->
       <ng-container *ngIf="cursosSuscritos.length > 0; else noCourses">
-        <app-curso-tarjeta-movible [cursos]="cursosSuscritos" [mostrarProgreso]="true"></app-curso-tarjeta-movible>
+        <app-curso-tarjeta-movible
+          [cursos]="cursosSuscritos"
+          [mostrarProgreso]="true"
+        ></app-curso-tarjeta-movible>
       </ng-container>
       <!-- Mensaje cuando no hay cursos suscritos -->
       <ng-template #noCourses>
-        <div class="flex items-center justify-between h-full text-center p-4 rounded-lg border-l-4 border-[#11448a]" style="max-height: 400px;">
-          <img src="assets/images/hombrecitosinCursos.png" alt="Sin Cursos" class="w-1/5 h-auto" />
-          <p class="text-lg text-[#11448a] w-3/5">
-            ¡Aún no has agregado ningún curso!<br>
-            Una vez lo hayas hecho, aparecerán en esta sección.
-          </p>
-          <div class="w-1/5 flex justify-center items-center">
-            <a href="/cursos" class="bg-[#11448a] text-white py-2 px-4 rounded hover:bg-[#0d366d] transition">
-              Buscar Cursos
-            </a>
-          </div>
-        </div>
+        <div class="h-[80vh] my-[2%] border-l-4 border-[#11448a] rounded-[24px] py-[4%] flex flex-row content-between items-center">
+          <div class="flex flex-row align-middle">
+               <img src="../../../assets/images/hombrecito3.png" alt="" class="h-[30vh]">
+               <h4 class="max-w-[40%] text-[#11448a] text-center">
+                   <strong>
+                   Aun no haz agregado ningún curso! 
+                   una vez lo hayas hecho aparecerán
+                   en esta sección.  
+                   </strong>
+               </h4>
+           </div>
+           <div class="flex flex-col items-center h-[100%] w-[35%] px-4 py-12 rounded-[24px] border-l-4 border-[#11448a] shadow-[0px_4px_4px_0px_#00000024] justify-between">
+               <h4 class="text-[#11448a]">Es hora de empezar un nuevo reto, ¿que deseas aprender?</h4>
+               <button [routerLink]="['/cursos']" class="bg-[#11448a] text-white text-xs rounded-[8px] w-[110px] h-[30px] mt-6 hover:bg-[#0d366d] block">Agregar Curso</button>
+           </div>
+       </div>
       </ng-template>
-      
-      
     </div>
 
     <div class="mt-[5%]">
       <div class="flex flex-row place-content-between">
         <h2 class="text-blue-800 mb-[2%]"><b>Cursos en demanda</b></h2>
-        <a href="" class="text-[#557FA5] underline">Ver todos</a>
+        <a href="" class="text-[#11448a] underline">Ver todos</a>
       </div>
 
-      <app-curso-tarjeta-movible [cursos]="cursos.slice(0,10)" [mostrarProgreso]="false"></app-curso-tarjeta-movible>
+      <app-curso-tarjeta-movible
+        [cursos]="cursos.slice(0, 10)"
+        [mostrarProgreso]="false"
+      ></app-curso-tarjeta-movible>
     </div>
   </div>
 </main>

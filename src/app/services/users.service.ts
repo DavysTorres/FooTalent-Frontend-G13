@@ -29,9 +29,6 @@ export class UsersService {
           const { token, usuario } = response.data;
           this.setToken(token);
           this.setUsuario(usuario.id, usuario.nombre, usuario.email, usuario.avatar, usuario.role);
-
-          console.log('Rol almacenado en localStorage:', usuario.role);
-          console.log('Contenido de localStorage:', localStorage);
         }
       })
     );

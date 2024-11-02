@@ -76,7 +76,6 @@ export class EditarCursoComponent implements OnInit {
         if (this.idCurso) {
           this.cursoService.editarCurso(this.idCurso, this.curso).subscribe(
             (response) => {
-              console.log('Curso actualizado:', response);
               this.router.navigate(['/teacher-dashboard']); // Navegar de vuelta a la lista de cursos
             },
             (error) => {
@@ -84,8 +83,6 @@ export class EditarCursoComponent implements OnInit {
             }
           );
         }
-      } else {
-        console.log('Cambios cancelados por el usuario');
       }
     });
   }

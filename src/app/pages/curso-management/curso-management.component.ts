@@ -59,7 +59,6 @@ export class CursoManagementComponent implements OnInit {
         // Si el usuario confirma, llamar al servicio para eliminar el curso
         this.cursoService.eliminarCurso(idCurso).subscribe(
           (response: any) => {
-            console.log('Curso eliminado:', response);
             // Actualizar la lista de cursos después de la eliminación
             this.obtenerCursosPropios(this.idUsuario); // Refrescar la lista de cursos
             this.loading = false;
@@ -69,8 +68,6 @@ export class CursoManagementComponent implements OnInit {
             this.loading = false; 
           }
         );
-      } else {
-        console.log('Eliminación cancelada por el usuario');
       }
     });
   }

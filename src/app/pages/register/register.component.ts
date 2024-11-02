@@ -87,7 +87,7 @@ export class RegisterComponent {
           this.router.navigate(['inicio-sesion']);
         },
         error: (error) => {
-          console.log(error);
+          console.error(error);
         },
       });
     } else {

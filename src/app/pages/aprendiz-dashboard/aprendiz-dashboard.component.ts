@@ -10,6 +10,8 @@ import { UsersService } from '../../services/users.service';
 import { CourseViewcardComponent } from '../../components/course-viewcard/course-viewcard.component';
 import { HeaderGreetingComponent } from '../../components/header-greeting/header-greeting.component';
 import { SuscripcionService } from '../../services/suscripcion.service';
+import { SaludoComponent } from '../../components/saludo/saludo.component';
+import { HeaderComponent } from '../../components/header/header.component';
 
 @Component({
   selector: 'app-aprendiz-dashboard',
@@ -22,7 +24,8 @@ import { SuscripcionService } from '../../services/suscripcion.service';
     CommonModule,
     RouterModule,
     CourseViewcardComponent,
-    HeaderGreetingComponent
+    HeaderGreetingComponent,
+    HeaderComponent
   ],
   templateUrl: './aprendiz-dashboard.component.html',
   styleUrls: ['./aprendiz-dashboard.component.css']
@@ -69,7 +72,6 @@ export class AprendizDashboardComponent {
           }));
           
           this.loading = false;
-          console.log("SUSCRIPCIONES: ", this.cursosSuscritos);
         },
         (error) => {
           console.error('Error al obtener las suscripciones:', error);
