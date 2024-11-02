@@ -6,7 +6,7 @@ import { HeaderCursoComponent } from '../../components/header-curso/header-curso
 import { CrearCursoTarjetaComponent } from '../../components/crear-curso-tarjeta/crear-curso-tarjeta.component';
 import { CrearClaseModalComponent } from '../../components/crear-clase-modal/crear-clase-modal.component';
 import { ContenidoService } from '../../services/contenido.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-curso-temario',
@@ -20,8 +20,8 @@ export class CursoTemarioComponent implements OnInit {
   private dialog: MatDialog;
   cursoId: string | null = null;
   clases: any[] = []
-
-  constructor(dialog: MatDialog, private contenidoService: ContenidoService, private route: ActivatedRoute) {
+  
+  constructor(dialog: MatDialog, private contenidoService: ContenidoService, private route: ActivatedRoute, private router: Router) {
     this.dialog = dialog;
   }
 
@@ -32,6 +32,7 @@ export class CursoTemarioComponent implements OnInit {
       this.cargarClases(this.cursoId);
     }
   }
+
   cargarClases(cursoId: string): void {
     this.contenidoService.getContenidos(cursoId).subscribe({
       next: (data: any) => {
@@ -43,7 +44,9 @@ export class CursoTemarioComponent implements OnInit {
       }
     });
   }
-
+  navegarAVistaCurso() {
+    this.router.navigate(['/vista-curso']);
+  }
   openCrearClaseModal = () => {
     const dialogRef = this.dialog.open(CrearClaseModalComponent, {
       width: '600px'
