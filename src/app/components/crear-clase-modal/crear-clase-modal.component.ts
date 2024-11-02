@@ -12,13 +12,14 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class CrearClaseModalComponent {
   titulo: string = '';
-  videoUrl: string = '';
+  video: string = '';
+  descripcion: string = '';
 
   constructor(private dialogRef: MatDialogRef<CrearClaseModalComponent>) {}
 
   onSubmit() {
-    if (this.titulo && this.videoUrl) {
-      this.dialogRef.close({ titulo: this.titulo, videoUrl: this.videoUrl });
+    if (this.titulo) {
+      this.dialogRef.close({ titulo: this.titulo, video: this.video, descripcion: this.descripcion });
     }
   }
 

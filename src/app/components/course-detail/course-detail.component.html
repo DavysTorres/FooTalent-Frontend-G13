@@ -3,7 +3,7 @@
 <!-- Sección página detalles -->
 <app-course-navbar />
 <div class="container flex flex-col py-12 px-6 font-['Lato'] text-lg w-[90%] items-center mx-[5%]">
-  
+
   <div *ngIf="loading" class="spinner-container">
     <app-progress-spinner-overview></app-progress-spinner-overview> <!-- Mostrar el spinner -->
   </div>
@@ -35,13 +35,19 @@
               <fa-icon [icon]="editMode ? ['fas', 'check'] : ['fas', 'pen']"></fa-icon>
               {{ editMode ? 'Guardar' : 'Editar' }}
             </button>
+
+            <button class="ml-4 bg-green-600 text-white font-semibold py-2 px-4 rounded hover:bg-green-700"
+            [routerLink]="['/curso-temario', cursoId]">>
+              <fa-icon [icon]="['fas', 'book-open']"></fa-icon> <!-- Icono opcional -->
+              Editar Temario
+            </button>
           </div>
         </div>
 
         <!-- Descripción del curso -->
         <div *ngIf="editMode">
-          <textarea [(ngModel)]="course.descripcion" class="w-full border border-gray-300 rounded px-2 py-1 mb-6" rows="3"
-            placeholder="Descripción del curso"></textarea>
+          <textarea [(ngModel)]="course.descripcion" class="w-full border border-gray-300 rounded px-2 py-1 mb-6"
+            rows="3" placeholder="Descripción del curso"></textarea>
         </div>
         <p *ngIf="!editMode" class="mb-6">{{ course?.descripcion }}</p>
 
@@ -81,7 +87,8 @@
 
       <!-- Sección derecha -->
       <div class="bg-[#e6edf2] p-6 flex flex-col shadow-lg rounded-lg text-center h-[50%]">
-        <img src="assets/images/video.png" alt="Imagen del video" class="w-16 h-16 rounded-full self-center mb-[10px]" />
+        <img src="assets/images/video.png" alt="Imagen del video"
+          class="w-16 h-16 rounded-full self-center mb-[10px]" />
         <button class="bg-[#0d366d] text-white font-semibold py-2 px-6 rounded hover:bg-blue-600 mb-6"
           (click)="suscribirCurso()" [disabled]="!course">
           Inscribirte a este curso

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { PanelDeControlComponent } from '../../components/panel-de-control/panel-de-control.component';
@@ -6,6 +6,7 @@ import { HeaderCursoComponent } from '../../components/header-curso/header-curso
 import { CrearCursoTarjetaComponent } from '../../components/crear-curso-tarjeta/crear-curso-tarjeta.component';
 import { CrearClaseModalComponent } from '../../components/crear-clase-modal/crear-clase-modal.component';
 import { ContenidoService } from '../../services/contenido.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-curso-temario',
@@ -15,25 +16,53 @@ import { ContenidoService } from '../../services/contenido.service';
   templateUrl: './curso-temario.component.html',
   styleUrls: ['./curso-temario.component.css'] // Corregir 'styleUrl' a 'styleUrls'
 })
-export class CursoTemarioComponent {
+export class CursoTemarioComponent implements OnInit {
   private dialog: MatDialog;
+  cursoId: string | null = null;
+  clases: any[] = []
 
-  constructor(dialog: MatDialog,  private contenidoService: ContenidoService,) {
+  constructor(dialog: MatDialog, private contenidoService: ContenidoService, private route: ActivatedRoute) {
     this.dialog = dialog;
-    
+  }
+
+  ngOnInit(): void {
+    this.cursoId = this.route.snapshot.paramMap.get('cursoId');
+    if (this.cursoId) {
+      
+      this.cargarClases(this.cursoId);
+    }
+  }
+  cargarClases(cursoId: string): void {
+    this.contenidoService.getContenidos(cursoId).subscribe({
+      next: (data: any) => {
+        this.clases = data.data;
+
+      },
+      error: (error) => {
+        console.error('Error al obtener clases:', error);
+      }
+    });
   }
 
   openCrearClaseModal = () => {
     const dialogRef = this.dialog.open(CrearClaseModalComponent, {
       width: '600px'
     });
-  
+
     dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.contenidoService.agregarContenido(result).subscribe({
+      if (result && this.cursoId) {
+        const contenido = {
+          ...result,
+          cursoId: this.cursoId
+        };
+        this.contenidoService.agregarContenido(contenido).subscribe({
           next: (response) => {
-            console.log('Contenido creado:', response);
             // Aquí puedes actualizar la lista de clases si es necesario
+
+            if (this.cursoId) {
+              
+              this.cargarClases(this.cursoId);
+            }
           },
           error: (error) => {
             console.error('Error al crear contenido:', error);
@@ -45,7 +74,7 @@ export class CursoTemarioComponent {
 
   activeIndex: number | null = null;
 
-  clases = [
+  /*clases = [
     {
       titulo: 'Título de la clase 1',
       duracion: '01:57',
@@ -60,7 +89,7 @@ export class CursoTemarioComponent {
     },
     // Agregar más clases si es necesario
   ];
-
+*/
   toggleAccordion(index: number): void {
     this.activeIndex = this.activeIndex === index ? null : index;
   }

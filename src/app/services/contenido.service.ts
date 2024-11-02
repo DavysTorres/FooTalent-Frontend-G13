@@ -14,9 +14,10 @@ export class ContenidoService {
   constructor() {}
 
   // Obtener todos los contenidos
-  getContenidos(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/clase`);
+  getContenidos(cursoId: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/clase/${cursoId}`);
   }
+  
 
   // Agregar nuevo contenido
   agregarContenido(contenido: any): Observable<any> {

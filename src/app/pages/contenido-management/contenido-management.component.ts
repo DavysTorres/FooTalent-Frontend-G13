@@ -28,11 +28,11 @@ export class ContenidoManagementComponent implements OnInit{
   constructor() {}
 
   ngOnInit(): void {
-    this.obtenerContenidos();
+    //this.obtenerContenidos();
   }
 
   //Obtener todos los contenidos del curso
-  obtenerContenidos() {
+  /*obtenerContenidos() {
     this.contenidoService.getContenidos().subscribe(
       (data: any[]) => {
         this.contenidos = data;
@@ -43,7 +43,7 @@ export class ContenidoManagementComponent implements OnInit{
       }
     );
   }
-
+*/
   //Agregar nuevo contenido
   agregarContenido() {
     this.contenidoService.agregarContenido(this.nuevoContenido).subscribe(

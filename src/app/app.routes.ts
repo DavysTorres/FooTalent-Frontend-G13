@@ -39,7 +39,7 @@ export const routes: Routes = [
   { path: 'eliminar-curso/:id', component: EliminarCursoComponent },
   { path: 'contenido-management', component: ContenidoManagementComponent },
   { path: 'verifyAccount', component: ConfirmAccountComponent },
-  { path: 'curso-temario', component: CursoTemarioComponent}
+  { path: 'curso-temario/:cursoId', component: CursoTemarioComponent}
   /*
   { path: 'admin-dashboard', component: AdminDashboardComponent }*/
 ];
