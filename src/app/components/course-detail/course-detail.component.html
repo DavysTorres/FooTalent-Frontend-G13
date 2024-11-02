@@ -62,17 +62,12 @@
 
         <!-- Descripción del curso -->
         <div *ngIf="editMode">
-<<<<<<< HEAD
-          <textarea [(ngModel)]="course.descripcion" class="w-full border border-gray-300 rounded px-2 py-1 mb-6"
-            rows="3" placeholder="Descripción del curso"></textarea>
-=======
           <textarea
             [(ngModel)]="course.descripcion"
             class="w-full border border-gray-300 rounded px-2 py-1 mb-6"
             rows="3"
             placeholder="Descripción del curso"
           ></textarea>
->>>>>>> backup-master
         </div>
         <p *ngIf="!editMode" class="mb-6">{{ course?.descripcion }}</p>
 
