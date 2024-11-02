@@ -6,17 +6,23 @@ import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MensajeDialogoComponent } from '../../components/mensaje-dialogo/mensaje-dialogo.component';
-
+import { Location } from '@angular/common';
+import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-crear-curso',
   standalone: true,
-  imports: [RouterModule, FormsModule, HeaderComponent, FooterComponent],
+  imports: [RouterModule, FormsModule, HeaderComponent, FooterComponent, FontAwesomeModule],
   templateUrl: './crear-curso.component.html',
   styleUrl: './crear-curso.component.css'
 })
 export class CrearCursoComponent {
   
+  constructor(private location: Location, private library: FaIconLibrary) {
+    this.library.addIcons(faArrowLeft);
+  }
 
   curso = {
     nombre: '',
@@ -32,6 +38,9 @@ export class CrearCursoComponent {
   private router = inject(Router);
   private dialog = inject(MatDialog);
 
+  goBack(): void {
+    this.location.back();
+  }
 
   onSubmit() {
     if (this.curso.nombre && this.curso.descripcion) {

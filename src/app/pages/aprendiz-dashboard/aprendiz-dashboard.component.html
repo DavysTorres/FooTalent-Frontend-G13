@@ -1,6 +1,8 @@
-<main class="bg-gray-200 h-fit flex flex-row font-['Lato']">
-  <app-panel-de-control class="mr-[6%] max-w-[15%] relative" />
-  <div class="w-[75%] h-fit my-[2%] pb-[2%] z-100">
+<app-header class="md:hidden relative"/>
+<main class="bg-gray-200 h-fit flex flex-row font-['Lato'] p-[10px]">
+  
+  <app-panel-de-control class="mr-[6%] lg:max-w-[15%] md:block w-[100%] relative z-200 hidden" />
+  <div class="w-[100%] md:w-[75%] h-fit my-[2%] pb-[2%] z-100 relative">
     <!-- seccion de inicio -->
     <app-header-greeting [usuario]="usuario"></app-header-greeting>
 

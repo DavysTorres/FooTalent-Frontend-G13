@@ -11,6 +11,7 @@ import { CourseViewcardComponent } from '../../components/course-viewcard/course
 import { HeaderGreetingComponent } from '../../components/header-greeting/header-greeting.component';
 import { SuscripcionService } from '../../services/suscripcion.service';
 import { SaludoComponent } from '../../components/saludo/saludo.component';
+import { HeaderComponent } from '../../components/header/header.component';
 
 @Component({
   selector: 'app-aprendiz-dashboard',
@@ -23,7 +24,8 @@ import { SaludoComponent } from '../../components/saludo/saludo.component';
     CommonModule,
     RouterModule,
     CourseViewcardComponent,
-    HeaderGreetingComponent
+    HeaderGreetingComponent,
+    HeaderComponent
   ],
   templateUrl: './aprendiz-dashboard.component.html',
   styleUrls: ['./aprendiz-dashboard.component.css']

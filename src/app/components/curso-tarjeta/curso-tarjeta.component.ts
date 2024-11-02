@@ -4,11 +4,15 @@ import { CursoService } from '../../services/curso.service';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { Location } from '@angular/common';
+import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-curso-tarjeta',
   standalone: true,
-  imports: [RouterModule,CommonModule],
+  imports: [RouterModule,CommonModule, FontAwesomeModule],
   templateUrl: './curso-tarjeta.component.html',
   styleUrls: ['./curso-tarjeta.component.css']
 
@@ -19,8 +23,16 @@ export class CursoTarjetaComponent {
   loading = false;
 
   private dialog = inject(MatDialog);
+  
 
-  constructor(private cursoService: CursoService) { }
+  constructor(private cursoService: CursoService, private location: Location, private library: FaIconLibrary) { 
+    this.library.addIcons(faArrowLeft);
+  }
+
+  
+  goBack(): void {
+    this.location.back();
+  }
 
   eliminarCurso(idCurso: string): void {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {

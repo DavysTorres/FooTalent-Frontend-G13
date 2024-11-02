@@ -1,5 +1,10 @@
 <app-header></app-header>
 <div class="lg:max-w-[60%] mx-auto mt-10 md:max-w-[70%] max-w-[80%]">
+  <button
+    class="flex justify-center items-center ml-[10px] md:ml-[-45px] w-8 h-8 rounded-full border border-[#11448a] hover:bg-gray-200"
+    (click)="goBack()">
+    <fa-icon [icon]="['fas', 'arrow-left']" class="text-[#11448a]"></fa-icon>
+  </button>
 
   <form (ngSubmit)="onSubmit()" class="bg-[#E8EFF9] shadow-md rounded-[8px] px-8 pt-6 pb-8 mb-4 flex flex-col">
     <h2 class="text-2xl font-bold mb-6 text-center text-[#11448a]">Crear Nuevo Curso</h2>
@@ -61,7 +66,7 @@
 
     <div class="my-[5%] h-[25%] w-[100%] flex flex-col shadow-[inset_2px_4px_4px_0px_#00000024] p-[20px] mx-auto items-center rounded-[8px]">
       <h3 class="text-[#11448a] text-lg ">Carga un video de introducción</h3>
-      <button class="bg-[#11448a] text-white rounded-[8px] w-[50%] h-[40px] mt-6 hover:bg-[#0d366d] block text-lg">Seleccionar archivo</button>
+      <button class="bg-[#11448a] text-white rounded-[8px] w-[50%] h-[40px] mt-6 hover:bg-[#0d366d] block md:text-lg text-xs">Seleccionar archivo</button>
     </div>
 
     <!-- Botón para crear el curso -->
