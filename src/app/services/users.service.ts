@@ -29,9 +29,6 @@ export class UsersService {
           const { token, usuario } = response.data;
           this.setToken(token);
           this.setUsuario(usuario.id, usuario.nombre, usuario.email, usuario.avatar, usuario.role);
-
-          console.log('Rol almacenado en localStorage:', usuario.role);
-          console.log('Contenido de localStorage:', localStorage);
         }
       })
     );
@@ -75,13 +72,15 @@ getUsuario() {
   const nombre = localStorage.getItem('user_nombre');
   const email = localStorage.getItem('user_email');
   const avatarUrl = localStorage.getItem('user_avatar') || "";
+  const role=localStorage.getItem('user_role')
 
-  if (idUsuario && nombre && email) {
+  if (idUsuario && nombre && email && role) {
     return {
       idUsuario,
       nombre,
       email,
-      avatarUrl
+      avatarUrl,
+      role
     };
   } else {
     return null; 

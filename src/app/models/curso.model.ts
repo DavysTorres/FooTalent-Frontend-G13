@@ -9,4 +9,11 @@ export interface Curso {
   informacion_adicional?: string;
   activo?:boolean;
   createdAt?: Date;
+  duracion?:String
+  docenteId?: {
+    id: string;
+    nombre: string;
+    role: string;
+  };
+  progreso?: number;
 }

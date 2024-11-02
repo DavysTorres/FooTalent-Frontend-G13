@@ -1,23 +1,27 @@
 <section
-  class="flex flex-row w-[80%] justify-between text-center gap-2 mx-[10%] mt-[2%] align-middle bg-gradient-to-r from-[#dae8fa] via-[#b5d0f6] to-[#dae8fa] rounded-[24px] py-4 px-[8%]"
+  class="flex flex-row w-[70%] justify-between text-center items-center gap-2 mx-auto mt-[2%] align-middle bg-gradient-to-r from-[#dae8fa] via-[#b5d0f6] to-[#dae8fa] rounded-[24px] py-4 px-[5%]"
 >
   <!-- Botón Izquierda -->
   <button
-    id="prev"
-    class="mt-6 mr-5 flex items-center justify-center bg-[#11448a] text-white p-2 w-8 h-8 rounded-full"
+    (click)="scrollLeft()"
+    class="flex items-center text-center justify-center bg-[#11448a] text-white w-8 h-7 rounded-full"
   >
     <i class="fas fa-chevron-left"></i>
   </button>
 
   <!-- Contenedor del carrusel -->
-  <!-- <div
-    id="carouselInner"
+  <div
     #carouselInner
-    class="flex flex-row overflow-hidden scroll-smooth space-x-16"
-  > -->
+    class="flex items-center text-center sm:justify-start md:justify-start lg:justify-center overflow-x-scroll space-x-8 sm:flex-nowrap w-full"
+  >
     <!-- Curso de PHP y Bases de datos -->
-    <div class="flex items-center justify-center text-center w-30 flex-col">
-      <a [routerLink]="['/curso', 1]" class="flex flex-col text-center justify-center items-center">
+    <div
+      class="relative flex items-center justify-center text-center w-16 h-13 sm:w-24 sm:h-20 rounded-full group"
+    >
+      <a
+        [routerLink]="['/curso', 1]"
+        class="flex flex-col text-center justify-center items-center"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="42px"
@@ -69,13 +73,24 @@
             </radialGradient>
           </defs>
         </svg>
-        <h3 class="text-xs mt-2 flex text-center justify-center items-center"><b>PHP y Bases de Datos</b></h3>
+        <h3 class="text-xs mt-2 flex text-center justify-center items-center">
+          <b>Bases de datos</b>
+        </h3>
       </a>
+      <!-- Mensaje de desarrollo -->
+      <div class="absolute bottom-0 left-0 right-0 bg-black text-white text-sm p-1 rounded hidden group-hover:block">
+        En desarrollo
+      </div>
     </div>
 
     <!-- Curso de Diseño Web -->
-    <div class="flex items-center justify-center text-center w-30 flex-col">
-      <a [routerLink]="['/curso', 2]" class="flex flex-col text-center justify-center items-center">
+    <div
+      class="relative flex items-center justify-center text-center w-16 h-13 sm:w-24 sm:h-20 rounded-full group"
+    >
+      <a
+        [routerLink]="['/curso', 2]"
+        class="flex flex-col text-center justify-center items-center"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="50"
@@ -142,13 +157,24 @@
             &lt;/&gt;
           </text>
         </svg>
-        <h3 class="text-xs mt-2 flex text-center justify-center items-center"><b>Diseño Web</b></h3>
+        <h3 class="text-xs mt-2 flex text-center justify-center items-center">
+          <b>Diseño Web</b>
+        </h3>
       </a>
+      <!-- Mensaje de desarrollo -->
+      <div class="absolute bottom-0 left-0 right-0 bg-black text-white text-sm p-1 rounded hidden group-hover:block">
+        En desarrollo
+      </div>
     </div>
 
     <!-- Curso de Python -->
-    <div class="flex items-center justify-center text-center w-30 flex-col">
-      <a [routerLink]="['/curso', 3]" class="flex flex-col text-center justify-center items-center">
+    <div
+      class="relative flex items-center justify-center text-center w-16 h-13 sm:w-24 sm:h-20 rounded-full group"
+    >
+      <a
+        [routerLink]="['/curso', 3]"
+        class="flex flex-col text-center justify-center items-center"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="42px"
@@ -186,13 +212,24 @@
             d="M128.757 254.126c64.832 0 60.784-28.115 60.784-28.115l-.072-29.127H127.6v-8.745h86.441s41.486 4.705 41.486-60.712c0-65.416-36.21-63.096-36.21-63.096h-21.61v30.355s1.165 36.21-35.632 36.21h-61.362s-34.475-.557-34.475 33.32v56.013s-5.235 33.897 62.518 33.897m34.114-19.586a11.12 11.12 0 0 1-11.13-11.13a11.12 11.12 0 0 1 11.13-11.131a11.12 11.12 0 0 1 11.13 11.13a11.12 11.12 0 0 1-11.13 11.13"
           />
         </svg>
-        <h3 class="text-xs mt-2 flex text-center justify-center items-center"><b>Python</b></h3>
+        <h3 class="text-xs mt-2 flex text-center justify-center items-center">
+          <b>Python</b>
+        </h3>
       </a>
+      <!-- Mensaje de desarrollo -->
+      <div class="absolute bottom-0 left-0 right-0 bg-black text-white text-sm p-1 rounded hidden group-hover:block">
+        En desarrollo
+      </div>
     </div>
 
     <!-- Curso de Java -->
-    <div class="flex items-center justify-center text-center w-30 flex-col">
-      <a [routerLink]="['/curso', 4]" class="flex flex-col text-center justify-center items-center">
+    <div
+      class="relative flex items-center justify-center text-center w-16 h-13 sm:w-24 sm:h-20 rounded-full group"
+    >
+      <a
+        [routerLink]="['/curso', 4]"
+        class="flex flex-col text-center justify-center items-center"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="42px"
@@ -220,13 +257,24 @@
             d="M95.268 344.665c62.199 3.982 157.712-2.209 159.974-31.64c0 0-4.348 11.158-51.404 20.018c-53.088 9.99-118.564 8.824-157.399 2.421c.001 0 7.95 6.58 48.83 9.201"
           />
         </svg>
-        <h3 class="text-xs mt-2 flex text-center justify-center items-center"><b>Java</b></h3>
+        <h3 class="text-xs mt-2 flex text-center justify-center items-center">
+          <b>Java</b>
+        </h3>
       </a>
+      <!-- Mensaje de desarrollo -->
+      <div class="absolute bottom-0 left-0 right-0 bg-black text-white text-sm p-1 rounded hidden group-hover:block">
+        En desarrollo
+      </div>
     </div>
 
     <!-- Curso de JavaScript -->
-    <div class="flex items-center justify-center text-center w-30 flex-col">
-      <a [routerLink]="['/curso', 5]" class="flex flex-col text-center justify-center items-center">
+    <div
+      class="relative flex items-center justify-center text-center w-16 h-13 sm:w-24 sm:h-20 rounded-full group"
+    >
+      <a
+        [routerLink]="['/curso', 5]"
+        class="flex flex-col text-center justify-center items-center"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="42px"
@@ -241,13 +289,24 @@
             />
           </g>
         </svg>
-        <h3 class="text-xs mt-2 flex text-center justify-center items-center"><b>Javascript</b></h3>
+        <h3 class="text-xs mt-2 flex text-center justify-center items-center">
+          <b>Javascript</b>
+        </h3>
       </a>
+      <!-- Mensaje de desarrollo -->
+      <div class="absolute bottom-0 left-0 right-0 bg-black text-white text-sm p-1 rounded hidden group-hover:block">
+        En desarrollo
+      </div>
     </div>
 
     <!-- Curso de C++ -->
-    <div class="flex items-center justify-center text-center w-30 flex-col">
-      <a [routerLink]="['/curso', 6]" class="flex flex-col text-center justify-center items-center">
+    <div
+      class="relative flex items-center justify-center text-center w-16 h-13 sm:w-24 sm:h-20 rounded-full group"
+    >
+      <a
+        [routerLink]="['/curso', 6]"
+        class="flex flex-col text-center justify-center items-center"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="48"
@@ -271,15 +330,21 @@
             d="M63.445 26.035c-20.867 0-37.843 16.977-37.843 37.844s16.976 37.844 37.843 37.844c13.465 0 26.024-7.247 32.77-18.91L79.84 73.335c-3.38 5.84-9.66 9.465-16.395 9.465c-10.433 0-18.922-8.488-18.922-18.922s8.49-18.922 18.922-18.922c6.73 0 13.017 3.629 16.39 9.465l16.38-9.477c-6.75-11.664-19.305-18.91-32.77-18.91zM92.88 57.57v4.207h-4.207v4.203h4.207v4.207h4.203V65.98h4.203v-4.203h-4.203V57.57zm15.766 0v4.207h-4.204v4.203h4.204v4.207h4.207V65.98h4.203v-4.203h-4.203V57.57z"
           />
         </svg>
-        <h3 class="text-xs mt-2 flex text-center justify-center items-center"><b>C++</b></h3>
+        <h3 class="text-xs mt-2 flex text-center justify-center items-center">
+          <b>C++</b>
+        </h3>
       </a>
+      <!-- Mensaje de desarrollo -->
+      <div class="absolute bottom-0 left-0 right-0 bg-black text-white text-sm p-1 rounded hidden group-hover:block">
+        En desarrollo
+      </div>
     </div>
-  <!-- </div> -->
+  </div>
 
   <!-- Botón Derecha -->
   <button
-    id="next"
-    class="mt-6 ml-5 flex items-center justify-center bg-[#11448a] text-white p-2 w-8 h-8 rounded-full"
+    (click)="scrollRight()"
+    class="flex items-center text-center justify-center bg-[#11448a] text-white w-8 h-7 rounded-full"
   >
     <i class="fas fa-chevron-right"></i>
   </button>

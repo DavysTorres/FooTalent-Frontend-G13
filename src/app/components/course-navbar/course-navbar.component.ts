@@ -8,47 +8,27 @@ import { Router, RouterLinkWithHref } from '@angular/router';
   templateUrl: './course-navbar.component.html',
   styleUrl: './course-navbar.component.css',
 })
-
 export class CourseNavbarComponent {
-
-}
-
-/* export class CourseNavbarComponent implements AfterViewInit {
   @ViewChild('carouselInner', { static: false }) carouselInner!: ElementRef;
-  currentIndex: number = 0;
-  itemsToShow: number = 5;
-  totalItems: number = 0;
-  itemWidth: number = 0;
 
-  constructor(private router: Router) {}
+  // Tamaño del desplazamiento (ajústalo según el tamaño de cada tarjeta en el carrusel)
+  scrollAmount: number = 100;
 
-  ngAfterViewInit(): void {
-    this.totalItems = this.carouselInner.nativeElement.children.length;
-    const carousel = this.carouselInner.nativeElement as HTMLElement;
-    this.itemWidth = carousel.clientWidth / this.itemsToShow; // Ancho dinámico basado en el número de ítems a mostrar
-    this.updateCarousel(); // Asegura que los ítems se ubiquen correctamente
-  }
-
-  // Mover hacia la izquierda
-  scrollLeft(): void {
-    if (this.currentIndex > 0) {
-      this.currentIndex--;
-      this.updateCarousel();
+  scrollLeft() {
+    if (this.carouselInner) {
+      this.carouselInner.nativeElement.scrollBy({
+        left: -this.scrollAmount,
+        behavior: 'smooth',
+      });
     }
   }
 
-  // Mover hacia la derecha
-  scrollRight(): void {
-    if (this.currentIndex < this.totalItems - this.itemsToShow) {
-      this.currentIndex++;
-      this.updateCarousel();
+  scrollRight() {
+    if (this.carouselInner) {
+      this.carouselInner.nativeElement.scrollBy({
+        left: this.scrollAmount,
+        behavior: 'smooth',
+      });
     }
   }
-
-  // Actualiza la posición del carrusel
-  updateCarousel(): void {
-    const carousel = this.carouselInner.nativeElement as HTMLElement;
-    const translateX = -(this.itemWidth * this.currentIndex);
-    carousel.style.transform = `translateX(${translateX}px)`;
-  } 
-}*/
+}

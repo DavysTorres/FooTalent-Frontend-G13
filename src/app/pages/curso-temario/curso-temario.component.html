@@ -1,0 +1,71 @@
+<main class="bg-gray-200 h-fit flex flex-row">
+
+    
+    <app-panel-de-control class="mr-[6%] max-w-[15%] relative"></app-panel-de-control>
+
+    
+    
+    <!-- Contenedor principal -->
+    <div class="w-[75%] h-fit my-[2%] pb-[2%] z-100">
+
+
+        <app-header-curso></app-header-curso>
+
+        <app-crear-curso-tarjeta
+        [titulo]="'¿Deseas crear una nueva clase?'"
+        [descripcion]="'Recuerda escoger un nombre relevante al tema y una imagen acorde a la temática de la clase'"
+        [botonUrl]="'/crear-curso'"
+        [clickHandler]="openCrearClaseModal"
+        >
+
+
+
+         
+        </app-crear-curso-tarjeta>
+        
+      <!-- Nueva tarjeta -->
+      <div class="bg-white border border-gray-300 shadow-lg rounded-xl p-4 mb-6 flex items-center">
+        <img src="https://cdn-icons-png.flaticon.com/512/919/919828.png" alt="JS Icono" class="w-10 h-10 mr-4">
+        <div>
+          <h2 class="text-xl font-semibold text-gray-800">Prueba</h2>
+          <p class="text-sm text-gray-600">Publicado el: 12 Octubre </p>
+        </div>
+      </div>
+  
+      <!-- Acordeón -->
+      <div class="bg-blue-50 border border-gray-300 shadow-lg rounded-xl p-4">
+        <div *ngFor="let clase of clases; let i = index" class="border-b border-gray-300">
+          <button (click)="toggleAccordion(i)" class="w-full flex justify-between items-center py-3 text-left focus:outline-none">
+            <h3 class="text-lg font-semibold text-gray-800">{{ clase.titulo }}</h3>
+            <svg [ngClass]="{'transform rotate-180': activeIndex === i}" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5 text-gray-500 transition-transform duration-300" viewBox="0 0 24 24">
+              <path d="M7 10l5 5 5-5H7z" />
+            </svg>
+          </button>
+          <!-- Contenido desplegable -->
+          <div *ngIf="activeIndex === i" class="p-4 flex items-center space-x-4">
+            <div class="flex-1">
+              <div class="flex items-center text-sm text-gray-500 mb-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5 mr-1 text-blue-700" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-10 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6l5.25 3.15-.75 1.23L11 13V7z" />
+                </svg>
+                <span>{{ clase.duracion || 'Duración no especificada' }}</span>
+              </div>
+              <p class="text-gray-600 text-sm mb-2">
+                {{ clase.descripcion }}
+              </p>
+            </div>
+            <!-- Imagen -->
+            <div class="w-32 h-20 flex-shrink-0 rounded-md overflow-hidden relative" (click)="navegarAVistaCurso()">
+              <img [src]="clase.video" alt="Imagen de la clase" class="object-cover w-full h-full">
+              <div class="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6 text-white" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7L8 5z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  

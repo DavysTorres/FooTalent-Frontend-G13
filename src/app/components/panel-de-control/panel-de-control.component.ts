@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, HostListener } from '@angular/core';
 import { Router, RouterLinkWithHref, RouterModule } from '@angular/router';
 import { UsersService } from '../../services/users.service';
 import { CommonModule } from '@angular/common';
@@ -14,8 +14,21 @@ export class PanelDeControlComponent implements OnInit{
   private userService = inject(UsersService);
   private router = inject(Router);
 
+  isSidebarOpen = false;
+  screenIsDesktop = window.innerWidth >= 768;
+
   usuario: string | null = null;
   isLoggedIn: boolean = false;
+
+  @HostListener('window:resize', [])
+  onResize() {
+    this.screenIsDesktop = window.innerWidth >= 768;
+    if (this.screenIsDesktop) {
+      this.isSidebarOpen = true;
+    } else {
+      this.isSidebarOpen = false;
+    }
+  }
 
   ngOnInit() {
     this.userService.loginStatus$.subscribe((loggedIn) => {
