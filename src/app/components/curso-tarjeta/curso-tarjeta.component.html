@@ -13,16 +13,14 @@
     <b>{{ curso.nombre }}</b>
   </h3>
   <p class="text-xs overflow-hidden h-[80px] hover:overflow-auto scrollbar-hidden">{{ curso.descripcion }}</p>
-  <button
-    class="bg-[#11448a] text-white text-xs rounded-[8px] w-[110px] h-[30px] mt-6 hover:bg-[#0d366d]"
-    [routerLink]="['/editar-curso', curso._id]"
-  >
-    Editar
-  </button>
-  <button
-    (click)="eliminarCurso(curso._id)"
-    class="btn-eliminar bg-[#11448a] text-white text-xs rounded-[8px] w-[110px] h-[30px] hover:bg-[#0d366d]"
-  >
-    Eliminar
-  </button>
+
+
+   <div class="botones-container mt-4 flex justify-between items-center" >
+    <button class=" btn-editar bg-[#11448a] text-white text-xs rounded-[8px] w-[110px] h-[30px] hover:bg-[#0d366d]" *ngIf="curso._id" [routerLink]="['/curso', curso._id]">
+      Editar
+    </button>
+    <button  (click)="eliminarCurso(curso._id)" class=" btn-eliminar bg-[#11448a] text-white text-xs rounded-[8px] w-[110px] h-[30px] hover:bg-[#0d366d]">
+      Eliminar
+    </button>
+  </div>
 </div>

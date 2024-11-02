@@ -1,5 +1,5 @@
 import { Component, inject, OnInit, ChangeDetectorRef } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
@@ -23,7 +23,7 @@ import { ProgressSpinnerOverviewComponent } from '../progress-spinner-overview/p
 @Component({
   selector: 'app-course-detail',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, FooterComponent, CourseNavbarComponent, FontAwesomeModule, FormsModule, ProgressSpinnerOverviewComponent],
+  imports: [CommonModule, HeaderComponent, FooterComponent, CourseNavbarComponent, FontAwesomeModule, FormsModule, ProgressSpinnerOverviewComponent, RouterLink],
   templateUrl: './course-detail.component.html',
   styleUrls: ['./course-detail.component.css'],
 })
